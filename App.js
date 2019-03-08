@@ -15,7 +15,7 @@ import Stores from './Appointments/Stores';
 import SpaDetails from './Appointments/HamonySpaDetails';
 import Gift from './Appointments/Gift';
 import Home from './Appointments/Home';
-import FooterApp from './footers';
+
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
