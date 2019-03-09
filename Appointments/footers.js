@@ -1,32 +1,39 @@
-import Ic from 'react-native-vector-icons/FontAwesome';
-import Icon from 'react-native-vector-icons/FontAwesome5';
-import { Footer, FooterTab, Button} from 'native-base';
-import React, {Component} from 'react';
-import {Text} from 'react-native';
-import styles from './style/style';
-export default class FooterApp extends Component{
-render(){
-    return(
+import React, { Component } from 'react';
+import { Platform, StyleSheet, Text, View } from 'react-native';
+import { createStackNavigator, createAppContainer,createDrawerNavigator,createBottomTabNavigator } from "react-navigation";
+
+import Home from './Home';
+import WishList from './WishList';
+import Menu from './Menu';
+import Stores from './Store'
+
+
+const instructions = Platform.select({
+  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
+  android:
+    'Double tap R on your keyboard to reload,\n' +
+    'Shake or press menu button for dev menu',
+});
+
+const HamonyProject=createStackNavigator(
+  {
+    myhome:{screen: Home},
+    Stores:{screen: Stores},
+   
+  }
+)
+const BottomProject =createBottomTabNavigator({
+  Home:{screen: HamonyProject},
+  Stores:{screen: Stores},
     
-    <Footer > 
-        <FooterTab style={{backgroundColor:'white'}}>
-            <Button style={styles.foobtn}>
-             <Ic name="home" size={33}/>
-             <Text >Home</Text>
-            </Button>
-            <Button style={styles.foobtn} >
-                <Icon name="store-alt" size={25}/>
-             <Text style={styles.footext} >Stores</Text>
-            </Button>
-            <Button   style={[styles.foobtn,styles.active]}>
-                <Ic style={styles.active}  name="calendar"size={25} />
-                <Text style={[styles.footext,styles.active]}>Appointment</Text>
-            </Button>
-            <Button style={styles.foobtn}>
-                <Ic name="gift" size={33}/>
-                <Text >P2P</Text>
-            </Button>
-        </FooterTab>
-    </Footer>)
-    
-}}
+})
+
+
+ const MenuNavigation= createDrawerNavigator({ 
+  Home:{screen:BottomProject}
+  
+ },
+ {
+  contentComponent :props =>< Menu {...props}/>
+ })
+export default createAppContainer(MenuNavigation);

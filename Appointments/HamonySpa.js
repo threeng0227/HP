@@ -6,7 +6,8 @@ import { Container, Content,Header, List, ListItem, Left, Footer, FooterTab,Body
 import styles from './style/style'
 import { createStackNavigator,createAppContainer } from 'react-navigation';
 import SpaDetails from './HamonySpaDetails';
- class Spa extends Component{
+import FooterApp from './footers';
+ export default class Spa extends Component{
     static navigationOptions={
         header:null
     };
@@ -98,7 +99,7 @@ import SpaDetails from './HamonySpaDetails';
                         </List>
                    
                      
-                         
+                        
                          
                     </Content>
                     <View style={{backgroundColor:"#eee",height:60,justifyContent:"center",alignItems:'center'}}>
@@ -107,30 +108,10 @@ import SpaDetails from './HamonySpaDetails';
                         </Button>
                     </View>
                     
-        
+                    <FooterApp></FooterApp>
             </Container>
             
             
         )
     }
 }
-const SpaRoot = createStackNavigator({
-    spa : {
-        screen : Spa,
-        navigationOptions:{
-            header :null
-        }
-    },
-    detail :{
-        screen :  SpaDetails,
-        navigationOptions:{
-            header :null
-        }
-    } 
-},
-
-{
-    initialRouteName : 'spa'
-}
-)
-export default Appcontainer = createAppContainer(SpaRoot);

@@ -8,33 +8,50 @@
  */
 
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
-import { createStackNavigator, createAppContainer } from "react-navigation";
-import Spa from './Appointments/HamonySpa';
-import Stores from './Appointments/Stores';
-import SpaDetails from './Appointments/HamonySpaDetails';
-import Gift from './Appointments/Gift';
+import {createDrawerNavigator,createAppContainer,createStackNavigator,createBottomTabNavigator} from 'react-navigation'
 import Home from './Appointments/Home';
-import FooterApp from './footers';
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
+import WishList from'./Appointments/WishList';
+import Stores from './Appointments/Store';
+import Appointments from './Appointments/Appointment'
+import P2P from './Appointments/P2P'
+import HeaderApp from'./Appointments/HeaderApp';
+import Menu  from'./Appointments/Menu';
+import Favories from './Appointments/Favories';
+import SettingAccount from './Appointments/SettingAccount';
+import AboutHamony from './Appointments/AboutHamony'
 const HamonyProject=createStackNavigator(
   {
-    home:{screen: Home},
-    spa:{screen: Spa},
-    spadetails:{screen: SpaDetails},
-    gift:{screen:Gift},
-    store:{screen:Stores}
-    
+    myhome:{screen: Home},
+ 
+    headerapp:{screen:HeaderApp}
   }
 )
-export default createAppContainer(HamonyProject);
+
+const BottomProject =createBottomTabNavigator({
+  Home:{screen: HamonyProject},
+    Store:{screen: Stores},
+  Appointments:{screen:Appointments},
+  P2P:{
+    screen: P2P
+  }
+    
+})
+
+
+ const MenuNavigation= createDrawerNavigator({ 
+  Home:{screen:BottomProject},
+  wishlist:{screen: WishList},
+  favories:{screen: Favories},
+  abouthamony:{screen:AboutHamony},
+  settingaccount:{screen:SettingAccount}  
+ },{
+  contentComponent: props =>< Menu {...props}/>,
+   drawerPosition:'right',
+  
+ },
+
+ )
+export default createAppContainer(MenuNavigation);
 
 
 
