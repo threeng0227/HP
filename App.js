@@ -18,12 +18,14 @@ import HeaderApp from'./Appointments/HeaderApp';
 import Menu  from'./Appointments/Menu';
 import Favories from './Appointments/Favories';
 import SettingAccount from './Appointments/SettingAccount';
-import AboutHamony from './Appointments/AboutHamony'
+import AboutHamony from './Appointments/AboutHamony';
+import  Personalinfo from './Appointments/Personalinfo';
 const HamonyProject=createStackNavigator(
   {
     myhome:{screen: Home},
- 
-    headerapp:{screen:HeaderApp}
+    favories:{screen: Favories},
+    settingaccount:{screen:SettingAccount}  ,
+    personalinfo:{screen:Personalinfo}
   }
 )
 
@@ -33,9 +35,9 @@ const BottomProject =createBottomTabNavigator({
   Appointments:{screen:Appointments},
   P2P:{
     screen: P2P
-  }
-    
+  },  
 })
+
 
 
  const MenuNavigation= createDrawerNavigator({ 

@@ -9,11 +9,8 @@ import styles from './style/style'
 
 export default class Home  extends Component{
     static navigationOptions={
-        title:'Home',
-        header:null,
-        
-        
        
+        header:null,
     };
    
     render(){
