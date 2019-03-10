@@ -18,7 +18,7 @@ import HeaderApp from'./Appointments/HeaderApp';
 import Menu  from'./Appointments/Menu';
 import Favories from './Appointments/Favories';
 import SettingAccount from './Appointments/SettingAccount';
-import AboutHamony from './Appointments/AboutHamony'
+import PersonalInfo from './Appointments/Personalinfo'
 import AboutUs from './App/About/AboutUs';
 import ContactUs from './App/About/ContactUs';
 import HelpFeedback from './App/About/HelpFeedback';
@@ -69,7 +69,7 @@ const AppRoot = createStackNavigator(
 const HamonyProject=createStackNavigator(
   {
     myhome:{screen: Home},
- 
+    personalinfo:{screen:PersonalInfo},
     headerapp:{screen:HeaderApp}
   }
 )

@@ -16,7 +16,7 @@ export default class HeaderApp extends Component{
             <Header style={{ backgroundColor: "white" }}>
             <Left>
             <View style={{ justifyContent: "center"}}>
-                <Button transparent style={{justifyContent: "center" }}><Text ><Icon size={20}  name="chevron-left"></Icon> </Text></Button>
+                <Button transparent style={{justifyContent: "center" }} onPress={()=>{this.props.navigation.goBack()}}><Text ><Icon size={20}  name="chevron-left"></Icon> </Text></Button>
             </View>
             </Left>
             <Body  style={{justifyContent: "center" ,alignItems:"center",flex:2}}>
