@@ -23,6 +23,49 @@ import AboutUs from './App/About/AboutUs';
 import ContactUs from './App/About/ContactUs';
 import HelpFeedback from './App/About/HelpFeedback';
 import AboutHarmonyList from './App/About/AboutHarmonyList';
+
+//USER==========================
+import Welcome from "./App/User/SignIn_SignUp/Welcome";
+import MainWalkCar from "./App/User/Walk_Carousel/MainWalkCar";
+import SignIn from "./App/User/SignIn_SignUp/SignIn";
+import SignUp from './App/User/SignIn_SignUp/SignUp';
+//==============================
+
+/*==============Welcome Login================== */
+const AppRoot = createStackNavigator(
+    {
+        welcome: {
+            screen: Welcome,
+            navigationOptions: {
+                header: null
+            }
+        },
+        mainwalk: {
+            screen: MainWalkCar,
+            navigationOptions: {
+                header: null
+            }
+        },
+        signin: {
+            screen: SignIn,
+            navigationOptions: {
+                header: null
+            }
+        },
+        signup: {
+            screen: SignUp,
+            navigationOptions: {
+                header: null
+            }
+        }
+    },
+    {
+        initialRouteName: "welcome"
+    }
+);
+//const AppWelcome = createAppContainer(AppRoot);
+/*======================================= */
+
 const HamonyProject=createStackNavigator(
   {
     myhome:{screen: Home},
@@ -66,7 +109,7 @@ const TabNavigator2 = createStackNavigator({
 const AboutHarmonyStack = createAppContainer(TabNavigator2);
 
 
- const MenuNavigation= createDrawerNavigator({ 
+const MenuNavigation = createDrawerNavigator({ 
   Home:{screen:BottomProject},
   wishlist:{screen: WishList},
   favories:{screen: Favories},
@@ -78,8 +121,6 @@ const AboutHarmonyStack = createAppContainer(TabNavigator2);
   
  },
 
- )
-export default createAppContainer(MenuNavigation);
+)
 
-
-
+export default createAppContainer(AppRoot);

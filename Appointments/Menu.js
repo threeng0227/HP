@@ -69,7 +69,7 @@ export default class Menu  extends Component{
                         <TouchableOpacity style={{flexDirection:'row',width:'100%'}} onPress={()=>{this.props.navigation.navigate('abouthamony')}}>
                             
                                 <Icon name='user-friends' size={20}></Icon> 
-                                <Text style={{marginLeft:'20%',fontSize:20}}>About Harmony Page</Text>    
+                                <Text style={{marginLeft:'20%',fontSize:20}}>About Harmony Pay</Text>    
                             
                         </TouchableOpacity> 
                      </Left>
