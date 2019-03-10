@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Container,Header, Left, Button, Body,Right, View, Content} from 'native-base';
+import { Container,Header, Left, Button, Body,Right, View, Content, Thumbnail} from 'native-base';
 import {Text,TouchableOpacity,Image} from 'react-native';
 import HeaderApp from './HeaderApp';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -11,7 +11,11 @@ import EntIcon from 'react-native-vector-icons/Entypo';
 
 export default class Favories  extends Component{
     
-    
+    static navigationOptions={
+       
+        header:null,
+    };
+   
     render(){
        
 
@@ -37,7 +41,7 @@ export default class Favories  extends Component{
                 <Content>
                     <Text style={{fontWeight:'bold', fontSize:20,marginTop:'2%'}}>Store</Text>
                 <View style={{marginTop:5}}>
-                <View style={{height:150}}>
+                <View style={{height:200}}>
                     <Image style={styles.imggif} source={require('./images/img.png')}/>
                     </View>
                     <View style={{flexDirection:'row',marginTop:10}}>
@@ -53,7 +57,7 @@ export default class Favories  extends Component{
                     </View>
                 </View>
                 <View style={{marginTop:5}}>
-                <View style={{height:150}}>
+                <View style={{height:200}}>
                     <Image style={styles.imggif} source={require('./images/favories.png')}/>
                     </View>
                     <View style={{flexDirection:'row',marginTop:10}}>
@@ -68,7 +72,44 @@ export default class Favories  extends Component{
                         </Right>
                     </View>
                 </View>
-                    
+                   <View>
+                   <Text style={{fontWeight:'bold', fontSize:20,marginTop:'2%'}}>Stylist</Text>
+                   <View style={{flexDirection:'row',marginTop:10}}>
+                        <Left  style={{marginLeft:'5%',flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+                            <Thumbnail source={require('./images/stylist1.png')}></Thumbnail>
+                            <View style={{paddingLeft:'10%'}}>
+                            <Text style={{fontSize:15,fontWeight:'bold'}}>Jessica Miles</Text>
+                            <Text style={{fontSize:15,fontWeight:'bold'}}>Golden Spa</Text>
+                            </View>
+                        </Left>
+                        
+                        <Right  style={{marginRight:'5%'}}><AntIcon name="heart" color="red" size={20}></AntIcon></Right>
+                   </View>
+                   <View style={{flexDirection:'row',marginTop:10}}>
+                        <Left  style={{marginLeft:'5%',flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+                            <Thumbnail source={require('./images/stylelist2.png')}></Thumbnail>
+                            <View style={{paddingLeft:'10%'}}>
+                            <Text style={{fontSize:15,fontWeight:'bold'}}>Velder Zel</Text>
+                            <Text style={{fontSize:15,fontWeight:'bold'}}>Beauty Spa</Text>
+                            </View>
+                        </Left>
+                        
+                        <Right  style={{marginRight:'5%'}}><AntIcon name="heart" color="red" size={20}></AntIcon></Right>
+                   </View>
+                   <View style={{flexDirection:'row',marginTop:10}}>
+                        <Left  style={{marginLeft:'5%',flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+                            <Thumbnail source={require('./images/stylelist3.png')}></Thumbnail>
+                            <View style={{paddingLeft:'10%'}}>
+                            <Text style={{fontSize:15,fontWeight:'bold'}}>Jack Jon</Text>
+                            <Text style={{fontSize:15,fontWeight:'bold'}}>Golden Spa</Text>
+                            </View>
+                        </Left>
+                        
+                        <Right  style={{marginRight:'5%'}}><AntIcon name="heart" color="red" size={20}></AntIcon></Right>
+                   </View>
+                   
+
+                    </View> 
                     
                    
                 </Content>
