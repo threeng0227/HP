@@ -30,6 +30,7 @@ import MainWalkCar from "./App/User/Walk_Carousel/MainWalkCar";
 import SignIn from "./App/User/SignIn_SignUp/SignIn";
 import SignUp from './App/User/SignIn_SignUp/SignUp';
 //==============================
+import DrawerHome from "./App/Nav/DrawerHome";
 
 /*==============Welcome Login================== */
 const AppRoot = createStackNavigator(
@@ -57,6 +58,12 @@ const AppRoot = createStackNavigator(
             navigationOptions: {
                 header: null
             }
+        },
+        DrawerHome: {
+            screen: DrawerHome,
+            navigationOptions: {
+                header: null
+            }
         }
     },
     {
@@ -66,61 +73,6 @@ const AppRoot = createStackNavigator(
 //const AppWelcome = createAppContainer(AppRoot);
 /*======================================= */
 
-const HamonyProject=createStackNavigator(
-  {
-    myhome:{screen: Home},
- 
-    headerapp:{screen:HeaderApp}
-  }
-)
 
-const BottomProject =createBottomTabNavigator({
-  Home:{screen: HamonyProject},
-    Store:{screen: Stores},
-  Appointments:{screen:Appointments},
-  P2P:{
-    screen: P2P
-  }
-    
-})
-
-const TabNavigator2 = createStackNavigator({
-    AboutHarmonyList: {
-        screen: AboutHarmonyList
-    },
-    AboutUs: {
-        screen: AboutUs
-    },
-    ContactUs: {
-        screen: ContactUs
-    },
-    HelpFeedback: {
-        screen: HelpFeedback
-    }
-},
-    {
-        headerMode: 'none',
-        navigationOptions: {
-            headerVisible: false,
-        },
-        backBehavior: 'none'
-    }
-);
-const AboutHarmonyStack = createAppContainer(TabNavigator2);
-
-
-const MenuNavigation = createDrawerNavigator({ 
-  Home:{screen:BottomProject},
-  wishlist:{screen: WishList},
-  favories:{screen: Favories},
-     abouthamony: { screen: AboutHarmonyStack},
-  settingaccount:{screen:SettingAccount}  
- },{
-  contentComponent: props =>< Menu {...props}/>,
-   drawerPosition:'right',
-  
- },
-
-)
 
 export default createAppContainer(AppRoot);

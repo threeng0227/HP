@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import { Container,Header, Content, Button, Body,Right,Image} from 'native-base';
-import {Text,TouchableOpacity} from 'react-native';
+import { Container, Header, Content, Button, Body, Right, Image } from 'native-base';
+import { Text, TouchableOpacity, StatusBar } from 'react-native';
 import HeaderApp from './HeaderApp';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Ic from 'react-native-vector-icons/FontAwesome';
@@ -16,12 +16,14 @@ export default class Home  extends Component{
     render(){
         
         
-        return(
+        return (
+          
             <Container>
-                <Header style={{ backgroundColor: "white" }}>
+                <StatusBar backgroundColor="blue" barStyle="light-content" />
+                <Header style={{ backgroundColor: "white", marginTop:24 }}>
            
-                <Body  style={{justifyContent: "center" ,alignItems:"center",flex:4}}>
-                    <Text style={{ fontSize: 20,  fontWeight: "bold" }}>Home</Text>
+                <Body  style={{justifyContent: "center" ,alignItems:"center", flex:4}}>
+                    <Text style={{ fontSize: 20,  fontWeight: "bold" }}>Home 2</Text>
                 </Body>
                 <Right style={{justifyContent: "center" ,alignItems:"center",flexDirection:'row'}}>
                 <Text><Ic name="bell" size={20}></Ic></Text>
@@ -35,9 +37,9 @@ export default class Home  extends Component{
                 <Content>
                
                 </Content>
-               
-            </Container>
-            
+              
+                </Container>
+          
         )
     }
 }

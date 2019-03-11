@@ -57,8 +57,8 @@ export default class SignIn extends React.Component {
               </Text>
             </Button>
           </View>
-          <View style={styles.SignIn}>
-            <Button full style={styles.btnSignIn} onPress={this.ShowModal}>
+                <View style={styles.SignIn}>
+                    <Button full style={styles.btnSignIn} onPress={() => { this.props.navigation.navigate('DrawerHome') }}>
               <Text style={styles.btnTextSignIn}>Sign In</Text>
             </Button>
           </View>
