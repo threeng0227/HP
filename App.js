@@ -18,11 +18,23 @@ import HeaderApp from'./Appointments/HeaderApp';
 import Menu  from'./Appointments/Menu';
 import Favories from './Appointments/Favories';
 import SettingAccount from './Appointments/SettingAccount';
-import PersonalInfo from './Appointments/Personalinfo'
+import PersonalInfo from './Appointments/Settings/Personalinfo'
 import AboutUs from './App/About/AboutUs';
 import ContactUs from './App/About/ContactUs';
 import HelpFeedback from './App/About/HelpFeedback';
 import AboutHarmonyList from './App/About/AboutHarmonyList';
+import MoreSetting from './Appointments/Settings/Hamony Account';
+import AddBankAndCard from './Appointments/Settings/Add Bank And Card';
+import BankAccountAdd from './Appointments/Settings/Bank Account Add';
+import BankAccountDetail from './Appointments/Settings/Bank Account Detail';
+import BankAccount from './Appointments/Settings/Bank Account';
+import BankAndCard2 from './Appointments/Settings/Bank And Card 2';
+import BankAndCardAdd from './Appointments/Settings/Bank And Card Add';
+import BankAndCard from './Appointments/Settings/Bank And Card';
+import CreditCardDetail from './Appointments/Settings/Credit Card Detail';
+import CreditCard from './Appointments/Settings/Credit Card';
+import WishListFavories from'./Appointments/Wish List Favories';
+
 
 //USER==========================
 import Welcome from "./App/User/SignIn_SignUp/Welcome";
@@ -70,8 +82,27 @@ const HamonyProject=createStackNavigator(
   {
     myhome:{screen: Home},
     personalinfo:{screen:PersonalInfo},
-    headerapp:{screen:HeaderApp}
-  }
+    wishlist:{screen: WishList},
+    moresetting:{screen:MoreSetting},
+   AddBankAndCard:{screen:AddBankAndCard} ,
+   BankAccountAdd:{screen: BankAccountAdd} ,
+   BankAccountDetail:{screen: BankAccountDetail} ,
+   BankAccount:{screen: BankAccount} ,
+   BankAndCard2:{screen: BankAndCard2} ,
+   BankAndCardAdd:{screen: BankAndCardAdd} ,
+   CreditCardDetail:{screen: CreditCardDetail} ,
+   CreditCard:{screen: CreditCard} ,
+   BankAndCard:{screen: BankAndCard} ,
+   settingaccount:{screen:SettingAccount}  ,
+   WishListFavories:{screen:WishListFavories}
+  },
+  {
+    headerMode: 'none',
+    navigationOptions: {
+        headerVisible: false,
+    },
+    
+}
 )
 
 const BottomProject =createBottomTabNavigator({
@@ -114,6 +145,7 @@ const MenuNavigation = createDrawerNavigator({
   wishlist:{screen: WishList},
   favories:{screen: Favories},
      abouthamony: { screen: AboutHarmonyStack},
+     
   settingaccount:{screen:SettingAccount}  
  },{
   contentComponent: props =>< Menu {...props}/>,
@@ -123,4 +155,4 @@ const MenuNavigation = createDrawerNavigator({
 
 )
 
-export default createAppContainer(AppRoot);
+export default createAppContainer(MenuNavigation);

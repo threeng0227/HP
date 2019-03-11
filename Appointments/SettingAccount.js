@@ -75,7 +75,7 @@ export default class SettingAccount  extends Component{
                                
                             </Left>
                             <Right>
-                                <Icon   name="chevron-right"></Icon>
+                            <TouchableOpacity  onPress={()=>{this.props.navigation.navigate('moresetting')}}><Icon   name="chevron-right"></Icon></TouchableOpacity>
                             </Right>
                         </ListItem>
                         <ListItem style={{marginLeft:3,flexDirection:'column'}}  >
@@ -87,7 +87,7 @@ export default class SettingAccount  extends Component{
                             </View>
                             <View  style={{flexDirection:'row',paddingTop:10}}>
                                 <Left style={{flex:2}}><Text style={{fontSize:15}}>Bank account and cards</Text></Left>
-                                <Right><Icon   name="chevron-right"></Icon></Right>
+                                <Right ><TouchableOpacity  onPress={()=>{this.props.navigation.navigate('BankAndCard')}}><Icon   name="chevron-right"></Icon></TouchableOpacity></Right>
                             </View>
                         </ListItem>
                     </View>
