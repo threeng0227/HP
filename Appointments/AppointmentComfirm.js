@@ -7,7 +7,7 @@ import Ic from 'react-native-vector-icons/FontAwesome';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import styles from './style/style'
 
-export default class Appointment  extends Component{
+export default class AppointmentComfirm  extends Component{
     
     
     render(){
@@ -34,7 +34,37 @@ export default class Appointment  extends Component{
       </Header>    
 
              <Content  >
-         
+         <TouchableOpacity onPress={()=>{this.props.navigation.navigate('AppointmentUnConfirm')}}>
+             <View style={{backgroundColor:'#fff176',marginBottom:10}}>
+                    <View style={{flexDirection:'row',marginBottom:10,marginTop:5}}>
+                    <Left style={{marginLeft:'2%',flex:2}}>
+                    <Text style={{fontSize:20,color:'#42a5f5', fontWeight:'bold'}}> Hamony Salon</Text>
+                    </Left>
+                       <Body></Body> 
+                       <Right style={{marginRight:'2%',fontWeight:"bold"}}><Text  style={{fontWeight:'bold'}}>Unconfirm</Text></Right>
+                        
+                    </View>  
+                    <View style={{flexDirection:'row',flex:1}}>
+                    <Left style={{marginLeft:'2%'}}> 
+                        <View style={{flexDirection:'column'}}>
+                             <Text>Stylist:</Text>
+                           
+                            <Text>Date/Time:</Text>
+                                <Text>Andress:</Text>
+                                
+                        </View>
+                        </Left>
+                        
+                        <Right style={{marginRight:'2%',flex:2}}>  
+                        <View style={{flexDirection:'column'}}>
+                        <Text> Ronaldo</Text>
+                        <Text>05 Jan 2019/8:00 AM - 11:00 AM</Text>
+                        <Text>700 5th Awe,NewYork,NY 10019,USA</Text>
+                        </View>
+                        </Right>
+                    </View>
+                </View>
+            </TouchableOpacity>
                 <View style={{backgroundColor:'#baffff'}}>
                     <View style={{flexDirection:'row',marginBottom:10,marginTop:5}}>
                     <Left style={{marginLeft:'2%',flex:2}}>
@@ -156,16 +186,7 @@ export default class Appointment  extends Component{
                 </View>
             </View>
              </Content>
-             <Fab 
-                position="bottomRight"
-                style={{width:150,borderRadius:3}}
-                containerStyle={{marginRight:30}}
-             >
-             <TouchableOpacity>
-                 <Text style={{color:'white',fontWeight:'bold',fontSize:20}}>Book</Text>
-             </TouchableOpacity>
-                 
-             </Fab>
+            
         </Container>
             
         )

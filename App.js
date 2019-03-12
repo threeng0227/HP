@@ -8,32 +8,36 @@
  */
 
 import React, { Component } from 'react';
+import { Image } from 'react-native';
 import {createDrawerNavigator,createAppContainer,createStackNavigator,createBottomTabNavigator} from 'react-navigation'
 import Home from './Appointments/Home';
 import WishList from'./Appointments/WishList';
 import Stores from './Appointments/Store';
-import Appointments from './Appointments/Appointment'
-import P2P from './Appointments/P2P'
-import HeaderApp from'./Appointments/HeaderApp';
+import Appointment from './Appointments/Appointment';
+import P2P from './Appointments/P2P';
 import Menu  from'./Appointments/Menu';
 import Favories from './Appointments/Favories';
 import SettingAccount from './Appointments/SettingAccount';
-import PersonalInfo from './Appointments/Settings/Personalinfo'
+import PersonalInfo from './Appointments/Settings/PersonalInfo'
 import AboutUs from './App/About/AboutUs';
 import ContactUs from './App/About/ContactUs';
 import HelpFeedback from './App/About/HelpFeedback';
 import AboutHarmonyList from './App/About/AboutHarmonyList';
-import MoreSetting from './Appointments/Settings/Hamony Account';
-import AddBankAndCard from './Appointments/Settings/Add Bank And Card';
-import BankAccountAdd from './Appointments/Settings/Bank Account Add';
-import BankAccountDetail from './Appointments/Settings/Bank Account Detail';
-import BankAccount from './Appointments/Settings/Bank Account';
-import BankAndCard2 from './Appointments/Settings/Bank And Card 2';
-import BankAndCardAdd from './Appointments/Settings/Bank And Card Add';
-import BankAndCard from './Appointments/Settings/Bank And Card';
-import CreditCardDetail from './Appointments/Settings/Credit Card Detail';
-import CreditCard from './Appointments/Settings/Credit Card';
-import WishListFavories from'./Appointments/Wish List Favories';
+import MoreSetting from './Appointments/Settings/HamonyAccount';
+import AddBankAndCard from './Appointments/Settings/AddBankAndCard';
+import BankAccountAdd from './Appointments/Settings/BankAccountAdd';
+import BankAccountDetail from './Appointments/Settings/BankAccountDetail';
+import BankAccount from './Appointments/Settings/BankAccount';
+import BankAndCard2 from './Appointments/Settings/BankAndCard2';
+import BankAndCardAdd from './Appointments/Settings/BankAndCardAdd';
+import BankAndCard from './Appointments/Settings/BankAndCard';
+import CreditCardDetail from './Appointments/Settings/CreditCardDetail';
+import CreditCard from './Appointments/Settings/CreditCard';
+import WishListFavories from'./Appointments/WishListFavories';
+import AppointmentComfirm from './Appointments/AppointmentComfirm';
+import AppointmentUnComfirm from'./Appointments/AppointmentUnConfirm';
+
+
 
 
 //USER==========================
@@ -83,6 +87,7 @@ const HamonyProject=createStackNavigator(
     myhome:{screen: Home},
     personalinfo:{screen:PersonalInfo},
     wishlist:{screen: WishList},
+    favories:{screen: Favories},
     moresetting:{screen:MoreSetting},
    AddBankAndCard:{screen:AddBankAndCard} ,
    BankAccountAdd:{screen: BankAccountAdd} ,
@@ -94,7 +99,22 @@ const HamonyProject=createStackNavigator(
    CreditCard:{screen: CreditCard} ,
    BankAndCard:{screen: BankAndCard} ,
    settingaccount:{screen:SettingAccount}  ,
-   WishListFavories:{screen:WishListFavories}
+   WishListFavories:{screen:WishListFavories},
+   AppointmentComfirm:{screen:AppointmentComfirm},
+   Appointment:{screen:Appointment},
+   AppointmentUnConfirm:{screen:AppointmentUnConfirm},
+   abouthamony: {
+    screen: AboutHarmonyList
+    },
+    AboutUs: {
+        screen: AboutUs
+    },
+    ContactUs: {
+        screen: ContactUs
+    },
+    HelpFeedback: {
+        screen: HelpFeedback
+    }
   },
   {
     headerMode: 'none',
@@ -106,16 +126,52 @@ const HamonyProject=createStackNavigator(
 )
 
 const BottomProject =createBottomTabNavigator({
-  Home:{screen: HamonyProject},
-    Store:{screen: Stores},
-  Appointments:{screen:Appointments},
+  Home:{screen: HamonyProject,
+    navigationOptions:{
+        
+        tabBarIcon:({tintColor})=>(<Image source={require('./Appointments/images/trangchu.png')} style={{tintColor:tintColor}} style={{tintColor:tintColor}}/>),
+        
+        },
+        },
+    Store:{screen: Stores,
+         navigationOptions:{
+            tabBarIcon:({tintColor})=>(<Image source={require('./Appointments/images/Storeinactive.png')} style={{tintColor:tintColor}}/>),
+          
+        }},
+  Appointment:{screen:Appointment,
+    navigationOptions:{
+        tabBarIcon:({tintColor})=>(<Image source={require('./Appointments/images/Appointment.png')} style={{tintColor:tintColor}}/>),
+       
+          
+        }},
   P2P:{
-    screen: P2P
-  }
-    
+    screen: P2P,
+    navigationOptions:{
+        tabBarIcon:({tintColor})=>(<Image source={require('./Appointments/images/Gifthome.png')} style={{tintColor:tintColor}}/>),
+          
+        }},       
+}, {
+    tabBarOptions:{
+        activeTintColor:"#004ba0",
+        inactiveTintColor:"#9499b7",
+        labelStyle:{
+            fontSize:13
+        },
+        style:{
+            height:60,
+            borderColor:'lightgray',
+            borderTopWidth:2,
+      
+        },
+        tabStyle:{
+                borderRightWidth:2,
+                borderColor:'lightgray',
+                width:60
+        }
+    }
 })
 
-const TabNavigator2 = createStackNavigator({
+/* const TabNavigator2 = createStackNavigator({
     AboutHarmonyList: {
         screen: AboutHarmonyList
     },
@@ -136,15 +192,15 @@ const TabNavigator2 = createStackNavigator({
         },
         backBehavior: 'none'
     }
-);
-const AboutHarmonyStack = createAppContainer(TabNavigator2);
+); */
+/* const AboutHarmonyStack = createAppContainer(TabNavigator2); */
 
 
 const MenuNavigation = createDrawerNavigator({ 
   Home:{screen:BottomProject},
   wishlist:{screen: WishList},
   favories:{screen: Favories},
-     abouthamony: { screen: AboutHarmonyStack},
+     abouthamony: { screen: AboutHarmonyList},
      
   settingaccount:{screen:SettingAccount}  
  },{

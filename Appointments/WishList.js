@@ -39,30 +39,41 @@ export default class WishList  extends Component{
                <View style={{marginRight:'3%',display:this.setState.display}}>
                    <List>
                        <ListItem>
-                           <Text> A New Your Spa</Text>
-                           <Ic name="heart" size={20} color='gray'></Ic> 
+                         <Left><Text> A New Your Spa</Text></Left>
+                          <Body></Body>
+                          <Right><Text><Ic name="heart" size={20} color='gray'></Ic> </Text></Right>
+                           
                        </ListItem>
                        <ListItem>
-                           <Text> BaBa Spa</Text>
-                           <Ic name="heart" size={20} color='gray'></Ic> 
+                       <Left><Text> Baba Spa</Text></Left>
+                          <Body></Body>
+                          <Right><Text><Ic name="heart" size={20} color='gray'></Ic> </Text></Right>
+                       </ListItem>
+                       <ListItem>
+                       <Left><Text> Beauty Spa</Text></Left>
+                          <Body></Body>
+                          <Right><Text><Ic name="heart" size={20} color='red'></Ic> </Text></Right>
                        </ListItem>
                        
                        <ListItem>
-                       <TouchableOpacity style={{flexDirection:'row'}} onPress={()=>{this.props.navigation.navigate('WishListFavories')}}>
-                           <Text> Hamony Spa</Text>
-                           <Ic name="heart" size={20} color='red'></Ic> 
+                           <TouchableOpacity style={{width:'100%',}} onPress={()=>{this.props.navigation.navigate('WishListFavories')}}>
+                           <View style={{flexDirection:'row'}}>
+                           <Left><Text> Hamony Spa</Text></Left>
+                          <Body></Body>
+                          <Right><Text><Ic name="heart" size={20} color='red'></Ic> </Text></Right>
+                           </View>
+                           
                            </TouchableOpacity>
+                       
+                       </ListItem>
+                       
+                       <ListItem>
+                       <Left><Text>Sunrise - Sunset Spa</Text></Left>
+                          <Body></Body>
+                          <Right><Text><Ic name="heart" size={20} color='gray'></Ic> </Text></Right>
                        </ListItem>
                        
                        
-                       <ListItem>
-                           <Text> Beauty Spa</Text>
-                           <Ic name="heart" size={20} color='red'></Ic> 
-                       </ListItem>
-                       <ListItem>
-                           <Text> Sunrise-Sunset Spa</Text>
-                           <Ic name="heart" size={20} color='gray'></Ic> 
-                       </ListItem>
                    </List>
                </View>
                 <View style={{flexDirection:'column',justifyContent:'center',alignItems:'center',flex:1}}>

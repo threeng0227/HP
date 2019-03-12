@@ -69,26 +69,43 @@ export default class SettingAccount  extends Component{
                         </View>
                     </View>
                     <View>
+                   
                         <ListItem style={{marginLeft:3}}>
-                            <Left >
+                        <TouchableOpacity style={{width:'100%'}} onPress={()=>{this.props.navigation.navigate('moresetting')}}>
+                        <View style={{flexDirection:'row'}}>
+                        <Left  >
                                 <Text style={{fontSize:15}}>More settings</Text>
                                
                             </Left>
                             <Right>
-                            <TouchableOpacity  onPress={()=>{this.props.navigation.navigate('moresetting')}}><Icon   name="chevron-right"></Icon></TouchableOpacity>
+                            <Icon   name="chevron-right"></Icon>
                             </Right>
+                        </View>
+                           </TouchableOpacity>
+                           
                         </ListItem>
+                       
+                        
                         <ListItem style={{marginLeft:3,flexDirection:'column'}}  >
+                      
                             <Text style={{fontWeight:'bold', fontSize:20,marginBottom:20,marginLeft:'-77%'}}>Account</Text>
-                            <View  style={{flexDirection:'row'}}>
+                            <TouchableOpacity style={{width:'100%'}} onPress={()=>{this.props.navigation.navigate('personalinfo')}}>
+                            <View style={{flexDirection:'row'}}  >
+                            
                                 <Left style={{flex:2}}><Text style={{fontSize:15}}>Personal info</Text></Left>
                                 
-                                <Right ><TouchableOpacity  onPress={()=>{this.props.navigation.navigate('personalinfo')}}><Icon   name="chevron-right"></Icon></TouchableOpacity></Right>
+                                <Right ><Icon   name="chevron-right"></Icon></Right>
+                               
                             </View>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={{width:'100%'}} onPress={()=>{this.props.navigation.navigate('BankAndCard')}}>
                             <View  style={{flexDirection:'row',paddingTop:10}}>
+                           
                                 <Left style={{flex:2}}><Text style={{fontSize:15}}>Bank account and cards</Text></Left>
-                                <Right ><TouchableOpacity  onPress={()=>{this.props.navigation.navigate('BankAndCard')}}><Icon   name="chevron-right"></Icon></TouchableOpacity></Right>
+                                <Right ><Icon   name="chevron-right"></Icon></Right>
+                                
                             </View>
+                            </TouchableOpacity>
                         </ListItem>
                     </View>
                     <View style={{marginTop:15}}>

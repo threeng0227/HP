@@ -1,15 +1,23 @@
 import React, {Component} from 'react';
-import { Container,Header, Left, Button, Body,Right, View, Content, Input, List, ListItem} from 'native-base';
+import { Container,Header, Left, Button, Body,Right, View, Content, Input, Switch,Fab, ListItem} from 'native-base';
 import {Text,TouchableOpacity,Image} from 'react-native';
 import HeaderApp from './HeaderApp';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Ic from 'react-native-vector-icons/FontAwesome';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import styles from '../Appointments/style/style'
+import styles from './style/style'
 import AntIcon from 'react-native-vector-icons/AntDesign';
 import EntIcon from 'react-native-vector-icons/Entypo';
 
 export default class WishListFavories  extends Component{
+    constructor(props) {
+        super(props)
+          this.state = {
+            active: false,
+            on:true,
+            an:'none',
+          };
+        }
    state={
        an:'none',
    }
@@ -74,14 +82,32 @@ export default class WishListFavories  extends Component{
                         
                     </View>
                 </View>
-                
-                    <View style={{ paddingHorizontal: "5%", marginTop: 70,flex:1, justifyContent: 'flex-end',flexDirection: 'row'}}>
-                        <Button  style={{width:'50%',borderRadius:3,justifyContent:'center',alignItems:'center',flexDirection:'row'}}>
-                            <Text style={{color:'white',fontSize:20,fontWeight:'bold'}}>Share</Text>
-                        </Button>
-                        </View>
-                  
               </Content>
+              <Fab
+            active={this.state.active}
+            direction="up"
+            style={{borderRadius:0,width:150,borderRadius:3}}
+            containerStyle={{marginRight:40}}
+            
+            onPress={() => this.setState({ active: !this.state.active })}>
+           <Text >Share</Text>
+           <View style={{backgroundColor:'white',width:150,marginLeft:-55,borderRadius:1, flexDirection:'row'}}>
+              
+               <Text style={{paddingRight:12}} >Share Wish List
+                   </Text>  
+                   <Right ><Icon style={{paddingRight:10}} name='share-alt'size={20}></Icon></Right>
+                   
+                </View>
+           <View style={{backgroundColor:'white',width:150,marginLeft:-55,borderRadius:1,flexDirection:'row'}}>
+             <Left><Text>On/Of Public
+                   </Text></Left>  
+                    <Switch
+                onValueChange={(value) => this.setState({on: value})}
+                
+                value={this.state.on} />
+                </View>
+                
+          </Fab>
             </Container>
             
         )

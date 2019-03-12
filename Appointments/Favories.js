@@ -49,7 +49,7 @@ export default class Favories  extends Component{
                             <Text style={{fontWeight:'bold', fontSize:20}}>Hamony Spa</Text>
                             <Image source={require('./images/start.jpg')}></Image>
                             <Text><AntIcon name='clockcircleo' ></AntIcon>  8:00 AM - 18:00 PM</Text>
-                            <Text><EntIcon name='location-pin' ></EntIcon>  700 5th Ave,New York,NY 10019,USA</Text>
+                            <Text><Icon name='map-marker-alt' ></Icon>   700 5th Ave,New York,NY 10019,USA</Text>
                         </Left>
                         <Right style={{marginRight:'5%',marginTop:'-15%'}}>
                         <AntIcon name="heart" color="red" size={20}></AntIcon>
