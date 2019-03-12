@@ -102,7 +102,7 @@ const HamonyProject=createStackNavigator(
    WishListFavories:{screen:WishListFavories},
    AppointmentComfirm:{screen:AppointmentComfirm},
    Appointment:{screen:Appointment},
-   AppointmentUnConfirm:{screen:AppointmentUnConfirm},
+   AppointmentUnConfirm:{screen:AppointmentUnComfirm},
    abouthamony: {
     screen: AboutHarmonyList
     },
