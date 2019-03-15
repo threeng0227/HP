@@ -18,7 +18,7 @@ import P2P from './Appointments/P2P';
 import Menu  from'./Appointments/Menu';
 import Favories from './Appointments/Favories';
 import SettingAccount from './Appointments/SettingAccount';
-import PersonalInfo from './Appointments/Settings/PersonalInfo'
+import PersonalInfo from './Appointments/Personalinfo';
 import AboutUs from './App/About/AboutUs';
 import ContactUs from './App/About/ContactUs';
 import HelpFeedback from './App/About/HelpFeedback';
@@ -87,7 +87,7 @@ const AppRoot = createStackNavigator(
 const HamonyProject=createStackNavigator(
   {
     myhome:{screen: Home},
-    personalinfo:{screen:PersonalInfo},
+   PersonalInfo:{screen:PersonalInfo},
     wishlist:{screen: WishList},
     favories:{screen: Favories},
     moresetting:{screen:MoreSetting},

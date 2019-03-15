@@ -89,7 +89,7 @@ export default class SettingAccount  extends Component{
                         <ListItem style={{marginLeft:3,flexDirection:'column'}}  >
                       
                             <Text style={{fontWeight:'bold', fontSize:20,marginBottom:20,marginLeft:'-77%'}}>Account</Text>
-                            <TouchableOpacity style={{width:'100%'}} onPress={()=>{this.props.navigation.navigate('personalinfo')}}>
+                            <TouchableOpacity style={{width:'100%'}} onPress={()=>{this.props.navigation.navigate('PersonalInfo')}}>
                             <View style={{flexDirection:'row'}}  >
                             
                                 <Left style={{flex:2}}><Text style={{fontSize:15}}>Personal info</Text></Left>
