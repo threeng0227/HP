@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Image } from 'react-native';
 import Ic from 'react-native-vector-icons/FontAwesome';
-import Icon from 'react-native-vector-icons/FontAwesome5'
+import Icon from 'react-native-vector-icons/FontAwesome5';
 import { Container, Content, Header, List, ListItem, Left, Footer, FooterTab, Body, Button, Right } from 'native-base';
 import styles from './style/style'
 

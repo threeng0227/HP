@@ -48,11 +48,12 @@ export default class BankAccountDetail extends Component{
                      </TouchableOpacity>
                 </Right>
                 </Header>
-                <View style={{marginTop:18}}>
-                <Text style={{fontWeight:'bold', fontSize:20,marginBottom:20}}> Bank account detail</Text>  
-            </View>
+                
             
             <Content padder >
+            <View style={{marginTop:18}}>
+                <Text style={{fontWeight:'bold', fontSize:20,marginBottom:20}}> Bank account detail</Text>  
+            </View>
             <View style={{marginRight:'5%',marginLeft:'5%',width:'90%'}}>
                 <Image style={{resizeMode:'stretch',width:'100%'}} source={require('../images/bankdetail.png')}>
                     
@@ -86,7 +87,25 @@ export default class BankAccountDetail extends Component{
               
             </View>
               
-             
+            <View style={{ backgroundColor: "white", height: 60, justifyContent: "center", marginTop:'3%',alignItems: 'center', flexDirection: "row" }}>
+                   <Button style={{ width:110,borderRadius:3,height:50,marginRight:'2%',
+                            borderWidth:1,
+                            borderColor:'blue',
+                            backgroundColor:'white',
+                            justifyContent:"center",
+                           }}>
+                        <Text style={{ color: "blue", fontSize: 20 }} >Edit</Text>
+                    </Button>
+                    
+                    <Button style={{ width:110,borderRadius:3,height:50,marginLeft:'2%',
+                            borderWidth:1,
+                            borderColor:'blue',
+                            justifyContent:"center",
+                            backgroundColor:'white',
+                           }}>
+                        <Text style={{ color: "blue", fontSize: 20 }} >Remove</Text>
+                    </Button>
+                </View>
             </Content>
           </Container>
         )

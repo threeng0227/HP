@@ -36,7 +36,9 @@ import CreditCard from './Appointments/Settings/CreditCard';
 import WishListFavories from'./Appointments/WishListFavories';
 import AppointmentComfirm from './Appointments/AppointmentComfirm';
 import AppointmentUnComfirm from'./Appointments/AppointmentUnConfirm';
-
+import BookProcess1 from './Appointments/BookAppointments/BookProcess1';
+import BookProcess2 from './Appointments/BookAppointments/BookProcess2';
+import BookProcess3 from './Appointments/BookAppointments/BookProcess3';
 
 
 
@@ -103,6 +105,9 @@ const HamonyProject=createStackNavigator(
    AppointmentComfirm:{screen:AppointmentComfirm},
    Appointment:{screen:Appointment},
    AppointmentUnConfirm:{screen:AppointmentUnComfirm},
+   BookProcess1:{screen:BookProcess1},
+   BookProcess2:{screen:BookProcess2},
+   BookProcess3:{screen:BookProcess3},
    abouthamony: {
     screen: AboutHarmonyList
     },

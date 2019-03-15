@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Container,Header, Content,Button, Fab, Body,Right,Left, View, Grid, Row, Col} from 'native-base';
+import { Container,Header, Content,Button, Fab, Body,Right,Left, View, Grid, Row, Col, Footer} from 'native-base';
 import {Text,TouchableOpacity,Image,StyleSheet} from 'react-native';
 import HeaderApp from './HeaderApp';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -9,7 +9,7 @@ import styles from './style/style';
 import AntIcon from 'react-native-vector-icons/AntDesign';
 import Modal from'react-native-modal'
 
-export default class AppointmentUnComfirm  extends Component{
+export default class InvoiceDetail  extends Component{
     
     state = {
         isModalVisible: false,
@@ -29,7 +29,7 @@ export default class AppointmentUnComfirm  extends Component{
             </View>
             </Left>
            <Body  style={{justifyContent: "center" ,alignItems:"center",flex:4}}>
-               <Text style={{ fontSize: 20,  fontWeight: "bold" }}>Appointments</Text>
+               <Text style={{ fontSize: 20,  fontWeight: "bold" }}>Invoice Details</Text>
            </Body>
            <Right style={{justifyContent: "center" ,alignItems:"center",flexDirection:'row'}}>
            <Text><Ic name="bell" size={20}></Ic></Text>
@@ -45,12 +45,9 @@ export default class AppointmentUnComfirm  extends Component{
                 <View >
                     <View style={{flexDirection:'row',marginBottom:10,marginTop:5}}>
                     <Left style={{marginLeft:'2%',flex:2}}>
-                    <Text style={{fontSize:20,fontWeight:'bold'}}> Harmony Salon</Text>
+                    <Text style={{fontSize:20,fontWeight:'bold'}}> Harmony Spa</Text>
                     </Left>
-                       <Body></Body> 
-                       <Right style={{marginRight:'2%',fontWeight:"bold",borderRadius:4,backgroundColor:'#fff176',
-                       flexDirection:'row',justifyContent:'center',alignItems:'center'}}><Text style={{fontWeight:'bold'}}>Unconfirm</Text></Right>
-                        
+                       <Body></Body>  
                     </View>  
                     <View style={{flexDirection:'row',flex:1}}>
                     <Left style={{marginLeft:'2%'}}> 
@@ -98,19 +95,7 @@ export default class AppointmentUnComfirm  extends Component{
                 <Col style={style.table}><Text>70 min</Text></Col>
                 <Col style={style.table}><Text>$ 50.00</Text></Col>
 
-                </Row>
-                <Row>
-                <Col style={[style.table,{justifyContent:'flex-start'}]}><Text>Spa pedi- Artwork & Gel Color</Text></Col>
-                <Col style={style.table}><Text>40 min</Text></Col>
-                <Col style={style.table}><Text>$ 50.00</Text></Col>
-                
-                </Row>
-                <Row>
-                <Col style={[style.table,{justifyContent:'flex-start'}]}><Text>Reguler Pedicure - Artwork</Text></Col>
-                <Col style={style.table}><Text>40 min</Text></Col>
-                <Col style={style.table}><Text>$ 50.00</Text></Col>
-                
-                </Row>
+               </Row>
                 </Grid>   
                
                     
@@ -120,7 +105,7 @@ export default class AppointmentUnComfirm  extends Component{
                    
                         <View style={{flexDirection:'row'}}>
                         <Text style={{fontSize:17}}>Total Duration: </Text>
-                        <Text style={{fontSize:17,fontWeight:'bold'}}>150 Min</Text>
+                        <Text style={{fontSize:17,fontWeight:'bold'}}>70 Min</Text>
                         
                         </View>
                         </Right>
@@ -129,35 +114,53 @@ export default class AppointmentUnComfirm  extends Component{
                  <Right>
                         <View style={{flexDirection:'row'}}>
                         <Text style={{fontSize:22}}>Total: </Text>
-                        <Text style={{fontSize:22,fontWeight:'bold'}}>$ 150.00</Text>
+                        <Text style={{fontSize:22,fontWeight:'bold'}}>$ 50.00</Text>
                         
                         </View>
                         </Right>
                  </View> 
                         
-                 
+                    
                <View>
-               
                <Modal isVisible={this.state.isModalVisible} 
                onBackButtonPress={() => this.setState({ isModalVisible: false })}>
-                    <View style={{ flexDirection:'column',justifyContent:"center",alignItems:'center',backgroundColor:'white',width:'100%',height:250}}>
+                    <View style={{ flexDirection:'column',justifyContent:'flex-start',alignItems:'center',backgroundColor:'white',width:'100%',height:250}}>
+                    
+                    <View style={{flexDirection:'row',width:'90%'}}>
+                   <Left></Left>
+                        <Body><Text style={{fontSize:25,fontWeight:'bold'}}>Add Tip</Text></Body>
+                        <Right><Ic name='close' size={35} onPress={this._toggleModal}></Ic></Right>
                    
-                    <View style={{justifyContent:"center",flexDirection:'column',width:'90%', alignItems:"center"}}>
-                    <TouchableOpacity style={{marginLeft:'90%',marginTop:'-25%'}} onPress={this._toggleModal}><Ic name='close' size={35}></Ic></TouchableOpacity>
-                    <Text style={{fontSize:20,marginTop:20}}>
-                                Are you sure you want to cancel 
-                            </Text>
-                            <Text style={{fontSize:20}}>
-                            appointment?
-                            </Text>   
-                    </View>         
+                      
+                    </View>  
+                    <View style={{flexDirection:'column',width:'90%'}}>
+                        <Text style={{fontSize:20,marginTop:20}}>Amount:</Text> 
+                        <View style={{justifyContent:'center',
+                        alignItems:'center',
+                        height:40,width:'100%',borderRadius:2,
+                        borderColor:'#eee',
+                        borderWidth:1}}>
+                                <Text style={{fontSize:20,fontWeight:'bold'}}>$ 9.00</Text></View>
+                         <View style={{justifyContent:'center',
+                        alignItems:'center',marginTop:'2%',flexDirection:'row'}}>
+                             <Button style={{borderRadius:2,borderColor:'blue',backgroundColor:'white',justifyContent:'center',
+                        alignItems:'center',flexDirection:'row',borderWidth:1,width:'23%'}}><Text style={{color:'blue',fontSize:15}}>15 %</Text></Button>
+                         <Button style={{borderRadius:2,borderColor:'blue',backgroundColor:'white',justifyContent:'center',
+                        alignItems:'center',flexDirection:'row',borderWidth:1,width:'23%',marginLeft:'2%',backgroundColor:'#1565c0'}}><Text style={{color:'white',fontSize:15}}>18 %</Text></Button>
+                        <Button style={{borderRadius:2,borderColor:'blue',backgroundColor:'white',justifyContent:'center',
+                        alignItems:'center',flexDirection:'row',borderWidth:1,width:'23%',marginLeft:'2%'}}><Text style={{color:'blue',fontSize:15}}>20 %</Text></Button>
+                        <Button style={{borderRadius:2,borderColor:'blue',backgroundColor:'white',justifyContent:'center',
+                        alignItems:'center',flexDirection:'row',borderWidth:1,width:'23%',marginLeft:'2%'}}><Text style={{color:'blue',fontSize:15}}>25 %</Text></Button>
+                         </View>
+                    </View>
+                   
                     <View style={{flexDirection:'row',marginTop:10}} >
                     <TouchableOpacity onPress={this._toggleModal}>
                        <View style={{width:110,borderRadius:3,height:50,marginRight:10,
                         backgroundColor:'white',borderWidth:1,
                         borderColor:'blue',justifyContent:"center",flexDirection:'row',alignItems:"center"
                         }}>
-                       <Text style={{color:'blue',fontWeight:'bold',fontSize:20}}>No</Text>
+                       <Text style={{color:'blue',fontWeight:'bold',fontSize:20}}>Cancel</Text>
                        </View>
                         
                     </TouchableOpacity>
@@ -165,52 +168,23 @@ export default class AppointmentUnComfirm  extends Component{
                        <View style={{width:110,borderRadius:3,height:50,marginLeft:10,
                         backgroundColor:'blue',borderWidth:1,
                         borderColor:'blue',justifyContent:"center",flexDirection:'row',alignItems:"center"
-                        }}>
-                       <Text style={{color:'white',fontWeight:'bold',fontSize:20}}>Yes</Text>
+                        }} >
+                       <Text style={{color:'white',fontWeight:'bold',fontSize:20}}>Next</Text>
                        </View>
                         
                     </TouchableOpacity>
                     </View>
-                   
-                   
-                    
-                    
                     </View>
                 </Modal>
                </View>
-
-
-
-                     
-           
              </Content>
-             <View style={{ backgroundColor: "white", height: 60,  alignItems: 'center', flexDirection: "row" }}>
-                   <View style={{justifyContent: "center", alignItems: 'center', flexDirection: "row",flex:1 }}>
-                 
-                       
-                       <Button style={{ width:110,borderRadius:3,height:50,
-                            borderWidth:1,
-                            borderColor:'blue',
-                            justifyContent:"center",
-                            backgroundColor:'white'
-                           }}  onPress={this._toggleModal}>
-                        <Text style={{ color: "blue", fontSize: 20 }} >Cancel</Text>
-                    </Button>
-                   </View>
-                   <View style={{justifyContent: "center", alignItems: 'center', flexDirection: "row",flex:1 }}>
-                    <Button style={{ width:110,borderRadius:3,height:50,
-                            borderWidth:1,
-                            borderColor:'blue',
-                            justifyContent:"center",
-                            backgroundColor:'blue'
-                           }} onPress={()=>{this.props.navigation.navigate('BookProcess2')}}>
-                        <Text style={{ color: "white", fontSize: 20 }} >Edit</Text>
-                    </Button>
-                   
-                    
-                   </View>
-                    
-                </View>
+               
+             
+                  <View style={{ paddingHorizontal: "5%",justifyContent: 'center',marginTop:'1%',flexDirection:'row',marginBottom:20,height:50}}>
+                <Button  style={{width:'50%',borderRadius:3,justifyContent:'flex-end',alignItems:'center',flexDirection:'column'}} onPress={this._toggleModal}>
+                  <Text style={{color:'white',fontSize:20,fontWeight:'bold'}}>Next</Text>
+                </Button>
+              </View>
         </Container>
             
         )
