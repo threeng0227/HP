@@ -161,7 +161,7 @@ export default class Appointment  extends Component{
                 style={{width:150,borderRadius:3}}
                 containerStyle={{marginRight:30}}
              >
-             <TouchableOpacity>
+             <TouchableOpacity onPress={()=>{this.props.navigation.navigate('MainStores')}}>
                  <Text style={{color:'white',fontWeight:'bold',fontSize:20}}>Book</Text>
              </TouchableOpacity>
                  

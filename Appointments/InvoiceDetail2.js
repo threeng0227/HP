@@ -176,7 +176,7 @@ export default class InvoiceDetail2  extends Component{
                        </View>
                         
                     </TouchableOpacity>
-                    <TouchableOpacity  >
+                    <TouchableOpacity  onPress={()=>{this.setState({isModalVisible:false}),this.props.navigation.navigate('ReloadAccount')}}>
                        <View style={{width:110,borderRadius:3,height:50,marginLeft:10,
                         backgroundColor:'blue',borderWidth:1,
                         borderColor:'blue',justifyContent:"center",flexDirection:'row',alignItems:"center"
@@ -193,7 +193,8 @@ export default class InvoiceDetail2  extends Component{
                
              
                   <View style={{ paddingHorizontal: "5%",justifyContent: 'center',marginTop:'1%',flexDirection:'row',marginBottom:20,height:50}}>
-                <Button  style={{width:'50%',borderRadius:3,justifyContent:'flex-end',alignItems:'center',flexDirection:'column'}} onPress={this._toggleModal}>
+                <Button  style={{width:'50%',borderRadius:3,justifyContent:'flex-end',alignItems:'center',flexDirection:'column'}}
+                onPress={this._toggleModal} >
                   <Text style={{color:'white',fontSize:20,fontWeight:'bold'}}>Next</Text>
                 </Button>
               </View>

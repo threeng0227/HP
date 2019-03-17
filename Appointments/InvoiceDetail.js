@@ -122,6 +122,7 @@ export default class InvoiceDetail  extends Component{
                         
                     
                <View>
+            {/* Modal */}
                <Modal isVisible={this.state.isModalVisible} 
                onBackButtonPress={() => this.setState({ isModalVisible: false })}>
                     <View style={{ flexDirection:'column',justifyContent:'flex-start',alignItems:'center',backgroundColor:'white',width:'100%',height:250}}>
@@ -164,11 +165,12 @@ export default class InvoiceDetail  extends Component{
                        </View>
                         
                     </TouchableOpacity>
-                    <TouchableOpacity  >
+                    <TouchableOpacity   onPress={()=>{this.setState({isModalVisible:false}),this.props.navigation.navigate('PayInvoice')}}>
                        <View style={{width:110,borderRadius:3,height:50,marginLeft:10,
                         backgroundColor:'blue',borderWidth:1,
                         borderColor:'blue',justifyContent:"center",flexDirection:'row',alignItems:"center"
-                        }} >
+                      
+                        }}  >
                        <Text style={{color:'white',fontWeight:'bold',fontSize:20}}>Next</Text>
                        </View>
                         
@@ -181,7 +183,8 @@ export default class InvoiceDetail  extends Component{
                
              
                   <View style={{ paddingHorizontal: "5%",justifyContent: 'center',marginTop:'1%',flexDirection:'row',marginBottom:20,height:50}}>
-                <Button  style={{width:'50%',borderRadius:3,justifyContent:'flex-end',alignItems:'center',flexDirection:'column'}} onPress={this._toggleModal}>
+                <Button  style={{width:'50%',borderRadius:3,justifyContent:'flex-end',alignItems:'center',flexDirection:'column'}}
+                 onPress={this._toggleModal}>
                   <Text style={{color:'white',fontSize:20,fontWeight:'bold'}}>Next</Text>
                 </Button>
               </View>

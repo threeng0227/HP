@@ -35,7 +35,7 @@ export default class SignUp extends Component {
             </Left>
             <Body  style={{justifyContent: "center" ,alignItems:"center",flex:2}}>
             
-                <Text style={{ fontSize: 20,  fontWeight: "bold" }}>Tiêu Đề</Text>
+                <Text style={{ fontSize: 20,  fontWeight: "bold" }}>Personal Info</Text>
                  
                  
            
