@@ -56,8 +56,8 @@ export default class Process2SendMoney extends Component {
                  <Tab textStyle={{color:'black',fontWeight:'500'}} activeTextStyle={{color:'#00B2EE'}} activeTabStyle={{backgroundColor:'white',borderBottomWidth:4,borderColor:'#00B2EE'}}  heading="Manually" tabStyle={{backgroundColor:'white'}}>                 
                  <TabManuallySend /> 
                  <View style={site.view11}>
-          <Button  style={site.btn}
-          onPress={()=>{this.props.navigation.navigate('Process3Rquest ')}}><Text style={site.btn1}> Next </Text></Button> 
+                 <Button  style={site.btn}
+          onPress={()=>{this.props.navigation.navigate('Process3Rquest')}}><Text style={site.btn1}> Next </Text></Button> 
           </View>
                 </Tab>
             </Tabs>

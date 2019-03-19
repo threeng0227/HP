@@ -60,7 +60,8 @@ export default class RequestSentSuccess extends Component {
         
         </View>
         <View style={{justifyContent: 'flex-end',alignItems: 'center',flex:2,width: 350, height: 50,marginBottom:'2%' }} >
-            <Button  style={site.btn}><Text style={site.btn1}> Done </Text></Button> 
+            <Button  style={site.btn}><Text style={site.btn1}
+            onPress={()=>{this.props.navigation.navigate('SendmoneyunPaid')}}> Done </Text></Button> 
         </View>
       </View>
         

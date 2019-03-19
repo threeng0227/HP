@@ -113,8 +113,9 @@ export default class BookProcess1  extends Component{
                             borderWidth:1,
                             borderColor:'blue',
                             justifyContent:"center",
-                            backgroundColor:'white'
-                           }}>
+                            backgroundColor:'white',
+                           
+                           }} onPress={()=>{this.props.navigation.navigate('TabStores')}}>
                         <Text style={{ color: "blue", fontSize: 20 }} >Add Service</Text>
                     </Button>
                    </View>

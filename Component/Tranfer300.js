@@ -62,7 +62,8 @@ export default class Tranfer300 extends Component {
         
         </View>
         <View style={{justifyContent: 'center',alignItems: 'center',flex:1,width: 350, height: 50, }} >
-            <Button  style={site.btn}><Text style={site.btn1}> Done </Text></Button> 
+            <Button  style={site.btn}
+            onPress={()=>{this.props.navigation.navigate('P2P')}}><Text style={site.btn1}> Done </Text></Button> 
         </View>
       </View>
         

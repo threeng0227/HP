@@ -84,7 +84,8 @@ export default class GiftSendCancel extends Component {
              <Button  style={site.btn22}><Text style={site.btn2}> Cancel </Text></Button> 
            </View>
            <View style={site.view}>
-             <Button  style={site.btn}><Text style={site.btn1}> Send </Text></Button> 
+             <Button  style={site.btn}><Text style={site.btn1}
+             onPress={()=>{this.props.navigation.navigate('TransactionSend4')}}> Send </Text></Button> 
           </View>
 
         </View>

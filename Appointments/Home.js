@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View, Image, StyleSheet,TouchableOpacity } from "react-native";
+import { Text, View, Image, StyleSheet,TouchableOpacity,ImageBackground } from "react-native";
 import {
   Footer,
   Header,
@@ -11,6 +11,7 @@ import {
   import Ic from 'react-native-vector-icons/FontAwesome';
   import Icon from 'react-native-vector-icons/FontAwesome5';
    import Ionicons from 'react-native-vector-icons/Ionicons';
+   
 
 const home = StyleSheet.create({
   BgImg: {
@@ -39,11 +40,24 @@ const home = StyleSheet.create({
     marginLeft: 23
   }
 });
+
 export default class Home extends Component {
+  constructor (props){
+    super(props);
+    this.state={
+      Notification:1,
+        
+      Credit:'100.00'
+      }
+     
+  }
+
   render() {
+    
+  
     return (
       <Container>
-        <Header style={{ backgroundColor: "white" }}>
+        <Header style={{ backgroundColor: "white"}} >
                 <Left>
             
             </Left>
@@ -51,8 +65,13 @@ export default class Home extends Component {
                <Text style={{ fontSize: 20,  fontWeight: "bold" }}>Home</Text>
            </Body>
            <Right style={{justifyContent: "center" ,alignItems:"center",flexDirection:'row'}}>
-           <Text><Ic name="bell" size={20}></Ic></Text>
-
+           <TouchableOpacity onPress={()=>{this.props.navigation.navigate("Inbox")}}><ImageBackground source={require('./images/bell.png')} style={{width:18,height:20}}>
+           <Badge style={{borderRadius: 20,width: 20,height: 20,alignSelf: "flex-start",marginLeft:8, marginTop:'-45%'
+    }}><Text style={{color:'white'}}>6</Text></Badge>
+           </ImageBackground>
+           </TouchableOpacity>
+           
+            
            <TouchableOpacity style={{paddingLeft:'25%'}} onPress={()=>{this.props.navigation.openDrawer()}}>
            <Ionicons name="md-menu" size={25}></Ionicons>
                    </TouchableOpacity>
@@ -69,13 +88,13 @@ export default class Home extends Component {
         <View style={home.LayoutBottom}>
           <Left>
             <Text>Your balance</Text>
-            <Text style={{ fontSize: 22, padding: "3%" }}>$ 100.00</Text>
+            <Text style={{ fontSize: 22, padding: "3%" }}>$ {this.state.Credit}</Text>
           </Left>
           <Right>
             <Button style={home.btnPayNow} onPress={()=>{this.props.navigation.navigate('InvoiceDetail')}}>
               <Text style={home.Btn_Text}>Pay Now</Text>
               <Badge style={home.btn_Badge} danger>
-                <Text style={{ color: "white" }}>1</Text>
+                <Text style={{ color: "white" }}>{this.state.Notification}</Text>
               </Badge>
             </Button>
           </Right>

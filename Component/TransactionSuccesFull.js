@@ -45,7 +45,7 @@ export default class TransactionSend2 extends Component {
          
          <Button style={{borderRadius:3,width:150,height:50,
         justifyContent:'center',alignItems:"center",flexDirection:'row'}}
-        onPress={()=>{this.props.navigation.navigate('Home')}}><Text style={{color:'white',fontSize:20,fontWeight:'bold',textAlign:'center'}}>Done</Text></Button>
+        onPress={()=>{this.props.navigation.navigate('Home2')}}><Text style={{color:'white',fontSize:20,fontWeight:'bold',textAlign:'center'}}>Done</Text></Button>
        </View>
         </Container>
        

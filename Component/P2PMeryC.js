@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {Text,StyleSheet,View,Image,Picker} from 'react-native'
-import { Container, Header, Left, Body, Footer, Button, Icon, Title,FooterTab, Content, Switch} from 'native-base';
+import {Text,StyleSheet,View,Image,Picker,TouchableOpacity} from 'react-native'
+import { Container, Header, Left, Body, Footer, Button, Icon, Title,Right, Content, Switch} from 'native-base';
 import { ScrollView } from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Ic from 'react-native-vector-icons/FontAwesome';
@@ -97,7 +97,8 @@ export default class P2PMeryC extends Component {
           </View>
         
         </View>
-        <Button primary style={site.btn}><Text style={site.btn1}> Next </Text></Button>    
+        <Button primary style={site.btn}
+        onPress={()=>{this.props.navigation.navigate('NextGiftCamera1')}}><Text style={site.btn1}> Next </Text></Button>    
         <View style={{paddingTop:'5%'}}>
           <Text style={site.Text}> History </Text>
           <View style={site.view}>

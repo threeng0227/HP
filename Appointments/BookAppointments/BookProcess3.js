@@ -39,7 +39,7 @@ export default class BookProcess3  extends Component{
              <Content  >
          
              <View >
-                   <Image style={{width:'100%'}} source={require('../images/process3.jpg')}></Image>
+                   <Image style={{width:'100%'}} source={require('../images/process3.png')}></Image>
              </View>
              <View style={{flexDirection:'column',marginRight:'1%',marginLeft:'1%',marginTop:10}}> 
             
@@ -130,7 +130,7 @@ export default class BookProcess3  extends Component{
                             borderColor:'blue',
                             justifyContent:"center",
                             backgroundColor:'white'
-                           }}  >
+                           }}  onPress={()=>{this.props.navigation.navigate('TabStores')}} >
                         <Text style={{ color: "blue", fontSize: 20 }} >Add Service</Text>
                     </Button>
                    </View>

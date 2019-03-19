@@ -108,9 +108,31 @@ export default class SettingAccount  extends Component{
                             </TouchableOpacity>
                         </ListItem>
                     </View>
-                    <View style={{marginTop:15}}>
+                    <View style={{marginTop:15,borderBottomWidth:1,borderBottomColor:'#eee'}}>
                         <Text style={{fontWeight:'bold', fontSize:20,marginBottom:20}}>Security</Text>
-                        <View  style={{flexDirection:'row'}}>
+                        <ListItem style={{marginLeft:3,flexDirection:'column',borderBottomWidth:0}}  >
+                      
+                      <Text style={{fontWeight:'bold', fontSize:20,marginBottom:20,marginLeft:'-77%'}}>Account</Text>
+                      <TouchableOpacity style={{width:'100%'}} onPress={()=>{this.props.navigation.navigate('ChangePassword')}}>
+                      <View style={{flexDirection:'row'}}  >
+                      
+                          <Left style={{flex:2}}><Text style={{fontSize:15}}>Change Password</Text></Left>
+                          
+                          <Right ><Icon   name="chevron-right"></Icon></Right>
+                         
+                      </View>
+                      </TouchableOpacity>
+                      <TouchableOpacity style={{width:'100%'}} onPress={()=>{this.props.navigation.navigate('CurrentPinCode')}}>
+                      <View  style={{flexDirection:'row',paddingTop:10}}>
+                     
+                          <Left style={{flex:2}}><Text style={{fontSize:15}}>Change PIN Code</Text></Left>
+                          <Right ><Icon   name="chevron-right"></Icon></Right>
+                          
+                      </View>
+                      </TouchableOpacity>
+                     
+                  </ListItem>
+                  <View  style={{flexDirection:'row',marginBottom:10}}>
                                 <Left style={{flex:2}}><Text style={{fontSize:15}}>Security</Text></Left>
                                 <Right ><View>
                                             <Switch

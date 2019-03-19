@@ -114,7 +114,7 @@ export default class InvoiceDetail  extends Component{
                  <Right>
                         <View style={{flexDirection:'row'}}>
                         <Text style={{fontSize:22}}>Total: </Text>
-                        <Text style={{fontSize:22,fontWeight:'bold'}}>$ 50.00</Text>
+                        <Text style={{fontSize:22,fontWeight:'bold'}}>$ 50</Text>
                         
                         </View>
                         </Right>

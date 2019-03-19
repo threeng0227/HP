@@ -1,31 +1,68 @@
 import React, { Component } from "react";
-import { Text, View, Image, StyleSheet, Alert } from "react-native";
-import { Container, Header, Form, Item, Input, Button } from "native-base";
+import { Text, View, Image, StyleSheet, CheckBox} from "react-native";
+import {
+  Container,Left,Body,
+  Header,
+  Form,
+  Item,
+  Input,
+  Button,
+  Title,
+  Content,
+  Right
+} from "native-base";
+//import { CheckBox } from "react-native-elements";
 import Modal from "react-native-modal";
-import styles from "./StyleSignInUp";
-//Modal : Terms & Conditions
+import styles from './StyleSignInUp';
 
+import Icon from 'react-native-vector-icons/FontAwesome5';
+
+//Modal : Terms & Conditions
+const styleTerms = StyleSheet.create({
+  Text: {
+    textAlign: "center",
+    paddingHorizontal: "6%",
+    lineHeight: 22
+  },
+  ButTon: { borderRadius: 6 }
+});
 export default class SignIn extends React.Component {
   constructor() {
     super();
     this.state = {
-      openModal: false
+      openModal: false,
+      isChecked: true
     };
   }
   ShowModal = () => {
     this.setState({
       openModal: !this.state.openModal
-    }); 
+    });
   };
-  CloseModal =() => {
+  CloseModal = () => {
     this.setState({
-      openModal : !this.state.openModal
-    })
-  }
+      openModal: !this.state.openModal
+    });
+  };
+  Checked = () => {
+    this.setState({ isChecked: !this.state.isChecked });
+  };
   render() {
     return (
       <Container>
-        <Header transparent />
+        <Header style={{ backgroundColor: "white" }}>
+            <Left>
+            <View style={{ justifyContent: "center"}}>
+                <Button transparent style={{justifyContent: "center" }} onPress={()=>{this.props.navigation.goBack()}}><Text ><Icon size={20}  name="chevron-left"></Icon> </Text></Button>
+            </View>
+            </Left>
+            <Body  style={{justifyContent: "center" ,alignItems:"center",flex:2,marginLeft:'-10%'}}>
+            
+                <Text style={{ fontSize: 20,  fontWeight: "bold", }}>Sign In</Text>
+            </Body>
+           
+            </Header>
+        <Content>
         <View style={styles.container}>
           <View style={styles.ImgTitle}>
             <Image source={require("./imgSignUp/Group3127.png")} />
@@ -51,27 +88,79 @@ export default class SignIn extends React.Component {
             </Item>
           </Form>
           <View style={styles.btnForgot}>
-            <Button transparent>
+            <Button transparent onPress={()=>{this.props.navigation.navigate('ForgotPass')}}>
               <Text style={{ color: "#1cb3c8", fontSize: 15 }}>
                 Forgot Password?
               </Text>
             </Button>
           </View>
           <View style={styles.SignIn}>
-            <Button full style={styles.btnSignIn} onPress={this.ShowModal}>
+            <Button full style={styles.btnSignIn} onPress={()=>{this.props.navigation.navigate('SetupPinOrBiometric')}}>
               <Text style={styles.btnTextSignIn}>Sign In</Text>
             </Button>
           </View>
+
+          {/*Modal start trang 140 */}
           <Modal
-            style={{ marginVertical:'10%'}}
+            style={{ marginVertical: "8%", flex: 1}}
             isVisible={this.state.openModal}
           >
-            <View style={{ flex : 1 }}>
-              <Button full onPress={this.CloseModal}>
-                <Text>Close</Text>
-              </Button>
+            <View
+              style={[styles.container, { flex: 1, backgroundColor: "white" }]}
+            >
+              <Title style={styles.Title}>Terms Conditions</Title>
+              <Text numberOfLines={6} style={styleTerms.Text}>
+                1. Lorem Ipsum is simply dummy text of the printing and
+                typesetting industry. Lorem Ipsum has been the industry's
+                standard dummy text ever since the 1500s, when an unknown
+                printer took a galley of type and scrambled it to make a type
+                specimen book. It has survived not only five centuries, but also
+                the leap into electronic typesetting, remaining essentially
+                unchanged. It was popularised in the 1960s with the release of
+                Letraset sheets containing Lorem Ipsum passages, and more
+                recently with desktop publishing software like Aldus PageMaker
+                including versions of Lorem Ipsum.
+              </Text>
+              <Text numberOfLines={2} style={styleTerms.Text}>
+                2. Lorem Ipsum is simply dummy text of the printing and
+                typesetting industry.
+              </Text>
+              <Text numberOfLines={4} style={styleTerms.Text}>
+                3. Lorem Ipsum is simply dummy text of the printing and
+                typesetting industry. Lorem Ipsum has been the industry's
+                standard dummy text ever since the 1500s, when an unknown
+                printer took a galley of type and scrambled it to make a type
+                specimen book. It has survived not only five centuries, but also
+                the leap into electronic typesetting, remaining essentially
+                unchanged. It was popularised in the 1960s with the release o
+              </Text>
+              <View style={{ alignSelf: "flex-start", flexDirection: "row" }}>
+                <CheckBox
+                  disabled={this.state.isChecked}
+                  onValueChange={this.Checked}
+                />
+                <Text style={{ marginTop: "2%" }}>
+                  I accept the terms and conditions
+                </Text>
+              </View>
+              <View style={[styles.SignInWith, { width: "100%" }]}>
+                <Button
+                  style={{ width: "40%" }}
+                  full
+                  bordered
+                  onPress={this.CloseModal}
+                >
+                  <Text style={{ fontSize: 15, color: "#1cb3c8" }}>Cancel</Text>
+                </Button>
+                <Button full style={{ width: "40%" }}  onPress={()=>{this.setState({openModal:false}),this.props.navigation.navigate('signup')}}
+                >
+                  <Text style={{ fontSize: 15, color: "white" }}>Confirm</Text>
+                </Button>
+              </View>
             </View>
           </Modal>
+         {/*Modal end trang 140 */}
+
           <View style={[styles.SignInWith, { marginTop: "10%" }]}>
             <View style={styles.Divide} />
             <Text style={styles.TextDivide}>Or sign in with</Text>
@@ -92,12 +181,14 @@ export default class SignIn extends React.Component {
             <Text>Don't have an account?</Text>
             <Button
               transparent
-              onPress={() => this.props.navigation.navigate("signup")}
+              onPress={this.ShowModal}
             >
               <Text style={styles.btnTextSignUp}>Sign Up</Text>
             </Button>
           </View>
         </View>
+        </Content>
+        
       </Container>
     );
   }

@@ -18,7 +18,7 @@ export default class Process3Rquest extends Component {
             </View>
             </Left>
            <Body  style={{justifyContent: "center" ,alignItems:"center",flex:4}}>
-               <Text style={{ fontSize: 20,  fontWeight: "bold" }}>Notification</Text>
+               <Text style={{ fontSize: 20,  fontWeight: "bold" }}>Request Money</Text>
            </Body>
            <Right style={{justifyContent: "center" ,alignItems:"center",flexDirection:'row'}}>
            <Text><Ic name="bell" size={20}></Ic></Text>
@@ -60,7 +60,8 @@ export default class Process3Rquest extends Component {
              <Button  style={site.btn22}><Text style={site.btn2}> Cancel </Text></Button> 
            </View>
            <View style={site.view}>
-             <Button  style={site.btn}><Text style={site.btn1}> Send </Text></Button> 
+             <Button  style={site.btn}><Text style={site.btn1}
+             onPress={()=>{this.props.navigation.navigate('Transferequest')}}> Send </Text></Button> 
           </View>
 
         </View>

@@ -88,7 +88,7 @@ export default class TabStores extends Component {
             activeTabStyle={TabStyle.SubTabActive}
             activeTextStyle={TabStyle.SubTabTextActive}
           >
-           
+           <Pedicure />
           </Tab>
           <Tab
             heading="Geil Nails"

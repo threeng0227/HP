@@ -29,7 +29,7 @@ export default class TranferNext extends Component {
             </View>
             </Left>
            <Body  style={{justifyContent: "center" ,alignItems:"center",flex:4}}>
-               <Text style={{ fontSize: 20,  fontWeight: "bold" }}>Notification</Text>
+               <Text style={{ fontSize: 20,  fontWeight: "bold" }}>Tranfer money to bank...</Text>
            </Body>
            <Right style={{justifyContent: "center" ,alignItems:"center",flexDirection:'row'}}>
            <Text><Ic name="bell" size={20}></Ic></Text>
@@ -78,7 +78,7 @@ export default class TranferNext extends Component {
       
         
         <View style={{justifyContent: 'flex-end',alignItems: 'center',flex:1,width: 340, height: 200 }} >
-            <Button  style={site.btn}><Text style={site.btn1}> Next </Text></Button> 
+            <Button  style={site.btn} onPress={()=>{this.props.navigation.navigate('TransferTT')}}><Text style={site.btn1}> Next </Text></Button> 
         </View>
       </View>
         

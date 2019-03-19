@@ -23,7 +23,7 @@ export default class NextGiftCamera1 extends Component {
             </View>
             </Left>
            <Body  style={{justifyContent: "center" ,alignItems:"center",flex:4}}>
-               <Text style={{ fontSize: 20,  fontWeight: "bold" }}>Notification</Text>
+               <Text style={{ fontSize: 20,  fontWeight: "bold" }}>Gift Cards</Text>
            </Body>
            <Right style={{justifyContent: "center" ,alignItems:"center",flexDirection:'row'}}>
            <Text><Ic name="bell" size={20}></Ic></Text>
@@ -33,7 +33,8 @@ export default class NextGiftCamera1 extends Component {
                    </TouchableOpacity>
            </Right>
       </Header>
-        <View style={{
+      <Content>
+      <View style={{
                 flex: 1,
                 flexDirection: 'column',
                 justifyContent: 'center',
@@ -62,10 +63,12 @@ export default class NextGiftCamera1 extends Component {
             </Text>
             <View ><Textarea style={{borderRadius:4,borderColor:'#EEEEEE',height:100,borderWidth:1,paddingLeft:'2%',paddingTop:'3%'}} rowSpan={5} bordered placeholder="Say something... !" /></View>
             </View>
-            <View style={{width: 340, height: 60,justifyContent:'flex-end'}} >
-                <Button primary style={site.btn}><Text style={site.btn1}> Next </Text></Button>  
-            </View>
+            
       </View>
+      </Content>
+      <View style={{width: 340, height: 60,}} >
+                <Button primary style={site.btn} onPress={()=>{this.props.navigation.navigate('SelectAccountGift')}}><Text style={site.btn1} > Next </Text></Button>  
+            </View>
  
        
       </Container>

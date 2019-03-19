@@ -55,7 +55,7 @@ export default class P2P  extends Component{
         borderRadius:5,borderColor:'#EEEEEE' ,
         marginLeft:'3%',marginTop:'3%',
         justifyContent:'center',alignItems:'center'}}
-        onPress={()=>{this.props.navigation.navigate('P2PNone')}}>
+        onPress={()=>{this.props.navigation.navigate('P2PMeryC')}}>
                   <View style={{flex:1,justifyContent:'center',alignItems:'center'}}><Image 
                   source={require('../Appointments/images/giftcard.png') }
                   /></View>
@@ -68,7 +68,7 @@ export default class P2P  extends Component{
         <Button  style={{backgroundColor: 'white',flex:1,margin:'3%',borderRadius:5,
         borderColor:'#EEEEEE' ,justifyContent:'center',
         alignItems:'center'}}
-        onPress={()=>{this.props.navigation.navigate('')}}>
+        onPress={()=>{this.props.navigation.navigate('TranferNext')}}>
                   <View style={{flex:1,justifyContent:'center',alignItems:'center'}}><Image 
                   source={require('../Appointments/images/sendmoney.png') }
                   /></View>

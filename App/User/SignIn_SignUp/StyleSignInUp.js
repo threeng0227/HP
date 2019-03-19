@@ -41,10 +41,15 @@ export default styles = StyleSheet.create({
       borderBottomColor: "#cde8f6",
       borderBottomWidth: 1,
       color: "#1cb3c8",
-      marginLeft: "5%"
+      marginLeft: "5%",
+      fontSize:15
     },
     fontSizeInPut :{
         fontSize : 15
+    },
+    Title : {
+        fontSize:22,
+        color: 'black'
     }
 
   });

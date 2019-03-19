@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Text, View, Image, StyleSheet } from "react-native";
-import { Container, Header, Title, Button } from "native-base";
-import styles from "./StyleSignInUp";
+import { Container, Header, Title, Button, Content,Left,Right,Body } from "native-base";
+import styles from './StyleSignInUp';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 const styleSuccess = StyleSheet.create({
   Text: {
     textAlign: "center",
@@ -11,12 +12,26 @@ const styleSuccess = StyleSheet.create({
   },
   TitleThank: { color: "#2f89fc", fontSize: 20 }
 });
+
+//Sign Up Success trang 137
 export default class SUpSuccess extends React.Component {
   render() {
     return (
       <Container>
-        <Header transparent />
-        <View style={styles.container}>
+         <Header style={{ backgroundColor: "white" }}>
+            <Left>
+            <View style={{ justifyContent: "center"}}>
+                <Button transparent style={{justifyContent: "center" }} onPress={()=>{this.props.navigation.goBack()}}><Text ><Icon size={20}  name="chevron-left"></Icon> </Text></Button>
+            </View>
+            </Left>
+            <Body  style={{justifyContent: "center" ,alignItems:"center",flex:2,marginLeft:'-10%'}}>
+            
+                <Text style={{ fontSize: 20,  fontWeight: "bold", }}>Sign In</Text>
+            </Body>
+           
+            </Header>
+      <Content>
+      <View style={styles.container}>
           <View style={styles.ImgTitle}>
             <Image source={require("./imgSignUp/Group3127.png")} />
             <Image source={require("./imgSignUp/Group3128.png")} />
@@ -32,11 +47,13 @@ export default class SUpSuccess extends React.Component {
             </Text>
           </View>
           <View style={[styles.SignIn, { marginTop: "30%" }]}>
-            <Button full style={styles.btnSignIn}>
+            <Button full style={styles.btnSignIn} onPress={()=>{this.props.navigation.navigate('AppSercurity')}}>
               <Text style={[styles.btnTextSignIn]}>Continue</Text>
             </Button>
           </View>
         </View>
+      </Content>
+        
       </Container>
     );
   }

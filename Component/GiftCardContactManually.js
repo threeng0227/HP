@@ -43,13 +43,19 @@ export default class GiftCardContactManually extends Component {
             
             <Tabs locked={false}  tabContainerStyle={{width:'50%',borderWidth:0,borderColor:'white'}} tabBarUnderlineStyle={{width:0}} >
                 <Tab textStyle={{color:'black',fontWeight:'400'}}  activeTextStyle={{color:'#00B2EE'}} activeTabStyle={{backgroundColor:'white',borderBottomWidth:4,borderColor:'#00B2EE'}}  heading="Contacts" tabStyle={{backgroundColor:'white'}} > 
-                <TabContactsGift />          
+                <TabContactsGift />  
+
                 </Tab>
                  <Tab textStyle={{color:'black',fontWeight:'400'}} activeTextStyle={{color:'#00B2EE'}} activeTabStyle={{backgroundColor:'white',borderBottomWidth:4,borderColor:'#00B2EE'}}  heading="Manually" tabStyle={{backgroundColor:'white'}}>                 
                  <TabManuallyGift /> 
+
                 </Tab>
             </Tabs>
          </View>
+         <View style={site.view11}>
+          <Button  style={site.btn}><Text style={site.btn1}
+          onPress={()=>{this.props.navigation.navigate('GiftSendCancel')}}> Next </Text></Button> 
+          </View>
         </Content>
         
       </Container>
@@ -57,5 +63,51 @@ export default class GiftCardContactManually extends Component {
   }
 }
 var site=StyleSheet.create({
+  view:{
+      height:70,
+      borderWidth:1,
+      borderColor:'gray',
+      marginBottom:2,
+      flex:1,
+      flexDirection:'row'
+  },
+  img:{
+   height:50,width:50,marginTop:'3%',marginLeft:'3%'
+  },
+  viewtxt:{
+   flex:2,
+   justifyContent:'center',
+   paddingLeft:'5%'
+  },
+  viewtxt1:{
+   flex:1,
+   justifyContent:'center',
+   alignItems:'flex-end',
+   marginRight:'6%'
+  },
+  check:{
+      borderRadius:30,
+      height:30,
+      width:30,
+      alignItems:'center',
+      justifyContent:'center',
+      borderWidth:0,
+      borderColor:'#EEEEEE'
+  },
+  btn:{
+   backgroundColor:'#00B2EE',
+ width:'45%',
  
+ borderRadius: 4,
+ justifyContent: 'center',
+   alignItems:'center'
+ },
+ btn1:{
+  
+  color:'white',
+  fontSize:16,
+  },
+  view11:{marginTop:'8%',marginBottom:'8%',
+     flex:1, justifyContent: 'center',alignItems:'center',flexDirection:'row'
+  }
 });

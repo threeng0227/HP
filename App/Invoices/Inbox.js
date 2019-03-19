@@ -1,6 +1,9 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet, Image } from "react-native";
-import { Container, Content, List, ListItem } from "native-base";
+import { Container,Header, Content,Button,  Body,Right,Left, View, ListItem, List, Col, Footer} from 'native-base';
+import {Text,TouchableOpacity,Image,StyleSheet,} from 'react-native';
+import Ic from 'react-native-vector-icons/FontAwesome';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import Icon from "react-native-vector-icons/FontAwesome";
 const Invoice = StyleSheet.create({
   LayoutList: {
     flexDirection: "row",
@@ -41,6 +44,27 @@ export default class Inbox extends Component {
   render() {
     return (
       <Container>
+         <Header style={{ backgroundColor: "white" }}>
+            <Left>
+            <View style={{ justifyContent: "center"}}>
+                <Button transparent style={{justifyContent: "center" }} onPress={()=>{this.props.navigation.goBack()}}><Text ><Icon size={20}  name="chevron-left"></Icon> </Text></Button>
+            </View>
+            </Left>
+            <Body  style={{justifyContent: "center" ,alignItems:"center",flex:2}}>
+            
+                <Text style={{ fontSize: 20,  fontWeight: "bold" }}>Settings</Text>
+                 
+                 
+           
+            </Body>
+            <Right style={{justifyContent: "center" ,alignItems:"center",flexDirection:'row'}}>
+            <Text><Ic name="bell" size={20}></Ic></Text>
+
+            <TouchableOpacity style={{paddingLeft:'25%'}} >
+            <Ionicons name="md-menu" size={25}></Ionicons>
+                 </TouchableOpacity>
+            </Right>
+            </Header>
         <Content>
           <List>
             <ListItem style={{ backgroundColor: "white" }} itemDivider>

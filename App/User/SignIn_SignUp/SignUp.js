@@ -9,10 +9,11 @@ import {
   Container,
   Form,
   Label,
-  Button,Grid,Row
+  Button,Grid,Row,Left,Right,Body
 } from "native-base";
 import styles from "./StyleSignInUp";
 import Icon from "react-native-vector-icons/FontAwesome";
+import Icons from 'react-native-vector-icons/FontAwesome5';
 const styleSUp = StyleSheet.create({
   Icon: {
     fontSize: 6,
@@ -33,7 +34,18 @@ export default class SignUp extends Component {
   render() {
     return (
       <Container>
-        <Header transparent />
+         <Header style={{ backgroundColor: "white" }}>
+            <Left>
+            <View style={{ justifyContent: "center"}}>
+                <Button transparent style={{justifyContent: "center" }} onPress={()=>{this.props.navigation.goBack()}}><Text ><Icons size={20}  name="chevron-left"></Icons> </Text></Button>
+            </View>
+            </Left>
+            <Body  style={{justifyContent: "center" ,alignItems:"center",flex:2,marginLeft:'-10%'}}>
+            
+                <Text style={{ fontSize: 20,  fontWeight: "bold", }}>Sign Up</Text>
+            </Body>
+           
+            </Header>
         <Content padder>
           <Title style={{ color: "black", marginBottom: "7%" }}>
             Create an account
@@ -104,7 +116,7 @@ export default class SignUp extends Component {
             </Item>
           </Form>
           <View style={{ paddingHorizontal: "5%", marginTop: 70 }}>
-            <Button full style={styles.btnSignIn}>
+            <Button full style={styles.btnSignIn} onPress={()=>{this.props.navigation.navigate('SUpSuccess')}}>
               <Text style={styles.btnTextSignIn}>Sign Up</Text>
             </Button>
           </View>

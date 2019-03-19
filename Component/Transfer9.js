@@ -19,7 +19,7 @@ export default class Tranfer9 extends Component {
   componentDidMount() {
     setTimeout(()=>{this.BackHome()}, 2000); 
   }
- BackHome(){this.props.navigation.navigate('Home2')}
+ BackHome(){this.props.navigation.navigate('Home2',{credit:'91.00'})}
   render() {
    
     return (

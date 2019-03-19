@@ -34,7 +34,7 @@ export default class SelectSendRquest1 extends Component {
             </View>
             </Left>
            <Body  style={{justifyContent: "center" ,alignItems:"center",flex:4}}>
-               <Text style={{ fontSize: 20,  fontWeight: "bold" }}>Notification</Text>
+               <Text style={{ fontSize: 20,  fontWeight: "bold" }}>Request Money</Text>
            </Body>
            <Right style={{justifyContent: "center" ,alignItems:"center",flexDirection:'row'}}>
            <Text><Ic name="bell" size={20}></Ic></Text>
@@ -79,8 +79,9 @@ export default class SelectSendRquest1 extends Component {
           </View>
         </Content>
         <View style={site.view} 
-        onPress={()=>{this.props.navigation.navigate('Process2SendMoney`')}}>
-                <Button  style={site.btn}><Text style={site.btn1}> Send </Text></Button> 
+        >
+                <Button  style={site.btn}><Text style={site.btn1}
+                onPress={()=>{this.props.navigation.navigate('Process2SendMoney')}}> Next </Text></Button> 
               </View>
               
       </Container>
