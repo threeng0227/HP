@@ -53,21 +53,59 @@ export default class P2PMeryC extends Component {
         </Text>
         
         <View style={{height:200,borderBottomWidth:1,paddingTop:'2%',marginLeft:'3%',marginRight:'3%',}}>
-          <Title style={{color:'blue',fontSize:13,marginBottom:'3%'}}>
-            Merry Christmas
-          </Title>
-          <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-        <Image style={site.img1}
+        
+          <ScrollView horizontal={true} pagingEnabled={true} showsHorizontalScrollIndicator={false}>
+         
+          <Image style={site.img1} on
+          source={require('../Appointments/images/gifthong.png')} 
+            />
+            <View style={site.img2} >
+            <Title style={{color:'blue',fontSize:14,fontWeight:'100'}}>Happy Birthday</Title> 
+              <Image style={site.img} on
           source={require('../Appointments/images/giftvang.png')} 
             />
-              <Image style={site.img} on
+              </View>
+        
+            <Image style={site.img1} on
           source={require('../Appointments/images/giftxanh.png')} 
             />
-            <Image style={site.img1}
+          
+            <Image style={site.img1} on
+          source={require('../Appointments/images/giftvang.png')} 
+            />
+              <View style={site.img2} >
+            <Title style={{color:'blue',fontSize:14,fontWeight:'100'}}>Merry Christmas</Title> 
+              <Image style={site.img} on
+          source={require('../Appointments/images/giftxanh.png')} 
+            /></View>
+             <Image style={site.img1} on
           source={require('../Appointments/images/giftluc.png')} 
             />
-          
+        
+          <Image style={site.img1} on
+          source={require('../Appointments/images/giftxanh.png')} 
+            />
+               <View style={site.img2} >
+            <Title style={{color:'blue',fontSize:14,fontWeight:'100'}}>Congratulation</Title> 
+              <Image style={site.img} on
+          source={require('../Appointments/images/giftluc.png')} 
+            /></View>
+             <Image style={site.img1} on
+          source={require('../Appointments/images/giftcameraa.png')} 
+            />
             
+              <Image style={site.img1} on
+          source={require('../Appointments/images/giftluc.png')} 
+            />
+              <View style={site.img2} >
+            <Title style={{color:'blue',fontSize:14,fontWeight:'100'}}>Your template</Title> 
+            <TouchableOpacity onPress={this._onPressButton}>
+              <Image style={site.img} on
+          source={require('../Appointments/images/giftcameraa.png')} 
+            /></TouchableOpacity>
+            </View>
+            <View style={site.img1}></View>
+        
         </ScrollView>
         </View>
         <View style={{borderBottomWidth:1,marginLeft:'3%',marginRight:'3%',}}>
@@ -179,9 +217,9 @@ var site=StyleSheet.create({
      height: 150
   },
   img1:{
-    width: 180,
+    width: 69,
      height: 90,
-    marginTop:'5%'
+    marginTop:'4%'
   },
   Text:{
     color:'black',fontSize:16,marginLeft:'3%'

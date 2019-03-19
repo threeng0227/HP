@@ -196,11 +196,12 @@ const AppRoot = createStackNavigator(
         
     },
     {
+        initialRouteName:'welcome',
         headerMode: 'none', 
         navigationOptions: {
             headerVisible: false,
         },
-        
+        backBehavior: 'none'
     }
 );
  const AppWelcome = createAppContainer(AppRoot); 
@@ -224,7 +225,7 @@ const GiftProject =createStackNavigator(
      P2PGifttbao :{screen:P2PGifttbao},
      P2PMeryC :{screen:P2PMeryC},
      PayRquest :{screen:PayRquest},
-     PayTransactionSuccess :{screen:PayTransactionSuccess},
+     
      RequestSentSuccess :{screen:RequestSentSuccess},
      ReviewGift :{screen:ReviewGift},
      Tranfer300 :{screen:Tranfer300},
@@ -250,9 +251,7 @@ const GiftProject =createStackNavigator(
      //TabGift
      tabrequest:{screen:tabrequest},
      tabsend914:{screen:tabsend914},
-     //Invoice Details
-     InvoiceDetail:{screen:InvoiceDetail},
-     InvoiceDetail2:{screen:InvoiceDetail2},
+    
     
      //ReloadAccount
      TransactionSend2:{screen:TransactionSend2},
@@ -268,8 +267,8 @@ const GiftProject =createStackNavigator(
     },
     {
         headerMode: 'none',
-        
-        
+        initialRouteName:'P2P',
+        backBehavior: 'none'
     }
 )
 const AppointmentProject=createStackNavigator(
@@ -286,7 +285,8 @@ const AppointmentProject=createStackNavigator(
     },
     {
         headerMode: 'none',
-        
+        initialRouteName:'Appointment',
+        backBehavior: 'none'
     }
 )
 const StoreProject=createStackNavigator(
@@ -300,8 +300,9 @@ const StoreProject=createStackNavigator(
         
     },
     {
+        initialRouteName:'MainStores',
         headerMode: 'none',
-        
+        backBehavior: 'none'
     }
 )
 
@@ -310,27 +311,10 @@ const HamonyProject=createStackNavigator(
    
      Home:{screen:Home},
      Inbox:{screen:Inbox},
-      //Setting
-      PersonalInfo:{screen:PersonalInfo},
-      wishlist:{screen: WishList},
-      favories:{screen: Favories},
-      moresetting:{screen:MoreSetting},
-      ChangePassword:{screen:ChangePassword},
-      ConfirmPinCode:{screen:ConfirmPinCode},
-      CurrentPinCode:{screen:CurrentPinCode},
-      ChangePinSuccess:{screen:ChangePinSuccess},
-      NewPinCode:{screen:NewPinCode},
-     AddBankAndCard:{screen:AddBankAndCard} ,
-     BankAccountAdd:{screen: BankAccountAdd} ,
-     BankAccountDetail:{screen: BankAccountDetail} ,
-     BankAccount:{screen: BankAccount} ,
-     BankAndCard2:{screen: BankAndCard2} ,
-     BankAndCardAdd:{screen: BankAndCardAdd} ,
-     CreditCardDetail:{screen: CreditCardDetail} ,
-     CreditCard:{screen: CreditCard} ,
-     BankAndCard:{screen: BankAndCard} ,
-     settingaccount:{screen:SettingAccount}  ,
-     WishListFavories:{screen:WishListFavories},
+     PayTransactionSuccess :{screen:PayTransactionSuccess},
+       //Invoice Details
+     InvoiceDetail:{screen:InvoiceDetail},
+     InvoiceDetail2:{screen:InvoiceDetail2},
     //PayVoice
     PayInvoice:{screen:PayInvoice},
     Home2:{screen:Home2},
@@ -352,12 +336,60 @@ const HamonyProject=createStackNavigator(
     }
   },
   {
-  
+    initialRouteName:'Home',
     headerMode: 'none',
-    
+    backBehavior: 'none'
 }
 )
-
+const SettingProject=createStackNavigator(
+    {
+ //Setting
+ PersonalInfo:{screen:PersonalInfo},
+ wishlist:{screen: WishList},
+ favories:{screen: Favories},
+ moresetting:{screen:MoreSetting},
+ ChangePassword:{screen:ChangePassword},
+ ConfirmPinCode:{screen:ConfirmPinCode},
+ CurrentPinCode:{screen:CurrentPinCode},
+ ChangePinSuccess:{screen:ChangePinSuccess},
+ NewPinCode:{screen:NewPinCode},
+AddBankAndCard:{screen:AddBankAndCard} ,
+BankAccountAdd:{screen: BankAccountAdd} ,
+BankAccountDetail:{screen: BankAccountDetail} ,
+BankAccount:{screen: BankAccount} ,
+BankAndCard2:{screen: BankAndCard2} ,
+BankAndCardAdd:{screen: BankAndCardAdd} ,
+CreditCardDetail:{screen: CreditCardDetail} ,
+CreditCard:{screen: CreditCard} ,
+BankAndCard:{screen: BankAndCard} ,
+settingaccount:{screen:SettingAccount}  ,
+WishListFavories:{screen:WishListFavories}
+    }, {
+        headerMode: 'none',
+        initialRouteName:'settingaccount',
+        backBehavior: 'none'
+    })
+const AboutHarmony =createStackNavigator({
+     //About Harmony
+   abouthamony: {
+    screen: AboutHarmonyList
+    },
+    AboutUs: {
+        screen: AboutUs
+    },
+    ContactUs: {
+        screen: ContactUs
+    },
+    HelpFeedback: {
+        screen: HelpFeedback
+    }
+  },
+  {
+    initialRouteName:'abouthamony',
+    headerMode: 'none',
+    backBehavior: 'none'
+}
+)
 const BottomProject =createBottomTabNavigator({
   Home:{screen: HamonyProject,
     navigationOptions:{
@@ -445,9 +477,9 @@ signin:{screen:AppRoot},
   HomePage:{screen:BottomProject},
   wishlist:{screen: WishList},
   favories:{screen: Favories},
-     abouthamony: { screen: AboutHarmonyList},
+     abouthamony: { screen: AboutHarmony},
      
-  settingaccount:{screen:SettingAccount}  
+  settingaccount:{screen:SettingProject}  
  },{
   contentComponent: props =>< Menu {...props}/>,
    drawerPosition:'right',

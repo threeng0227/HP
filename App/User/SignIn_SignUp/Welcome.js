@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   TiTle:{
     position:'absolute',
     bottom :'15%',
-    left : '8%',
+    textAlign:'center',
     fontSize : 20
   },
   Image:{

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet, FlatList, Image,TouchableOpacity } from "react-native";
+import { Text, View, StyleSheet, FlatList, Image,TouchableOpacity,Dimensions } from "react-native";
 import MapView from "react-native-maps";
 import { Input, Container,Left,Right,Header,Body,Button, Content } from "native-base";
 import Icon from "react-native-vector-icons/Entypo";
@@ -7,22 +7,21 @@ import Ic from "react-native-vector-icons/FontAwesome";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import IcAwe5 from'react-native-vector-icons/FontAwesome5';
-
 const Harmony = [
   {
     title: "Harmony Spa",
     time: "08:00 AM - 18:00 PM",
-    address: "700 5th Ave ,New York,NY 100019,USA"
+    address: "700 5th Ave , New York , NY 100019 , USA"
   },
   {
     title: "Happy Spa",
     time: "08:00 AM - 18:00 PM",
-    address: "700 5th Ave ,New York,NY 100019,USA"
+    address: "700 5th Ave , New York , NY 100019,USA"
   },
   {
     title: "Woderful Spa",
     time: "08:00 AM - 18:00 PM",
-    address: "700 5th Ave ,New York,NY 100019,USA"
+    address: "700 5th Ave , New York , NY 100019,USA"
   }
 ];
 const Store = StyleSheet.create({
@@ -47,7 +46,7 @@ const Store = StyleSheet.create({
     justifyContent: "space-between"
   },
   IconHeart: { position: "absolute", right: 0, bottom: "19%" },
-  IconInList: { fontSize: 20, marginRight: 15 }
+  IconInList: { fontSize: 20, marginRight: 12 }
 });
 export default class MainStore extends Component {
   constructor() {
@@ -65,6 +64,7 @@ export default class MainStore extends Component {
   render() {
     return (
       <Container>
+        
         <Header style={{ backgroundColor: "white" }}>
                 <Left>
             <View style={{ justifyContent: "center"}}>
@@ -81,7 +81,8 @@ export default class MainStore extends Component {
            <Ionicons name="md-menu" size={25}></Ionicons>
                    </TouchableOpacity>
            </Right>
-      </Header>    
+      </Header>
+       
         <View style={Store.Container}>
           <View style={Store.Search}>
             <Input
@@ -101,9 +102,10 @@ export default class MainStore extends Component {
               }}
             />
           </View>
-
+          
           <FlatList
-            style={{ width: "96%", flex: 3 }}
+            style={{ width: "96%", flex: 
+          3 }}
             data={this.state.Data}
             renderItem={({ item }) => (
               <TouchableOpacity onPress={()=>{this.props.navigation.navigate('TabStores')}}>
@@ -120,14 +122,14 @@ export default class MainStore extends Component {
                     {item.title}
                   </Text>
                   <Text>Danh gia</Text>
-                  <Text>
+                  <View style={[Store.Search,{paddingHorizontal:0}]}>
                     <Icon name="clock" style={Store.IconInList} />
-                    {item.time}
-                  </Text>
-                  <Text>
+                    <Text >{item.time}</Text>
+                  </View>
+                  <View style={[Store.Search,{paddingHorizontal:0}]}>
                     <Icon name="location" style={Store.IconInList} />
-                    {item.address}
-                  </Text>
+                    <Text>{item.address}</Text>
+                  </View>
                 </View>
                 <View style={Store.IconHeart}>
                   <Icon
@@ -141,8 +143,9 @@ export default class MainStore extends Component {
               </TouchableOpacity>
             )}
           />
+              
         </View>
-        
+  
       </Container>
     );
   }
