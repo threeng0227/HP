@@ -9,7 +9,7 @@ import {
 import { Container, Header, Title, Button, Input, Content,Left,Body } from "native-base";
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import styles from "../User/SignIn_SignUp/StyleSignInUp";
-                                              //Welcome Jerry Nguyen trang 135
+import SmoothPinCodeInput from "react-native-smooth-pincode-input";                         //Welcome Jerry Nguyen trang 135
 const styleSuccess = StyleSheet.create({
   Text: {
     textAlign: "center",
@@ -27,7 +27,14 @@ const styleSuccess = StyleSheet.create({
   },
   TitleThank: { color: "#2f89fc", fontSize: 22, marginVertical: "5%" }
 });
+
 export default class InputPinCode extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      code: ""
+    };
+  }
   render() {
     return (
       <Container>
@@ -58,10 +65,24 @@ export default class InputPinCode extends React.Component {
             <View style={{ alignItems: "center", marginVertical: "5%" }}>
               <Text style={{ fontSize: 15 }}>Please input your PIN code</Text>
               <View style={[styles.SignInWith, { width: "65%" }]}>
-                <Input style={styleSuccess.InutNumber} keyboardType="numeric" />
-                <Input style={styleSuccess.InutNumber} keyboardType="numeric" />
-                <Input style={styleSuccess.InutNumber} keyboardType="numeric" />
-                <Input style={styleSuccess.InutNumber} keyboardType="numeric" />
+              <SmoothPinCodeInput
+                  cellStyle={{ borderRadius: 24, borderWidth: 0.5 }}
+                  cellSize={37}
+                  autoFocus={true}
+                  cellStyleFocused={{ borderWidth: 0.5 }}
+                  cellSpacing={15}
+                  textStyle={{
+                    fontSize: 20,
+                    color: "black"
+                  }}
+                  onFulfill={()=>{this.props.navigation.navigate('Home')}}
+                  textStyleFocused={{
+                    color: "black"
+                  }}
+                  value={this.state.code}
+                  onTextChange={code => this.setState({ code })}
+                
+                />
               </View>
             </View>
             <Text style={{ fontSize: 15 }}>Or</Text>

@@ -33,6 +33,7 @@ export default class MainWalkCar extends React.Component {
     return (
       <View style={{ flex: 1 }} onLayout={this._onLayoutDidChange}>
         <Carousel
+         delay={4000}
           style={[this.state.size, { flex: 7 }]}
           autoplay
           onAnimateNextPage={p => console.log(p)}

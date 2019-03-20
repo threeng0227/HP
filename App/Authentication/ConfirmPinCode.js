@@ -5,12 +5,12 @@ import {
   Header,
   Title,
   Button,
-  Input,
   Content,Left,Body 
 } from "native-base";
 import styles from "../User/SignIn_SignUp/StyleSignInUp";
 import Icon from 'react-native-vector-icons/FontAwesome5';
-                                                //ConfirmPinCode trang 133
+import SmoothPinCodeInput from "react-native-smooth-pincode-input"; 
+                                          //ConfirmPinCode trang 133
 const styleSuccess = StyleSheet.create({
   Text: {
     textAlign: "center",
@@ -27,6 +27,19 @@ const styleSuccess = StyleSheet.create({
   TitleThank: { color: "#2f89fc", fontSize: 22, marginVertical: "5%" }
 });
 export default class ConfirmPinCode extends React.Component {
+  constructor(){
+    super();
+    this.state={
+      code :'',
+      
+    }
+  }
+  _CheckPinCode = (pincode) => {
+    if (pincode.length ==4) {
+      return false
+    }else 
+      return true
+  };
   render() {
     return (
       <Container>
@@ -52,15 +65,25 @@ export default class ConfirmPinCode extends React.Component {
            Confirm PIN code
           </Title>
           <View style={{ alignItems: "center",marginVertical:'5%' }}>
-            <View style={[styles.SignInWith,{width:'65%'}]}>
-              <Input style={styleSuccess.InutNumber} keyboardType="numeric"/>
-              <Input style={styleSuccess.InutNumber} keyboardType="numeric"/>
-              <Input style={styleSuccess.InutNumber} keyboardType="numeric"/>
-              <Input style={styleSuccess.InutNumber} keyboardType="numeric"/>
-            </View>
+              <SmoothPinCodeInput
+                cellStyle={{borderRadius:24,borderWidth: 0.5}}
+                cellSize={37}
+                autoFocus = {true}
+                cellStyleFocused={{borderWidth: 0.5}}
+                cellSpacing={15}
+                textStyle={{
+                  fontSize: 20,
+                  color: 'black'
+                }}
+                textStyleFocused={{
+                  color: 'black'
+                }}
+                value={this.state.code}
+                onTextChange={code => this.setState({ code })}
+              />
           </View>
           <View style={[styles.SignIn,{marginTop:'3%'}]}>
-            <Button full style={styles.btnSignIn}
+            <Button full style={styles.btnSignIn} disabled={this._CheckPinCode(this.state.code)}
             onPress={()=>{this.props.navigation.navigate('Congratulation_SIn')}}>
               <Text style={[styles.btnTextSignIn]}>Next</Text>
             </Button>

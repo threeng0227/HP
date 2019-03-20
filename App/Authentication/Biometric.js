@@ -42,14 +42,14 @@ export default class Biometric extends React.Component {
               HarmonyPay App.
             </Text>
           </View>
-          <View style={[styles.SignIn, { marginTop: "45%" }]}>
+          <View style={[styles.SignIn, { marginTop: "45%",flexDirection:'column',justifyContent:'space-around',height:250 }]}>
             <Button full style={styles.btnSignIn}>
               <Text style={[styles.btnTextSignIn]}>Enable Biometric</Text>
             </Button>
             <Button
               full
               bordered
-              style={[styles.btnSignIn, { marginTop: "5%" }]}
+              style={styles.btnSignIn}
               onPress={()=>{this.props.navigation.navigate('EnterPinCode')}}
             >
               <Text
