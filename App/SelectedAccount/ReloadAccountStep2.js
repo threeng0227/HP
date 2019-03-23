@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet, Image,TouchableOpacity } from "react-native";
+import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import {
   Container,
-  Header,Left,Right,
+  Header,
+  Left,
+  Right,
   Body,
   Footer,
   Button,
@@ -10,18 +12,19 @@ import {
   Content,
   CheckBox,
   Card,
-  CardItem
+  CardItem,
+  Input
 } from "native-base";
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import Ic from 'react-native-vector-icons/FontAwesome';
-import Icons from 'react-native-vector-icons/FontAwesome5';
+import Ionicons from "react-native-vector-icons/Ionicons";
+import Ic from "react-native-vector-icons/FontAwesome";
+import Icons from "react-native-vector-icons/FontAwesome5";
 const reload = StyleSheet.create({
   btnPrice: {
     width: 56,
     height: 40,
     justifyContent: "center",
     borderRadius: 6,
-    borderColor: "#67d9ff"
+    borderColor: "#0764b0"
   },
   DisPlayMoney: {
     width: "100%",
@@ -31,7 +34,8 @@ const reload = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     borderRadius: 6,
-    marginVertical: "2.5%"
+    marginVertical: "2.5%",
+    height: 43
   },
   LayoutPrice: {
     flexDirection: "row",
@@ -40,7 +44,7 @@ const reload = StyleSheet.create({
     width: "100%"
   },
   ColorText: {
-    color: "#67d9ff"
+    color: "#0764b0"
   },
   Checkbox: {
     borderRadius: 30,
@@ -56,64 +60,150 @@ const reload = StyleSheet.create({
     width: 140,
     justifyContent: "center",
     borderRadius: 6,
-    backgroundColor: "#2680eb",
+    backgroundColor: "#0764b0",
     height: 50
   }
 });
 export default class ReloadAccountStep2 extends Component {
-    constructor(){
-        super();
-        this.state = {
-            isSelected : {},
-            price : ''
-        }
-    }
-    ChoosePrice = ()=>{
+  constructor() {
+    super();
+    this.state = {
+      isSelected: { backgroundColor: "#0764b0" },
+      textColor: {},
+      price: [],
+      flat : false,
+      flat1 : false
+    };
+  }
+  
+  ChoosePrice = (type, value) => {
+    switch (type) {
+      case "btn1": {
         this.setState({
-            isSelected : {backgroundColor:'blue'},
-            price : this.refs.p1.nodeValue
-        })
+          price: value,
+        });
+
+        
+      }
+      case "btn2": {
+        this.setState({ price: value});
+      }
+      case "btn3": {
+        this.setState({ price: value});
+      }
+      case "btn4": {
+        this.setState({ price: value});
+      }
+      case "btn5": {
+        this.setState({ price: value});
+      }
     }
-    render() {
+  };
+  CheckMoney = (type) =>{
+    switch (type) {
+      case "chk1": {
+        this.setState({
+          flat: true,
+        });
+
+        
+      }
+      case "chk2": {
+        this.setState({ flat1: true});
+      }
+    }
+  }
+  render() {
     return (
       <Container>
         <Header style={{ backgroundColor: "white" }}>
-                <Left>
-            <View style={{ justifyContent: "center"}}>
-                <Button transparent style={{justifyContent: "center" }} onPress={()=>{this.props.navigation.goBack()}}><Icons size={20}  name="chevron-left"></Icons></Button>
+          <Left>
+            <View style={{ justifyContent: "center" }}>
+              <Button
+                transparent
+                style={{ justifyContent: "center" }}
+                onPress={() => {
+                  this.props.navigation.goBack();
+                }}
+              >
+                <Icons size={20} name="chevron-left" />
+              </Button>
             </View>
-            </Left>
-           <Body  style={{justifyContent: "center" ,alignItems:"center",flex:4}}>
-               <Text style={{ fontSize: 20,  fontWeight: "bold" }}>Select Account</Text>
-           </Body>
-           <Right style={{justifyContent: "center" ,alignItems:"center",flexDirection:'row'}}>
-           <Text><Ic name="bell" size={20}></Ic></Text>
+          </Left>
+          <Body
+            style={{ justifyContent: "center", alignItems: "center", flex: 4 }}
+          >
+            <Text style={{ fontSize: 20, fontWeight: "bold" }}>
+              Select Account
+            </Text>
+          </Body>
+          <Right
+            style={{
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "row"
+            }}
+          >
+            <Text>
+              <Ic name="bell" size={20} />
+            </Text>
 
-           <TouchableOpacity style={{paddingLeft:'25%'}} onPress={()=>{this.props.navigation.openDrawer()}}>
-           <Ionicons name="md-menu" size={25}></Ionicons>
-                   </TouchableOpacity>
-           </Right>
-      </Header>
+            <TouchableOpacity
+              style={{ paddingLeft: "25%" }}
+              onPress={() => {
+                this.props.navigation.openDrawer();
+              }}
+            >
+              <Ionicons name="md-menu" size={25} />
+            </TouchableOpacity>
+          </Right>
+        </Header>
         <Content padder>
           <Card>
             <CardItem>
               <Body>
                 <Title style={{ color: "black" }}>Amount :</Title>
-                <Text style={reload.DisPlayMoney}>{this.state.price}</Text>
+                <Input
+                  style={reload.DisPlayMoney}
+                  disabled={true}
+                  value={this.state.price}
+                />
                 <View style={reload.LayoutPrice}>
-                  <Button style={[reload.btnPrice,this.state.isSelected]} bordered onPress={this.ChoosePrice} >
-                    <Text style={reload.ColorText} ref="p1" >$ 50</Text>
+                  <Button
+                    style={[reload.btnPrice]}
+                    bordered
+                    onPress={value => this.ChoosePrice("btn1", "$ 50")}
+                  >
+                    <Text style={[reload.ColorText]}>
+                      $ 50
+                    </Text>
                   </Button>
-                  <Button style={reload.btnPrice} bordered>
+                  <Button
+                    style={[reload.btnPrice]}
+                    bordered
+                    onPress={value => this.ChoosePrice("btn2", "$ 100")}
+                  >
                     <Text style={reload.ColorText}>$ 100</Text>
                   </Button>
-                  <Button style={reload.btnPrice} bordered>
+                  <Button
+                    style={reload.btnPrice}
+                    bordered
+                    onPress={value => this.ChoosePrice("btn3", "$ 200")}
+                  >
                     <Text style={reload.ColorText}>$ 200</Text>
                   </Button>
-                  <Button style={reload.btnPrice} bordered>
+                  <Button
+                    style={reload.btnPrice}
+                    bordered
+                    onPress={value => this.ChoosePrice("btn4", "$ 500")}
+                  >
                     <Text style={reload.ColorText}>$ 500</Text>
                   </Button>
-                  <Button style={reload.btnPrice} bordered>
+                  <Button
+                    style={reload.btnPrice}
+                    bordered
+                    onPress={value => this.ChoosePrice("btn5", "$ 1000")}
+                  >
                     <Text style={reload.ColorText}>$ 1000</Text>
                   </Button>
                 </View>
@@ -133,12 +223,12 @@ export default class ReloadAccountStep2 extends Component {
                       { marginVertical: "7%" }
                     ]}
                   >
-                    <CheckBox style={reload.Checkbox} />
+                    <CheckBox style={reload.Checkbox}  onPress={() => this.CheckMoney("chk1")} checked={this.state.flat} />
                     <Image source={require("./ImgSelectAccount/visa.png")} />
                     <Text>dfgfhgfjgfgfd33</Text>
                   </View>
                   <View style={[reload.LayoutPrice, reload.subLayout]}>
-                    <CheckBox style={reload.Checkbox} />
+                    <CheckBox style={reload.Checkbox} onPress={() => this.CheckMoney("chk2")}  checked={this.state.flat1} />
                     <Image source={require("./ImgSelectAccount/bank.png")} />
                     <Text>dfgfhgfjgfgfd33</Text>
                   </View>
@@ -165,16 +255,19 @@ export default class ReloadAccountStep2 extends Component {
             </CardItem>
           </Card>
           <View style={{ alignSelf: "center", marginTop: "18%" }}>
-            <Button style={reload.BtnReLoad} onPress={()=>{this.props.navigation.navigate('TransactionSend2')}}>
+            <Button
+              style={reload.BtnReLoad}
+              onPress={() => {
+                this.props.navigation.navigate("TransactionSend2");
+              }}
+            >
               <Text style={{ color: "white", fontSize: 16, fontWeight: "800" }}>
-                {" "}
-                Reload{" "}
+
+                Reload
               </Text>
             </Button>
           </View>
         </Content>
-
-       
       </Container>
     );
   }
