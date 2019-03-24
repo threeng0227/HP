@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet, Alert } from "react-native";
+import { Text, View, StyleSheet, Alert,AsyncStorage } from "react-native";
 import {
   Header,
   Content,
@@ -46,26 +46,26 @@ export default class SignUp extends Component {
       Password: "",
       ConfirmPass: "",
       message: "",
-      ValidEmail :false
+      ValidEmail :false,
+      user:[]
     };
   }
-
  PostRegister =  () => {
     if (this.state.Password != this.state.ConfirmPass) {
       Alert.alert("Password not same!!");
     }
-    else  if (this.state.Password === this.state.ConfirmPass) {
-      let url = "https://hp-api-dev.azurewebsites.net/api/Users";
+      else  if (this.state.Password === this.state.ConfirmPass) {
+      let url = "http://192.168.100.148:81/api/Users";
       fetch(url, {
         method: "POST",
         body: JSON.stringify({
-          FirstName:this.state.FirstName,
-          LastName : this.state.LastName,
-          Email : this.state.Email,
-          Password : this.state.Password,
-          CityId : 1,
-          StateId : 1,
-          Status : 1
+          first_name:this.state.FirstName,
+          last_name : this.state.LastName,
+          email : this.state.Email,
+          password : this.state.Password,
+          city_id : 1,
+          state_id : 1,
+          status : 1
 
         }),
         headers:{
@@ -74,7 +74,7 @@ export default class SignUp extends Component {
       })
         .then(res => res.json())
         .then(resjson => {
-            this._ResetForm(resjson.code);
+            this._HandleForm(resjson.code);
             this.props.navigation.navigate("SUpSuccess");
             
         })
@@ -83,7 +83,7 @@ export default class SignUp extends Component {
     } 
     
   };
-  _ResetForm = (resjson) =>{
+  _HandleForm = (resjson) =>{
     if(resjson ==1 ){
     this.setState({
       FirstName: "",
@@ -93,11 +93,14 @@ export default class SignUp extends Component {
       ConfirmPass: "",
     });
     Alert.alert('Success');
-    
+    this.GotoSignIn; 
   }
   else if(resjson >= 2 && resjson<=4){
     Alert.alert('Fail');
   }
+  }
+  GotoSignIn = () =>{
+    this.props.navigation.navigate("signin");
   }
   _FormRegister = (text, type) => {
     var typeEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
@@ -131,14 +134,14 @@ export default class SignUp extends Component {
       });
     }
   };
-  showBtnLogin = (...value)=>{
+  ShowBtnSignUp = (...value)=>{
     var count = 0;
       for(let i=0;i<value.length;i++){
         if(value[i] != "" ){
          count = count+1;
         }
       }
-      if(count == 5 && this.state.ValidEmail != false){
+      if(count == value.length && this.state.ValidEmail != false){
         return false;
       }
       else
@@ -271,7 +274,7 @@ export default class SignUp extends Component {
           </Form>
           <View style={{ paddingHorizontal: "5%", marginTop: 70 }}>
             <Button
-             disabled= {this.showBtnLogin(this.state.Password,this.state.Email,this.state.LastName,this.state.FirstName,this.state.ConfirmPass)}
+             disabled= {this.ShowBtnSignUp(this.state.Password,this.state.Email,this.state.LastName,this.state.FirstName,this.state.ConfirmPass)}
               full
               style={styles.btnSignIn}
               onPress={ this.PostRegister}
