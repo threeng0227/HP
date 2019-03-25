@@ -10,7 +10,7 @@ import {
   Input,
   Button,
   Title,
-  Content
+  Content,Spinner
 } from "native-base";
 import Modal from "react-native-modal";
 import styles from "./StyleSignInUp";
@@ -36,7 +36,8 @@ export default class SignIn extends React.Component {
       Email: "",
       Password: "",
       ValidEmail: true,
-      ValidPassWord: true
+      ValidPassWord: true,
+      isLoading : false
     };
   }
   ShowModal = () => {
@@ -56,18 +57,23 @@ export default class SignIn extends React.Component {
   };
 
 Submit_Form_Login = async () =>{
-  let respone = await fetch('http://192.168.0.108:81/api/Users/login',{
+  this.setState({isLoading:true});
+  let respone = await fetch('http://192.168.100.148:81/api/Users/login',{
       method : 'POST',
       headers :{"Content-Type": "application/json"},
       body :JSON.stringify({
-          Email : this.state.Email,
-          Password : this.state.Password
+          Email : 'Test@gmail.com',
+          Password : '123'
       })
   });
+  this.setState({isLoading:false});
   let resJson = await respone.json();
   if(resJson.code ==1){
     let accessToken = resJson.data;
     Alert.alert(resJson.message);
+    setTimeout(()=>{
+      this.props.navigation.navigate("SetupPinOrBiometric");
+    },4000)
   }
   else{
     Alert.alert(resJson.message);
@@ -116,7 +122,17 @@ Submit_Form_Login = async () =>{
       return false;
     } else return true;
   };
+
+  //Sign in with facebok
+  _SignInWithFB = ()=>{
+    Alert.alert('Login Success ...wait the minisecond');
+    setTimeout(()=>{
+      this.props.navigation.navigate('WelcomeToAcount');
+    },3000)
+  }
+  
   render() {
+    
     return (
       <Container>
         <Header style={{ backgroundColor: "white" }}>
@@ -165,7 +181,7 @@ Submit_Form_Login = async () =>{
                   //textContentType={"telephoneNumber"}
                   style={{ fontSize: 15 }}
                   onChangeText={text => this.Handle_Field_Form(text, "email")}
-                  value={this.state.Email}
+                  value='Test@gmail.com'
                 />
               </Item>
               <Item style={!this.state.ValidPassWord ? styleTerms.error : null}>
@@ -176,7 +192,7 @@ Submit_Form_Login = async () =>{
                   secureTextEntry={true}
                   style={styles.fontSizeInPut}
                   onChangeText={text => this.Handle_Field_Form(text, "password")}
-                  value={this.state.Password}
+                  value="123"
                 />
               </Item>
             </Form>
@@ -196,19 +212,21 @@ Submit_Form_Login = async () =>{
               <Button
                 full
                 style={styles.btnSignIn}
-                disabled={this.ShowBtnSignIn(
+               /*  disabled={this.ShowBtnSignIn(
                   this.state.Email,
                   this.state.Password
-                )}
+                )} */
                 onPress={this.Submit_Form_Login
-                //   () => {
-                //   this.props.navigation.navigate("SetupPinOrBiometric");
-                // }
               }
               >
                 <Text style={styles.btnTextSignIn}>Sign In</Text>
               </Button>
             </View>
+              {/*Show Loading when onPress Sign in */}
+              <Modal style={{flex:1,opacity:1,justifyContent:'center'}} isVisible={this.state.isLoading}>
+                  <Spinner animating color="red" style={{zIndex:1000}} />
+              </Modal>
+               {/*Show Loading  */}
 
             {/*Modal start trang 140 */}
             <Modal
@@ -292,13 +310,13 @@ Submit_Form_Login = async () =>{
               <View style={styles.Divide} />
             </View>
             <View style={[styles.SignInWith, { width: 300 }]}>
-              <Button transparent>
+              <Button transparent onPress={this._SignInWithFB}>
                 <Image source={require("./imgSignUp/facebook.png")} />
               </Button>
-              <Button transparent>
+              <Button transparent onPress={this._SignInWithFB}>
                 <Image source={require("./imgSignUp/twitter.png")} />
               </Button>
-              <Button transparent>
+              <Button transparent onPress={this._SignInWithFB}>
                 <Image source={require("./imgSignUp/Gmail1.png")} />
               </Button>
             </View>
@@ -312,5 +330,5 @@ Submit_Form_Login = async () =>{
         </Content>
       </Container>
     );
-  }
+                    }
 }

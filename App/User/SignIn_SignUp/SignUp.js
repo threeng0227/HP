@@ -63,6 +63,7 @@ export default class SignUp extends Component {
           last_name : this.state.LastName,
           email : this.state.Email,
           password : this.state.Password,
+          full_name : this.state.FirstName + this.state.LastName,
           city_id : 1,
           state_id : 1,
           status : 1

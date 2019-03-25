@@ -57,7 +57,7 @@ export default class CheckEmail extends React.Component {
               We've sent you an email with a link to reset your password.
             </Text>
             <View style={[styles.SignIn, { marginTop: "15%" }]}>
-              <Button full style={styles.btnSignIn}>
+              <Button full style={styles.btnSignIn} onPress={()=>alert.alert("We has been sent code into your email . Please check your email")} >
                 <Text style={[styles.btnTextSignIn]}>Check Email</Text>
               </Button>
               <Button transparent style={{ alignSelf: "center" }} onPress={()=>{this.props.navigation.navigate('signin')}}>
