@@ -115,13 +115,16 @@ export default class BankAccount extends Component{
                       </TouchableOpacity>
                 </View>
                  
-                <View style={{ paddingHorizontal: "5%",flex:1, justifyContent: 'center',flexDirection: 'row',alignItems: 'center',marginBottom:20}}>
-                <Button full style={{width:'50%',borderRadius:3}} onPress={()=>{this.props.navigation.navigate('BankAccountAdd')}}>
+                
+             
+            </Content>
+            
+            <View style={{ paddingHorizontal: "5%", justifyContent: 'center',flexDirection: 'row',alignItems: 'center',marginBottom:10}}>
+                <Button full style={{width:'50%',borderRadius:3,backgroundColor:'#0764b0'}} onPress={()=>{this.props.navigation.navigate('AddBankAndCard')}}>
                   <Text style={{color:'white',fontSize:20,fontWeight:'bold'}}>Add</Text>
                 </Button>
               </View>
-             
-            </Content>
+           
           </Container>
         )
     }

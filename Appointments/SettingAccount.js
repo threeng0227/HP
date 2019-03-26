@@ -74,7 +74,7 @@ export default class SettingAccount  extends Component{
                     </View>
                     <View>
                    
-                        <ListItem style={{marginLeft:3}}>
+                        <ListItem style={{marginLeft:1}}>
                         <TouchableOpacity style={{width:'100%'}} onPress={()=>{this.props.navigation.navigate('moresetting')}}>
                         <View style={{flexDirection:'row'}}>
                         <Left  >
@@ -90,7 +90,7 @@ export default class SettingAccount  extends Component{
                         </ListItem>
                        
                         
-                        <ListItem style={{marginLeft:3,flexDirection:'column'}}  >
+                        <ListItem style={{marginLeft:1,flexDirection:'column'}}  >
                       
                             <Text style={{fontWeight:'bold', fontSize:20,marginBottom:20,marginLeft:'-77%'}}>Account</Text>
                             <TouchableOpacity style={{width:'100%'}} onPress={()=>{this.props.navigation.navigate('PersonalInfo')}}>
@@ -112,53 +112,44 @@ export default class SettingAccount  extends Component{
                             </TouchableOpacity>
                         </ListItem>
                     </View>
-                    <View style={{marginTop:15,borderBottomWidth:1,borderBottomColor:'#eee'}}>
-                        <Text style={{fontWeight:'bold', fontSize:20,marginBottom:20}}>Security</Text>
-                        <ListItem style={{marginLeft:3,flexDirection:'column',borderBottomWidth:0}}  >
-                      
-                      <Text style={{fontWeight:'bold', fontSize:20,marginBottom:20,marginLeft:'-77%'}}>Account</Text>
+                    <View style={{borderBottomWidth:1,borderBottomColor:'#eee'}}>
+                        
+                        <ListItem style={{marginLeft:1,flexDirection:'column',borderBottomWidth:0}}  >
+                        <Text style={{fontWeight:'bold', fontSize:20,marginBottom:20,marginLeft:'-77%'}}>Security</Text>
                       <TouchableOpacity style={{width:'100%'}} onPress={()=>{this.props.navigation.navigate('ChangePassword')}}>
                       <View style={{flexDirection:'row'}}  >
-                      
                           <Left style={{flex:2}}><Text style={{fontSize:15}}>Change Password</Text></Left>
-                          
                           <Right ><Icon   name="chevron-right"></Icon></Right>
-                         
                       </View>
                       </TouchableOpacity>
                       <TouchableOpacity style={{width:'100%'}} onPress={()=>{this.props.navigation.navigate('CurrentPinCode')}}>
                       <View  style={{flexDirection:'row',paddingTop:10}}>
-                     
                           <Left style={{flex:2}}><Text style={{fontSize:15}}>Change PIN Code</Text></Left>
-                          <Right ><Icon   name="chevron-right"></Icon></Right>
-                          
+                          <Right ><Icon   name="chevron-right"></Icon></Right>  
                       </View>
                       </TouchableOpacity>
-                     
+                      
                   </ListItem>
-                  <View  style={{flexDirection:'row',marginBottom:10}}>
-                                <Left style={{flex:2}}><Text style={{fontSize:15}}>Security</Text></Left>
+                  <View  style={{flexDirection:'row',marginBottom:15,}}>
+                                <Left style={{flex:2}}><Text style={{fontSize:15}}>Biometric Login</Text></Left>
                                 <Right ><View>
                                             <Switch
                                             onValueChange={(value) => this.setState({colorFalseSwitchIsOn: value})}
-                                            
-                                            value={this.state.colorFalseSwitchIsOn} />
-                                            
+                                            value={this.state.colorFalseSwitchIsOn} /> 
                                         </View>  
                                 </Right>
-                            </View>
+                     </View>
                     </View>
-                    <View style={{marginTop:15}}>
+                    <View style={{marginTop:15,marginBottom:15}}>
                         <Text style={{fontWeight:'bold', fontSize:20,marginBottom:20}}>Notification preferences</Text>
                         <View  style={{flexDirection:'row'}}>
                                 <Left style={{flex:2}}><Text style={{fontSize:15}}>Inbox messages</Text></Left>
-                                <Right ><View>
-                                            
+                                <Right style={{flex:1}} >
                                             <Switch
                                             onValueChange={(value) => this.setState({colorTrueSwitchIsOn: value})}
                                             
                                             value={this.state.colorTrueSwitchIsOn} />
-                                        </View>  
+                                        
                                 </Right>
                             </View>
                     </View>

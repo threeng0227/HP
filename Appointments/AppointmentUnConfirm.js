@@ -160,16 +160,16 @@ export default class AppointmentUnComfirm  extends Component{
                     <TouchableOpacity onPress={this._toggleModal}>
                        <View style={{width:110,borderRadius:3,height:50,marginRight:10,
                         backgroundColor:'white',borderWidth:1,
-                        borderColor:'blue',justifyContent:"center",flexDirection:'row',alignItems:"center"
+                        borderColor:'#0764b0',justifyContent:"center",flexDirection:'row',alignItems:"center"
                         }}>
-                       <Text style={{color:'blue',fontWeight:'bold',fontSize:20}}>No</Text>
+                       <Text style={{color:'#0764b0',fontWeight:'bold',fontSize:20}}>No</Text>
                        </View>
                         
                     </TouchableOpacity>
                     <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Appointment')} }>
                        <View style={{width:110,borderRadius:3,height:50,marginLeft:10,
-                        backgroundColor:'blue',borderWidth:1,
-                        borderColor:'blue',justifyContent:"center",flexDirection:'row',alignItems:"center"
+                        backgroundColor:'#0764b0',borderWidth:1,
+                        borderColor:'#0764b0',justifyContent:"center",flexDirection:'row',alignItems:"center"
                         }}>
                        <Text style={{color:'white',fontWeight:'bold',fontSize:20}}>Yes</Text>
                        </View>
@@ -196,7 +196,7 @@ export default class AppointmentUnComfirm  extends Component{
                    <View style={{justifyContent: "center", alignItems: 'center', flexDirection: "row",flex:1 }}>
                     <Button style={{ width:110,borderRadius:3,height:50,
                             borderWidth:1,
-                            borderColor:'blue',
+                            borderColor:'#0764b0',
                             justifyContent:"center",
                             backgroundColor:'#0764b0'
                            }} onPress={()=>{this.props.navigation.navigate('BookProcess2')}}>

@@ -62,7 +62,7 @@ export default class AddBankAndCard extends Component {
             borderWidth:1,borderColor:'#0069c0',
             justifyContent:'center',
             flexDirection:'column'}}  onPress={()=>{this.props.navigation.navigate('BankAccount')}}>
-            <Ionicons name='md-add-circle' color="blue" size={25}></Ionicons>
+            <Ionicons name='md-add-circle' color="#0764b0" size={25}></Ionicons>
             <Text>Link a bank account</Text>
         </Button>
         </View>
@@ -75,7 +75,7 @@ export default class AddBankAndCard extends Component {
             borderWidth:1,borderColor:'#0069c0',
             justifyContent:'center',
             flexDirection:'column'}}  onPress={()=>{this.props.navigation.navigate('CreditCard')}}>
-            <Ionicons name='md-add-circle' color="blue" size={25}></Ionicons>
+            <Ionicons name='md-add-circle' color="#0764b0" size={25}></Ionicons>
             <Text>Link a card</Text>
         </Button>
         </View>

@@ -38,7 +38,7 @@ export default class WishList  extends Component{
                 </Header>
                 <View style={{borderWidth:1,borderTopWidth:0,borderColor:'#e5e5e5',height:50,marginTop:'1%',flexDirection:'row',alignItems:'center'}}>
                 <Input placeholder="Add new item"  ></Input>
-               <Icon style={{marginRight:'1%'}} name='plus' color="blue" size={25}></Icon>
+               <Icon style={{marginRight:'2%'}} name='plus' color="#0764b0" size={25}></Icon>
                 </View>
                <View style={{marginRight:'3%',display:this.setState.display}}>
                    <List>

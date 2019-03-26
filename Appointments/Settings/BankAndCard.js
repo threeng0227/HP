@@ -59,12 +59,14 @@ export default class BankAndCard extends Component {
         <View style={{marginTop:18}}>
             <Text style={{ fontSize:15}}> You have not linked an account or card yet</Text>  
         </View>
+        <TouchableOpacity  onPress={()=>{this.props.navigation.navigate('AddBankAndCard')}}>
         <View style={{marginTop:18, flexDirection:'row',alignItems:'center'}}>
-            <TouchableOpacity  onPress={()=>{this.props.navigation.navigate('AddBankAndCard')}}>
-                <Ionicons name='md-add-circle' color='blue' size={25}></Ionicons>
-            </TouchableOpacity>
+           
+                <Ionicons name='md-add-circle' color='#0764b0' size={25}></Ionicons>
+           
             <Text style={{fontWeight:'bold', fontSize:15}}> Add bank account or card</Text>  
         </View>
+        </TouchableOpacity>
         </Content>
       </Container>
     );

@@ -126,7 +126,7 @@ export default class BookProcess1  extends Component{
                    <View style={{justifyContent: "center", alignItems: 'center', flexDirection: "row",flex:1 }}>
                     <Button style={{ width:110,borderRadius:3,height:50,
                             borderWidth:1,
-                            borderColor:'blue',
+                            borderColor:'#0764b0',
                             justifyContent:"center",
                             backgroundColor:'#0764b0'
                            }} onPress={()=>{this.props.navigation.navigate('BookProcess2')}}>
