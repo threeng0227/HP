@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import { Container,Header, Left, Button, Body,Right,Image, View, Content, ListItem, Switch} from 'native-base';
-import {Text,TouchableOpacity} from 'react-native';
+import { Container,Header, Left, Button, Body,Right,Badge, View, Content, ListItem, Switch} from 'native-base';
+import {Text,TouchableOpacity,ImageBackground} from 'react-native';
 import HeaderApp from './HeaderApp';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Ic from 'react-native-vector-icons/FontAwesome';
@@ -28,10 +28,14 @@ export default class SettingAccount  extends Component{
                     </View>
                 </Left>
                 <Body  style={{justifyContent: "center" ,alignItems:"center",flex:4}}>
-                        <Text style={{ fontSize: 20,  fontWeight: "bold" }}>Setting</Text>
+                        <Text style={{ fontSize: 20,  fontWeight: "bold" }}>Settings</Text>
                 </Body>
                 <Right style={{justifyContent: "center" ,alignItems:"center",flexDirection:'row'}}>
-                    <Text><Ic name="bell" size={20}></Ic></Text>
+                <TouchableOpacity onPress={()=>{this.props.navigation.navigate("Inbox")}}><ImageBackground source={require('./images/bell.png')} style={{width:18,height:20}}>
+                <Badge style={{borderRadius: 20,width: 20,height: 20,alignSelf: "flex-start",marginLeft:8, marginTop:'-45%'
+                 }}><Text style={{color:'white'}}>6</Text></Badge>
+           </ImageBackground>
+           </TouchableOpacity>
 
                     <TouchableOpacity style={{paddingLeft:'25%'}} onPress={()=>{this.props.navigation.openDrawer()}}>
                     <Ionicons name="md-menu" size={25}></Ionicons>
@@ -52,19 +56,19 @@ export default class SettingAccount  extends Component{
                         <Text  style={{fontSize:15}}>Reaload now: </Text>
                         <View style={{ flexDirection:'row',marginTop:5}}>
                             <Button style={styles.buttonsettingaccout} >
-                            <Text style={styles.textbtnsetting}><Text style={styles.textbtnsetting}>$ </Text>100</Text>
+                            <Text style={styles.textbtnsetting}>$ 100</Text>
                             </Button>
                             <Button style={styles.buttonsettingaccout} >
-                                 <Text style={styles.textbtnsetting}><Text style={styles.textbtnsetting}>$ </Text>200</Text>  
+                                 <Text style={styles.textbtnsetting}>$ 200</Text>  
                             </Button>
                             <Button style={styles.buttonsettingaccout} >
-                                 <Text style={styles.textbtnsetting}><Text style={styles.textbtnsetting}>$ </Text>300</Text>  
+                                 <Text style={styles.textbtnsetting}>$ 300</Text>  
                             </Button>
                             <Button style={styles.buttonsettingaccout} >
-                                 <Text style={styles.textbtnsetting}><Text style={styles.textbtnsetting}>$ </Text>400</Text>  
+                                 <Text style={styles.textbtnsetting}>$ 400</Text>  
                             </Button>
                             <Button style={styles.buttonsettingaccout} >
-                                 <Text style={styles.textbtnsetting}><Text style={styles.textbtnsetting}>$ </Text>500</Text>  
+                                 <Text style={styles.textbtnsetting}>$ 500</Text>  
                             </Button>
                         </View>
                     </View>

@@ -14,7 +14,8 @@ const Invoice = StyleSheet.create({
     borderRadius: 6,
     marginBottom: "2%"
   },
-  Price: {
+  Price: { 
+   
     width: 65,
     height: 65,
     borderRadius: 35,
@@ -65,11 +66,12 @@ export default class Inbox extends Component {
                  </TouchableOpacity>
             </Right>
             </Header>
-        <Content>
-          <List>
             <ListItem style={{ backgroundColor: "white" }} itemDivider>
               <Text style={Invoice.GroupList}>Today</Text>
             </ListItem>
+            <Content>
+            <List>
+            
             <ListItem style={Invoice.LayoutList}>
               <View style={Invoice.Price}>
                 <Image
@@ -136,8 +138,27 @@ export default class Inbox extends Component {
               </View>
               <Text style={Invoice.Time}>09:00 AM</Text>
             </ListItem>
+            <ListItem
+              style={[Invoice.LayoutList, { backgroundColor: "#1da462" }]}
+            >
+              <View style={Invoice.Price}>
+                <Image
+                  source={require("./ImgInBox/GiftCard.png")}
+                  resizeMode={"contain"}
+                />
+              </View>
+              <View style={Invoice.ContentList}>
+                <Text style={Invoice.TitleList}>Gift Card</Text>
+                <Text style={{ color: "white" }}>
+                  Message : You request have been sent to Wiliiam{" "}
+                </Text>
+              </View>
+              <Text style={Invoice.Time}>09:00 AM</Text>
+            </ListItem>
           </List>
-        </Content>
+            </Content>
+          
+        
       </Container>
     );
   }

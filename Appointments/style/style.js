@@ -113,23 +113,26 @@ import { StyleSheet,} from 'react-native';
     flex: 1,
     resizeMode:"stretch",
     position: 'absolute',
-    width:'100%',
+    width:'95%',
     height:'100%',
+    marginLeft:'2%',
+    marginRight:'2%',
     justifyContent: 'center',
   },
   buttonsettingaccout:{
-    width:62,
+    width:'15%',
     height:30,
     borderWidth:1,
     borderRadius:10,
-    borderColor:'#0069c0',
+    borderColor:'#0764b0',
+    justifyContent:'center',
     alignItems:'center',
     backgroundColor:'white',
     marginLeft:'1%'
   },textbtnsetting:{
-    color:'#0069c0',
+    color:'#0764b0',
     fontSize:15,
- 
+    textAlign:'center'
   }
 });
 

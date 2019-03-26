@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import { Container,Header, Content,Button, Fab, Body,Right,Left, View, Grid, Row, Col} from 'native-base';
-import {Text,TouchableOpacity,Image,StyleSheet} from 'react-native';
+import { Container,Header, Content,Button, Badge, Body,Right,Left, View, Grid, Row, Col} from 'native-base';
+import {Text,TouchableOpacity,Image,StyleSheet,ImageBackground} from 'react-native';
 import HeaderApp from './HeaderApp';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Ic from 'react-native-vector-icons/FontAwesome';
@@ -17,6 +17,7 @@ export default class AppointmentUnComfirm  extends Component{
       _toggleModal = () =>
     this.setState({ isModalVisible: !this.state.isModalVisible });
 
+
     render(){
        
 
@@ -32,7 +33,11 @@ export default class AppointmentUnComfirm  extends Component{
                <Text style={{ fontSize: 20,  fontWeight: "bold" }}>Appointments</Text>
            </Body>
            <Right style={{justifyContent: "center" ,alignItems:"center",flexDirection:'row'}}>
-           <Text><Ic name="bell" size={20}></Ic></Text>
+           <TouchableOpacity onPress={()=>{this.props.navigation.navigate("Inbox")}}><ImageBackground source={require('./images/bell.png')} style={{width:18,height:20}}>
+                <Badge style={{borderRadius: 20,width: 20,height: 20,alignSelf: "flex-start",marginLeft:8, marginTop:'-45%'
+                 }}><Text style={{color:'white'}}>6</Text></Badge>
+           </ImageBackground>
+           </TouchableOpacity>
 
            <TouchableOpacity style={{paddingLeft:'25%'}} onPress={()=>{this.props.navigation.openDrawer()}}>
            <Ionicons name="md-menu" size={25}></Ionicons>
@@ -161,7 +166,7 @@ export default class AppointmentUnComfirm  extends Component{
                        </View>
                         
                     </TouchableOpacity>
-                    <TouchableOpacity  >
+                    <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Appointment')} }>
                        <View style={{width:110,borderRadius:3,height:50,marginLeft:10,
                         backgroundColor:'blue',borderWidth:1,
                         borderColor:'blue',justifyContent:"center",flexDirection:'row',alignItems:"center"
@@ -171,18 +176,9 @@ export default class AppointmentUnComfirm  extends Component{
                         
                     </TouchableOpacity>
                     </View>
-                   
-                   
-                    
-                    
                     </View>
                 </Modal>
                </View>
-
-
-
-                     
-           
              </Content>
              <View style={{ backgroundColor: "white", height: 60,  alignItems: 'center', flexDirection: "row" }}>
                    <View style={{justifyContent: "center", alignItems: 'center', flexDirection: "row",flex:1 }}>
@@ -190,11 +186,11 @@ export default class AppointmentUnComfirm  extends Component{
                        
                        <Button style={{ width:110,borderRadius:3,height:50,
                             borderWidth:1,
-                            borderColor:'blue',
+                            borderColor:'#0764b0',
                             justifyContent:"center",
                             backgroundColor:'white'
                            }}  onPress={this._toggleModal}>
-                        <Text style={{ color: "blue", fontSize: 20 }} >Cancel</Text>
+                        <Text style={{ color: "#0764b0", fontSize: 20 }} >Cancel</Text>
                     </Button>
                    </View>
                    <View style={{justifyContent: "center", alignItems: 'center', flexDirection: "row",flex:1 }}>
@@ -202,7 +198,7 @@ export default class AppointmentUnComfirm  extends Component{
                             borderWidth:1,
                             borderColor:'blue',
                             justifyContent:"center",
-                            backgroundColor:'blue'
+                            backgroundColor:'#0764b0'
                            }} onPress={()=>{this.props.navigation.navigate('BookProcess2')}}>
                         <Text style={{ color: "white", fontSize: 20 }} >Edit</Text>
                     </Button>

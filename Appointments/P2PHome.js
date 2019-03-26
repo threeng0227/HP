@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {Text,StyleSheet,View,Image,TouchableOpacity} from 'react-native'
-import { Container, Header, Left, Body, Right, Button, Title,FooterTab, Badge} from 'native-base';
+import {Text,StyleSheet,View,Image,TouchableOpacity,ImageBackground} from 'react-native'
+import { Container, Header, Left, Body, Right, Button, Badge,FooterTab} from 'native-base';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Ic from 'react-native-vector-icons/FontAwesome';
 import Icons from 'react-native-vector-icons/FontAwesome5';
@@ -23,7 +23,11 @@ export default class P2P  extends Component{
                <Text style={{ fontSize: 20,  fontWeight: "bold" }}>P2P</Text>
            </Body>
            <Right style={{justifyContent: "center" ,alignItems:"center",flexDirection:'row'}}>
-           <Text><Ic name="bell" size={20}></Ic></Text>
+           <TouchableOpacity onPress={()=>{this.props.navigation.navigate("Inbox")}}><ImageBackground source={require('./images/bell.png')} style={{width:18,height:20}}>
+                <Badge style={{borderRadius: 20,width: 20,height: 20,alignSelf: "flex-start",marginLeft:8, marginTop:'-45%'
+                 }}><Text style={{color:'white'}}>6</Text></Badge>
+           </ImageBackground>
+           </TouchableOpacity>
 
            <TouchableOpacity style={{paddingLeft:'25%'}} onPress={()=>{this.props.navigation.openDrawer()}}>
            <Ionicons name="md-menu" size={25}></Ionicons>
@@ -31,12 +35,12 @@ export default class P2P  extends Component{
            </Right>
       </Header>
       <View style={{flex: 1,flexDirection: 'column',}}>
-        <View style={{flex:1,width: 360,marginBottom:'2%'}} >
+        <View style={{flex:1,marginBottom:'2%'}} >
         <Image style={site.img}
           source={require('../Appointments/images/p2pgift.png')} 
             />
         </View>
-        <View style={{flex: 1,width: 360, }} >
+        <View style={{flex: 1,width: '96%',marginLeft:'2%',marginRight:'2%' }} >
             <Button  style={{  backgroundColor: 'white',flex:1,marginRight:'3%',
             borderRadius:5,borderColor:'#EEEEEE' ,
             marginLeft:'3%',marginTop:'3%',justifyContent:'center'
@@ -50,7 +54,7 @@ export default class P2P  extends Component{
             </Button>  
             
         </View>
-        <View style={{flex: 1,width: 360, }} >
+        <View style={{flex: 1,width: '96%',marginLeft:'2%',marginRight:'2%' }} >
         <Button  style={{backgroundColor: 'white',flex:1,marginRight:'3%',
         borderRadius:5,borderColor:'#EEEEEE' ,
         marginLeft:'3%',marginTop:'3%',
@@ -64,7 +68,7 @@ export default class P2P  extends Component{
             </Button>  
             
         </View>
-        <View style={{flex: 1,width: 360, }} >
+        <View style={{flex: 1,width: '96%',marginLeft:'2%',marginRight:'2%' }} >
         <Button  style={{backgroundColor: 'white',flex:1,margin:'3%',borderRadius:5,
         borderColor:'#EEEEEE' ,justifyContent:'center',
         alignItems:'center'}}
@@ -103,19 +107,19 @@ var site=StyleSheet.create({
     },
     txt:{
         fontSize:15,
-        color:'#00BFFF',
+        color:'#0764b0',
      
         flex:3,justifyContent:'center',alignItems:'flex-start'
     },
     txt2:{
         fontSize:15,
-        color:'#00BFFF',
+        color:'#0764b0',
         paddingRight:'51%',
         paddingTop:'3%'
     },
     txt3:{
       fontSize:15,
-      color:'#00BFFF',
+      color:'#0764b0',
     marginLeft:-10,
  
       flex:3,justifyContent:'center',alignItems:'flex-start'
@@ -137,8 +141,7 @@ var site=StyleSheet.create({
     
       flex:1,
       resizeMode:'cover',
-    marginLeft:-10,
-    marginTop:-10,
-    marginBottom:-10
+      width:'100%',
+      height:'100%'
     }
   }); 

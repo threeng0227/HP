@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet,TouchableOpacity } from "react-native";
+import { Text, View, StyleSheet,TouchableOpacity,ImageBackground} from "react-native";
 import {
-  Header, Content,Title,Input,Item, Container, Form, Label,Button,Grid,Row,Left,Right,Body
+  Header, Content,Title,Badge,Item, Container, Form, Label,Button,Grid,Row,Left,Right,Body
 } from "native-base";
 import styles from "../../App/User/SignIn_SignUp/StyleSignInUp";
 import Ic from 'react-native-vector-icons/FontAwesome';
@@ -41,7 +41,11 @@ export default class AddBankAndCard extends Component {
            
             </Body>
             <Right style={{justifyContent: "center" ,alignItems:"center",flexDirection:'row'}}>
-            <Text><Ic name="bell" size={20}></Ic></Text>
+            <TouchableOpacity onPress={()=>{this.props.navigation.navigate("Inbox")}}><ImageBackground source={require('../images/bell.png')} style={{width:18,height:20}}>
+                <Badge style={{borderRadius: 20,width: 20,height: 20,alignSelf: "flex-start",marginLeft:8, marginTop:'-45%'
+                 }}><Text style={{color:'white'}}>6</Text></Badge>
+           </ImageBackground>
+           </TouchableOpacity>
 
             <TouchableOpacity style={{paddingLeft:'25%'}} onPress={()=>{this.props.navigation.openDrawer()}}>
             <Ionicons name="md-menu" size={25}></Ionicons>

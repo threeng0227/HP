@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Container,Header, Content,Button, Fab, Body,Right,Left, View, Grid, Row, Col,FooterTab, Footer, Badge} from 'native-base';
+import { Container,Header, Content,Button, Body,Right,Left, View, Grid, Row, Col,FooterTab, Footer, Badge} from 'native-base';
 import {Text,TouchableOpacity,Image,StyleSheet,ImageBackground} from 'react-native';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -8,20 +8,86 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import styles from'../style/style';
 import AntIcon from 'react-native-vector-icons/AntDesign';
 import Modal from'react-native-modal';
-import {Calendar} from'react-native-calendars';
+import {Calendar,LocaleConfig} from'react-native-calendars';
 
 export default class BookProcess2  extends Component{
-    state = {
-        isModalVisible: false,
-        isModalAlert:false,
-        backboder:'gray',
-        boder:'blue',
-        width:0,
-        boderactive:'gray',
-        isCalendar:false,
-        widthactive:0,
+    constructor(props)
+    {
+        super(props)
+        this.state = {
+            isModalVisible: false,
+            isModalAlert:false,
+            backboder:'gray',
+            boder:'blue',
+            width:0,
+            boderactive:'gray',
+            isCalendar:false,
+            widthactive:0,
+            date: '',
+          currentday:'',
+      };  
+    }
+    componentWillMount() {
+        var that = this;
+        var day = new Date().toDateString().split(' '); 
+        var curday=new Date().getDate().toString();
+        var curmon=new Date().getMonth()+1;
+        var curyea=new Date().getFullYear().toString();
+        if(curday.length==2)
+        {
+            curday=curday;
+        }
+        else{
+            curday='0'+curday;
+        }
+       if(curmon.toString().length==2)
+        {
+            curmon=curmon;
+        }
+        else{
+            curmon='0'+curmon;
+        }
+        var currentday = curyea+'-'+curmon+'-'+curday;
+        var datenow=' ';
+        for(var i=1;i<day.length;i++)
+        {
+            datenow += day[i] + ' ';
+        }
         
-      };
+        that.setState({
+          //Setting the value of the date time
+          date:
+            datenow,
+         currentday:currentday
+        });
+      }
+      getdate(getday)
+      {
+        var that = this;
+        var day = getday.split('-'); //Current Date
+        var month=['Jan','Feb','Mar','Apr','May','June','Junly','Aug ','Sept ','Oct ','Nov ','Dec'];
+       var months=day[1];
+       
+        for(var j=0;j<month.length;j++)
+        {
+            if(months==j+1)
+            {
+                months=month[j];
+                break;
+            }
+        }
+       var date =  months+' '+ day[2] + ' '+ day[0];
+        that.setState({
+          //Setting the value of the date time
+          date:
+            date,
+            isCalendar:false
+        });
+          
+      
+      }
+    
+      
       _toggleModalCalendar=()=>{
         this.setState({ isCalendar: !this.state.isCalendar });
       }
@@ -45,8 +111,9 @@ export default class BookProcess2  extends Component{
      }
 
     render(){
-       
-
+        
+    
+          
         return(
             <Container >
                 <Header style={{ backgroundColor: "white" }}>
@@ -59,7 +126,11 @@ export default class BookProcess2  extends Component{
                <Text style={{ fontSize: 20,  fontWeight: "bold" }}>Booking Appointments</Text>
            </Body>
            <Right style={{justifyContent: "center" ,alignItems:"center",flexDirection:'row'}}>
-           <Text><Ic name="bell" size={20}></Ic></Text>
+           <TouchableOpacity onPress={()=>{this.props.navigation.navigate("Inbox")}}><ImageBackground source={require('../images/bell.png')} style={{width:18,height:20}}>
+                <Badge style={{borderRadius: 20,width: 20,height: 20,alignSelf: "flex-start",marginLeft:8, marginTop:'-45%'
+                 }}><Text style={{color:'white'}}>6</Text></Badge>
+           </ImageBackground>
+           </TouchableOpacity>
 
            <TouchableOpacity style={{paddingLeft:'25%'}} onPress={()=>{this.props.navigation.openDrawer()}}>
            <Ionicons name="md-menu" size={25}></Ionicons>
@@ -324,16 +395,16 @@ export default class BookProcess2  extends Component{
                     <TouchableOpacity onPress={this._toggleAlertBack}>
                        <View style={{width:110,borderRadius:3,height:50,marginRight:10,
                         backgroundColor:'white',borderWidth:1,
-                        borderColor:'blue',justifyContent:"center",flexDirection:'row',alignItems:"center"
+                        borderColor:'#0764b0',justifyContent:"center",flexDirection:'row',alignItems:"center"
                         }}>
-                       <Text style={{color:'blue',fontWeight:'bold',fontSize:20}}>No</Text>
+                       <Text style={{color:'#0764b0',fontWeight:'bold',fontSize:20}}>No</Text>
                        </View>
                         
                     </TouchableOpacity>
                     <TouchableOpacity  >
                        <View style={{width:110,borderRadius:3,height:50,marginLeft:10,
-                        backgroundColor:'blue',borderWidth:1,
-                        borderColor:'blue',justifyContent:"center",flexDirection:'row',alignItems:"center"
+                        backgroundColor:'#0764b0',borderWidth:1,
+                        borderColor:'#0764b0',justifyContent:"center",flexDirection:'row',alignItems:"center"
                         }}>
                        <Text style={{color:'white',fontWeight:'bold',fontSize:20}}>Yes</Text>
                        </View>
@@ -343,13 +414,14 @@ export default class BookProcess2  extends Component{
                  </View>
                 </Modal>
             {/*   Modal  Calendar  */}
-            <Modal isVisible={this.state.isCalendar}  >
-                    <View style={{height:450}}>
+            <Modal isVisible={this.state.isCalendar} 
+             onBackButtonPress={() => this.setState({ isCalendar: false })} >
+                     <View style={{height:420}}>
                     <Calendar
                         style={{justifyContent:'center',flex:1}}
-                        current={'2019-01-03'}
+                        current={this.state.currentday}
                         markedDates={{
-                            '2019-01-03': {selected: true,  selectedColor: '#00adf5'},
+                            '2019-03-26' : {selected: true, marked: true, selectedColor: '#00adf5'},
                             
                         }}
                         theme={{
@@ -359,7 +431,8 @@ export default class BookProcess2  extends Component{
                             monthTextColor : '#00adf5',
 
                         }}
-                      onDayPress={this._toggleModalCalendar}
+                      onDayPress={(day)=>this.getdate(day.dateString)}
+                      
                         ></Calendar>
                     </View>
                    
@@ -378,16 +451,17 @@ export default class BookProcess2  extends Component{
                             justifyContent:"center",alignItems:'center',flexDirection:'row'}}
                           
                             >
-                            <Text style={{color:'black',fontWeight:'bold'}}>3 Jan 2019</Text>
-                           <Right><AntIcon name='calendar' color="blue" size={25}></AntIcon></Right> 
+                            <Text style={{color:'black',fontWeight:'bold', paddingLeft:'5%'}}>{this.state.date}</Text>
+                           <Right><AntIcon name='calendar' color="#0764b0" size={25}></AntIcon></Right> 
                         </View>
                        </TouchableOpacity>
                    
                     <Right style={{marginRight:'10%'}} >
                     <Button style={{ width:110,borderRadius:3,height:50,
                             borderWidth:1,
-                            borderColor:'blue',
+                            borderColor:'#0764b0',
                             justifyContent:"center",
+                            backgroundColor:'#0764b0'
                             
                            }} onPress={()=>{this.props.navigation.navigate('BookProcess3')}}>
                         <Text style={{ color: "white", fontSize: 20 }} >Next</Text>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet,TouchableOpacity,Alert } from "react-native";
+import { Text, View, ImageBackground,TouchableOpacity,Alert } from "react-native";
 import {
-  Header, Content, Container ,Button,Left,Right,Body, Item,Switch, Input,Label
+  Header, Content, Container ,Button,Left,Right,Body, Item,Switch, Input,Label,Badge
 } from "native-base";
 import styles from "../../App/User/SignIn_SignUp/StyleSignInUp";
 import Ic from 'react-native-vector-icons/FontAwesome';
@@ -49,8 +49,11 @@ export default class MoreSetting extends Component {
            
             </Body>
             <Right style={{justifyContent: "center" ,alignItems:"center",flexDirection:'row'}}>
-            <Text><Ic name="bell" size={20}></Ic></Text>
-
+            <TouchableOpacity onPress={()=>{this.props.navigation.navigate("Inbox")}}><ImageBackground source={require('../images/bell.png')} style={{width:18,height:20}}>
+                <Badge style={{borderRadius: 20,width: 20,height: 20,alignSelf: "flex-start",marginLeft:8, marginTop:'-45%'
+                 }}><Text style={{color:'white'}}>6</Text></Badge>
+           </ImageBackground>
+           </TouchableOpacity>
             <TouchableOpacity style={{paddingLeft:'25%'}} onPress={()=>{this.props.navigation.openDrawer()}} >
             <Ionicons name="md-menu" size={25}></Ionicons>
                  </TouchableOpacity>
@@ -75,7 +78,7 @@ export default class MoreSetting extends Component {
             borderRightWidth:1,
             borderBottomWidth:1
             ,borderColor:'lightgray',
-            color:'lightgray',
+            
             marginTop:10}} />
         </Item>
         <View style={{ paddingHorizontal: "5%", marginTop: 70,flex:1, justifyContent: 'center',flexDirection: 'row',alignItems: 'center',}}>

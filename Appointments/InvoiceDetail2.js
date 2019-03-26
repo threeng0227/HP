@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import { Container,Header, Content,Button, Fab, Body,Right,Left, View, Grid, Row, Col, Footer} from 'native-base';
-import {Text,TouchableOpacity,Image,StyleSheet} from 'react-native';
+import { Container,Header, Content,Button, Badge, Body,Right,Left, View, Grid, Row, Col, Footer} from 'native-base';
+import {Text,TouchableOpacity,Image,StyleSheet,ImageBackground} from 'react-native';
 import HeaderApp from './HeaderApp';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Ic from 'react-native-vector-icons/FontAwesome';
@@ -32,7 +32,11 @@ export default class InvoiceDetail2  extends Component{
                <Text style={{ fontSize: 20,  fontWeight: "bold" }}>Invoice Details</Text>
            </Body>
            <Right style={{justifyContent: "center" ,alignItems:"center",flexDirection:'row'}}>
-           <Text><Ic name="bell" size={20}></Ic></Text>
+           <TouchableOpacity onPress={()=>{this.props.navigation.navigate("Inbox")}}><ImageBackground source={require('./images/bell.png')} style={{width:18,height:20}}>
+                <Badge style={{borderRadius: 20,width: 20,height: 20,alignSelf: "flex-start",marginLeft:8, marginTop:'-45%'
+                 }}><Text style={{color:'white'}}>6</Text></Badge>
+           </ImageBackground>
+           </TouchableOpacity>
 
            <TouchableOpacity style={{paddingLeft:'25%'}} onPress={()=>{this.props.navigation.openDrawer()}}>
            <Ionicons name="md-menu" size={25}></Ionicons>
@@ -155,14 +159,14 @@ export default class InvoiceDetail2  extends Component{
                                 <Text style={{fontSize:20,fontWeight:'bold',color:'#1565c0'}}>$ 27.00</Text></View>
                          <View style={{justifyContent:'center',
                         alignItems:'center',marginTop:'2%',flexDirection:'row'}}>
-                             <Button style={{borderRadius:2,borderColor:'blue',backgroundColor:'white',justifyContent:'center',
-                        alignItems:'center',flexDirection:'row',borderWidth:1,width:'23%'}}><Text style={{color:'blue',fontSize:15}}>15 %</Text></Button>
-                         <Button style={{borderRadius:2,borderColor:'blue',backgroundColor:'white',justifyContent:'center',
+                             <Button style={{borderRadius:2,borderColor:'#0764b0',backgroundColor:'white',justifyContent:'center',
+                        alignItems:'center',flexDirection:'row',borderWidth:1,width:'23%'}}><Text style={{color:'#0764b0',fontSize:15}}>15 %</Text></Button>
+                         <Button style={{borderRadius:2,borderColor:'#0764b0',backgroundColor:'white',justifyContent:'center',
                         alignItems:'center',flexDirection:'row',borderWidth:1,width:'23%',marginLeft:'2%',backgroundColor:'#1565c0'}}><Text style={{color:'white',fontSize:15}}>18 %</Text></Button>
-                        <Button style={{borderRadius:2,borderColor:'blue',backgroundColor:'white',justifyContent:'center',
-                        alignItems:'center',flexDirection:'row',borderWidth:1,width:'23%',marginLeft:'2%'}}><Text style={{color:'blue',fontSize:15}}>20 %</Text></Button>
-                        <Button style={{borderRadius:2,borderColor:'blue',backgroundColor:'white',justifyContent:'center',
-                        alignItems:'center',flexDirection:'row',borderWidth:1,width:'23%',marginLeft:'2%'}}><Text style={{color:'blue',fontSize:15}}>25 %</Text></Button>
+                        <Button style={{borderRadius:2,borderColor:'#0764b0',backgroundColor:'white',justifyContent:'center',
+                        alignItems:'center',flexDirection:'row',borderWidth:1,width:'23%',marginLeft:'2%'}}><Text style={{color:'#0764b0',fontSize:15}}>20 %</Text></Button>
+                        <Button style={{borderRadius:2,borderColor:'#0764b0',backgroundColor:'white',justifyContent:'center',
+                        alignItems:'center',flexDirection:'row',borderWidth:1,width:'23%',marginLeft:'2%'}}><Text style={{color:'#0764b0',fontSize:15}}>25 %</Text></Button>
                          </View>
                     </View>
                    
@@ -170,16 +174,16 @@ export default class InvoiceDetail2  extends Component{
                     <TouchableOpacity onPress={this._toggleModal}>
                        <View style={{width:110,borderRadius:3,height:50,marginRight:10,
                         backgroundColor:'white',borderWidth:1,
-                        borderColor:'blue',justifyContent:"center",flexDirection:'row',alignItems:"center"
+                        borderColor:'#0764b0',justifyContent:"center",flexDirection:'row',alignItems:"center"
                         }}>
-                       <Text style={{color:'blue',fontWeight:'bold',fontSize:20}}>Cancel</Text>
+                       <Text style={{color:'#0764b0',fontWeight:'bold',fontSize:20}}>Cancel</Text>
                        </View>
                         
                     </TouchableOpacity>
                     <TouchableOpacity  onPress={()=>{this.setState({isModalVisible:false}),this.props.navigation.navigate('ReloadAccount')}}>
                        <View style={{width:110,borderRadius:3,height:50,marginLeft:10,
-                        backgroundColor:'blue',borderWidth:1,
-                        borderColor:'blue',justifyContent:"center",flexDirection:'row',alignItems:"center"
+                        backgroundColor:'#0764b0',borderWidth:1,
+                        borderColor:'#0764b0',justifyContent:"center",flexDirection:'column',alignItems:"center"
                         }} >
                        <Text style={{color:'white',fontWeight:'bold',fontSize:20}}>Next</Text>
                        </View>
@@ -193,7 +197,7 @@ export default class InvoiceDetail2  extends Component{
                
              
                   <View style={{ paddingHorizontal: "5%",justifyContent: 'center',marginTop:'1%',flexDirection:'row',marginBottom:20,height:50}}>
-                <Button  style={{width:'50%',borderRadius:3,justifyContent:'flex-end',alignItems:'center',flexDirection:'column'}}
+                <Button  style={{width:'50%',borderRadius:3,justifyContent:'center',backgroundColor:'#0764b0',alignItems:'center',flexDirection:'column'}}
                 onPress={this._toggleModal} >
                   <Text style={{color:'white',fontSize:20,fontWeight:'bold'}}>Next</Text>
                 </Button>

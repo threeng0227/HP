@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import { Container,Header, Left, Button, Body,Right, View, Content, Input, Switch,Fab, ListItem} from 'native-base';
-import {Text,TouchableOpacity,Image} from 'react-native';
+import { Container,Header, Left, Button, Body,Right, View, Content, Input, Switch,Fab, Badge} from 'native-base';
+import {Text,TouchableOpacity,Image,ImageBackground} from 'react-native';
 import HeaderApp from './HeaderApp';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Ic from 'react-native-vector-icons/FontAwesome';
@@ -37,8 +37,11 @@ export default class WishListFavories  extends Component{
                         <Text style={{ fontSize: 20,  fontWeight: "bold" }}>Wish List</Text>
                 </Body>
                 <Right style={{justifyContent: "center" ,alignItems:"center",flexDirection:'row'}}>
-                    <Text><Ic name="bell" size={20}></Ic></Text>
-
+                <TouchableOpacity onPress={()=>{this.props.navigation.navigate("Inbox")}}><ImageBackground source={require('./images/bell.png')} style={{width:18,height:20}}>
+                <Badge style={{borderRadius: 20,width: 20,height: 20,alignSelf: "flex-start",marginLeft:8, marginTop:'-45%'
+                 }}><Text style={{color:'white'}}>6</Text></Badge>
+           </ImageBackground>
+           </TouchableOpacity>
                     <TouchableOpacity style={{paddingLeft:'25%'}} onPress={()=>{this.props.navigation.openDrawer()}}>
                     <Ionicons name="md-menu" size={25}></Ionicons>
                             </TouchableOpacity>
@@ -51,18 +54,18 @@ export default class WishListFavories  extends Component{
               <Content>
               <View style={{marginTop:5}}>
                 <View style={{flexDirection:'row',
-                borderWidth:1,borderColor:'#5d8bf7f7',
+                borderWidth:1,borderColor:'#eee',
                 width:200,borderRadius:5,
-                height:50,backgroundColor:'#5daff7cc',
-                marginBottom:10,
+                height:30,backgroundColor:'#5daff7cc',
+                marginBottom:10,marginLeft:'2%',
                 display:this.state.an}}>
                    <View style={{flexDirection:'column',justifyContent:'center',alignItems:'center'}}>
                    <Text style={{fontSize:20,fontWeight:'bold'}}># Cool Spa</Text></View> 
                    <Right><TouchableOpacity style={{backgroundColor:'#5d8bf7f7',
-                   width:50,height:50,flexDirection:'column',
+                   width:50,height:30,flexDirection:'column',
                    justifyContent:'center',alignItems:'center'
                    }} onPress={()=>this.setState({an:'none'})}>
-                   <Ic name='close' color="white" size={25}></Ic></TouchableOpacity></Right> 
+                   <Ic name='close' color="white" size={22}></Ic></TouchableOpacity></Right> 
                 </View>
                 <View style={{height:200}}>
                     <Image style={styles.imggif} source={require('./images/img.png')}/>
@@ -86,12 +89,12 @@ export default class WishListFavories  extends Component{
               <Fab
             active={this.state.active}
             direction="up"
-            style={{borderRadius:0,width:150,borderRadius:3}}
+            style={{borderRadius:0,width:150,borderRadius:3,backgroundColor:'#0764b0'}}
             containerStyle={{marginRight:40}}
             
             onPress={() => this.setState({ active: !this.state.active })}>
            <Text >Share</Text>
-           <View style={{backgroundColor:'white',width:150,marginLeft:-55,borderRadius:1, flexDirection:'row'}}>
+           <View style={{backgroundColor:'white',width:150,marginLeft:-55,borderRadius:1, borderColor:"#eee", flexDirection:'row'}}>
               
                <Text style={{paddingRight:12}} >Share Wish List
                    </Text>  
