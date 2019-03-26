@@ -58,7 +58,7 @@ export default class SignIn extends React.Component {
 
 Submit_Form_Login = async () =>{
   this.setState({isLoading:true});
-  let respone = await fetch('http://192.168.100.148:81/api/Users/login',{
+  let respone = await fetch('https://hp-api-dev.azurewebsites.net/api/Users/login',{
       method : 'POST',
       headers :{"Content-Type": "application/json"},
       body :JSON.stringify({
@@ -73,7 +73,7 @@ Submit_Form_Login = async () =>{
     Alert.alert(resJson.message);
     setTimeout(()=>{
       this.props.navigation.navigate("SetupPinOrBiometric");
-    },4000)
+    },2000)
   }
   else{
     Alert.alert(resJson.message);

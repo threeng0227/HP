@@ -6,7 +6,6 @@ import {
   Left,
   Right,
   Body,
-  Footer,
   Button,
   Title,
   Content,
@@ -69,50 +68,151 @@ export default class ReloadAccountStep2 extends Component {
     super();
     this.state = {
       isSelected: { backgroundColor: "#0764b0" },
-      textColor: {},
-      price: [],
-      flat : false,
-      flat1 : false
+      flat: false,
+      flat1: false,
+      background1: false,
+      textColor1: false,
+
+      background2: false,
+      textColor2: false,
+
+      background3: false,
+      textColor3: false,
+
+      background4: false,
+      textColor4: false,
+
+      background5: false,
+      textColor5: false,
+
+      money: "$ 0"
     };
   }
-  
+
+  CheckMoney = () => {
+    this.setState({
+      flat: !this.state.flat,
+      flat1 : false
+    });
+  };
+  CheckMoney1 = () => {
+    this.setState({
+      flat1: !this.state.flat1,
+      flat :false
+    });
+  };
   ChoosePrice = (type, value) => {
     switch (type) {
       case "btn1": {
         this.setState({
-          price: value,
-        });
+          background2: false,
+          textColor2: false,
 
-        
+          background3: false,
+          textColor3: false,
+
+          background4: false,
+          textColor4: false,
+
+          background5: false,
+          textColor5: false,
+          background1: !this.state.background1,
+          textColor1: !this.state.textColor1
+        });
+        if(!this.state.background1 && !this.state.textColor1){
+          this.setState({money:value})
+        }else{this.setState({money:'$ 0'})}
+        break;
       }
       case "btn2": {
-        this.setState({ price: value});
+        this.setState({
+          background1: false,
+          textColor1: false,
+
+          background3: false,
+          textColor3: false,
+
+          background4: false,
+          textColor4: false,
+
+          background5: false,
+          textColor5: false,
+          money: value,
+          background2: !this.state.background2,
+          textColor2: !this.state.textColor2
+        });
+        if(!this.state.background2 && !this.state.textColor2){
+          this.setState({money:value})
+        }else{this.setState({money:'$ 0'})}
+        break;
       }
       case "btn3": {
-        this.setState({ price: value});
+        this.setState({
+          background1: false,
+          textColor1: false,
+
+          background2: false,
+          textColor2: false,
+
+          background4: false,
+          textColor4: false,
+
+          background5: false,
+          textColor5: false,
+          money: value,
+          background3: !this.state.background3,
+          textColor3: !this.state.textColor3
+        });
+        if(!this.state.background3 && !this.state.textColor3){
+          this.setState({money:value})
+        }else{this.setState({money:'$ 0'})}
+        break;
       }
       case "btn4": {
-        this.setState({ price: value});
+        this.setState({
+          background1: false,
+          textColor1: false,
+
+          background2: false,
+          textColor2: false,
+
+          background3: false,
+          textColor3: false,
+          background5: false,
+          textColor5: false,
+          money: value,
+          background4: !this.state.background4,
+          textColor4: !this.state.textColor4
+        });
+        if(!this.state.background4 && !this.state.textColor4){
+          this.setState({money:value})
+        }else{this.setState({money:'$ 0'})}
+        break;
       }
       case "btn5": {
-        this.setState({ price: value});
+        this.setState({
+          background1: false,
+          textColor1: false,
+
+          background2: false,
+          textColor2: false,
+
+          background3: false,
+          textColor3: false,
+
+          background4: false,
+          textColor4: false,
+          money: value,
+          background5: !this.state.background5,
+          textColor5: !this.state.textColor5
+        });
+        if(!this.state.background5 && !this.state.textColor5){
+          this.setState({money:value})
+        }else{this.setState({money:'$ 0'})}
+        break;
       }
     }
   };
-  CheckMoney = (type) =>{
-    switch (type) {
-      case "chk1": {
-        this.setState({
-          flat: true,
-        });
-
-        
-      }
-      case "chk2": {
-        this.setState({ flat1: true});
-      }
-    }
-  }
   render() {
     return (
       <Container>
@@ -166,45 +266,103 @@ export default class ReloadAccountStep2 extends Component {
                 <Input
                   style={reload.DisPlayMoney}
                   disabled={true}
-                  value={this.state.price}
+                  value={this.state.money}
                 />
                 <View style={reload.LayoutPrice}>
                   <Button
-                    style={[reload.btnPrice]}
+                    style={[
+                      reload.btnPrice,
+                      this.state.background1
+                        ? { backgroundColor: "#0764b0" }
+                        : null
+                    ]}
                     bordered
                     onPress={value => this.ChoosePrice("btn1", "$ 50")}
                   >
-                    <Text style={[reload.ColorText]}>
+                    <Text
+                      style={[
+                        reload.ColorText,
+                        this.state.textColor1 ? { color: "white" } : null
+                      ]}
+                    >
                       $ 50
                     </Text>
                   </Button>
                   <Button
-                    style={[reload.btnPrice]}
+                    style={[
+                      reload.btnPrice,
+                      this.state.background2
+                        ? { backgroundColor: "#0764b0" }
+                        : null
+                    ]}
                     bordered
                     onPress={value => this.ChoosePrice("btn2", "$ 100")}
                   >
-                    <Text style={reload.ColorText}>$ 100</Text>
+                    <Text
+                      style={[
+                        reload.ColorText,
+                        this.state.textColor2 ? { color: "white" } : null
+                      ]}
+                    >
+                      $ 100
+                    </Text>
                   </Button>
                   <Button
-                    style={reload.btnPrice}
+                    style={[
+                      reload.btnPrice,
+                      this.state.background3
+                        ? { backgroundColor: "#0764b0" }
+                        : null
+                    ]}
                     bordered
                     onPress={value => this.ChoosePrice("btn3", "$ 200")}
                   >
-                    <Text style={reload.ColorText}>$ 200</Text>
+                    <Text
+                      style={[
+                        reload.ColorText,
+                        this.state.textColor3 ? { color: "white" } : null
+                      ]}
+                    >
+                      $ 200
+                    </Text>
                   </Button>
                   <Button
-                    style={reload.btnPrice}
+                    style={[
+                      reload.btnPrice,
+                      this.state.background4
+                        ? { backgroundColor: "#0764b0" }
+                        : null
+                    ]}
                     bordered
                     onPress={value => this.ChoosePrice("btn4", "$ 500")}
                   >
-                    <Text style={reload.ColorText}>$ 500</Text>
+                    <Text
+                      style={[
+                        reload.ColorText,
+                        this.state.textColor4 ? { color: "white" } : null
+                      ]}
+                    >
+                      $ 500
+                    </Text>
                   </Button>
                   <Button
-                    style={reload.btnPrice}
+                    style={[
+                      reload.btnPrice,
+                      this.state.background5
+                        ? { backgroundColor: "#0764b0" }
+                        : null
+                    ]}
                     bordered
                     onPress={value => this.ChoosePrice("btn5", "$ 1000")}
                   >
-                    <Text style={reload.ColorText}>$ 1000</Text>
+                    <Text
+                      style={[
+                        reload.ColorText,
+                        this.state.textColor5 ? { color: "white" } : null
+                      ]}
+                    >
+                      $ 1000
+                    </Text>
                   </Button>
                 </View>
               </Body>
@@ -223,12 +381,20 @@ export default class ReloadAccountStep2 extends Component {
                       { marginVertical: "7%" }
                     ]}
                   >
-                    <CheckBox style={reload.Checkbox}  onPress={() => this.CheckMoney("chk1")} checked={this.state.flat} />
+                    <CheckBox
+                      style={reload.Checkbox}
+                      onPress={this.CheckMoney}
+                      checked={this.state.flat}
+                    />
                     <Image source={require("./ImgSelectAccount/visa.png")} />
                     <Text>dfgfhgfjgfgfd33</Text>
                   </View>
                   <View style={[reload.LayoutPrice, reload.subLayout]}>
-                    <CheckBox style={reload.Checkbox} onPress={() => this.CheckMoney("chk2")}  checked={this.state.flat1} />
+                    <CheckBox
+                      style={reload.Checkbox}
+                      onPress={this.CheckMoney1}
+                      checked={this.state.flat1}
+                    />
                     <Image source={require("./ImgSelectAccount/bank.png")} />
                     <Text>dfgfhgfjgfgfd33</Text>
                   </View>
@@ -243,7 +409,7 @@ export default class ReloadAccountStep2 extends Component {
                       }
                     ]}
                   >
-                    <Button style={reload.Checkbox}>
+                    <Button style={reload.Checkbox} onPress={()=>this.props.navigation.navigate('AddBankAndCard')} >
                       <Image source={require("./ImgSelectAccount/plus.png")} />
                     </Button>
                     <Text style={{ paddingHorizontal: "5%" }}>
@@ -262,7 +428,6 @@ export default class ReloadAccountStep2 extends Component {
               }}
             >
               <Text style={{ color: "white", fontSize: 16, fontWeight: "800" }}>
-
                 Reload
               </Text>
             </Button>

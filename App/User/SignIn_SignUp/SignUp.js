@@ -55,7 +55,7 @@ export default class SignUp extends Component {
       Alert.alert("Password not same!!");
     }
       else  if (this.state.Password === this.state.ConfirmPass) {
-      let url = "http://192.168.100.148:81/api/Users";
+      let url = "https://hp-api-dev.azurewebsites.net/api/Users";
       fetch(url, {
         method: "POST",
         body: JSON.stringify({

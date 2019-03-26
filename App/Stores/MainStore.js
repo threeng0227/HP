@@ -5,7 +5,7 @@ import { Input, Container,Left,Right,Header,Body,Button, Content } from "native-
 import Icon from "react-native-vector-icons/Entypo";
 import Ic from "react-native-vector-icons/FontAwesome";
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
+import { Rating } from 'react-native-ratings';
 import IcAwe5 from'react-native-vector-icons/FontAwesome5';
 const Harmony = [
   {
@@ -53,15 +53,24 @@ export default class MainStore extends Component {
     super();
     this.state = {
       Data: Harmony,
-      isColor: {}
+      isColor: [],
+      like :[]
     };
   }
-  Like = () => {
-    this.setState({
-      isColor: { color: "red" }
-    });
+  componentWillMount(){
+    let Data = this.state.Data;
+    let like = this.state.like;
+    let initiallike = Data.map(x=>false);
+    this.setState({like:initiallike});
+  }
+  Like = (index) => {
+    let like = [...this.state.like];
+    like[index] = !like[index]; 
+    this.setState({like});
   };
   render() {
+    let Data = this.state.Data;
+    let like = this.state.like;
     return (
       <Container>
         
@@ -107,7 +116,7 @@ export default class MainStore extends Component {
             style={{ width: "96%", flex: 
           3 }}
             data={this.state.Data}
-            renderItem={({ item }) => (
+            renderItem={({ item,index }) => (
               <TouchableOpacity onPress={()=>{this.props.navigation.navigate('TabStores')}}>
               <View style={Store.LayoutList}>
              
@@ -121,7 +130,9 @@ export default class MainStore extends Component {
                   <Text style={{ fontSize: 18, color: "black" }}>
                     {item.title}
                   </Text>
-                  <Text>Danh gia</Text>
+                  <View style={{alignSelf:'flex-start',marginVertical:'1%'}}>
+                  <Rating type="star" readonly imageSize={15} />
+                  </View>
                   <View style={[Store.Search,{paddingHorizontal:0}]}>
                     <Icon name="clock" style={Store.IconInList} />
                     <Text >{item.time}</Text>
@@ -132,10 +143,11 @@ export default class MainStore extends Component {
                   </View>
                 </View>
                 <View style={Store.IconHeart}>
+                  
                   <Icon
                     name="heart"
-                    style={[this.state.isColor, { fontSize: 30 }]}
-                    onPress={this.Like.bind(this)}
+                    style={[like[index] ?{color:'red'} :{color:'black'} , { fontSize: 30 }]}
+                    onPress={() => this.Like(index)}
                   />
                 </View>
                 
