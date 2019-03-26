@@ -39,48 +39,43 @@ export default class TranferNext extends Component {
                    </TouchableOpacity>
            </Right>
       </Header>
-          
-        <View style={{
-        flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',marginLeft:'3%',marginRight:'3%',marginTop:'3%'
-      }}>
-        <View style={{ justifyContent: 'flex-start',alignItems: 'center',flex:6,width: 340,borderWidth:0.5,borderColor:'#EEEEEE',borderRadius:5 }} >
-        <Image style={{height:85,width:85,marginTop:'6%'}}
+          <Content >
+   
+        <View style={{ flexDirection: 'column',margin:'3%', alignItems: 'center',height:430,width: 340,borderWidth:2,borderColor:'#dfdfdf',borderRadius:5 }} >
+        <Image style={{height:85,width:85,marginTop:'3%'}}
             source={require('../Appointments/images/Group2.png')} 
                 />
                   <Text style={{fontSize:15,color:'black',marginTop:'3%'}}>Harmony Account</Text>
                   <Text style={{fontSize:14,}}>JERRY NGUYEN</Text>
                   <Text style={{fontSize:18,color:'black',marginTop:'3%'}}>Available blance</Text>
-                <View style={{justifyContent: 'center',alignItems: 'center',margin:'4%',borderWidth:1,width:300,borderColor:'#EEEEEE',height:40}}>
+                <View style={{justifyContent: 'center',alignItems: 'center',margin:'2%',borderWidth:2,width:300,borderColor:'#dfdfdf',height:40}}>
                     
-                    <Text style={{fontSize:17,color:'green',fontWeight:'bold',marginTop:'3%'}}>$ 764.00</Text>
+                    <Text style={{fontSize:17,color:'green',fontWeight:'bold',marginTop:'2%'}}>$ 764.00</Text>
                 </View>
                 <Text style={{fontSize:16,color:'black',marginLeft:'-8%'}}>Select bank account to  tranfer money</Text>
-                <View style={{justifyContent: 'center',alignItems: 'center',margin:'4%',borderWidth:1,width:300,borderColor:'#EEEEEE',flexDirection:'row',height:90}}>
-               <View style={{flex:1,justifyContent:'center',alignItems:'center',margin:'2%',borderWidth:0.5,borderColor:'skyblue',height:70,width:50}}>
-                <Image style={{height:45,width:45,marginBottom:'3%'}}
+                <View style={{justifyContent: 'center',alignItems: 'center',margin:'4%',borderWidth:2,width:300,borderColor:'#dfdfdf',flexDirection:'row',height:85}}>
+               <View style={{flex:1,justifyContent:'center',alignItems:'center',margin:'2%',borderWidth:0.5,borderColor:'skyblue',height:65,width:50}}>
+                <Image style={{height:45,width:45,marginBottom:'4%'}}
             source={require('../Appointments/images/nganhang2.png')} 
                 /></View>
-                <View style={{flex:2,flexDirection:'column'}}>
+                <View style={{flexDirection:'column'}}>
              <Text style={{fontSize:14,color:'black',marginLeft:'3%'}}>Bank of America</Text>
              <Text style={{fontSize:14,color:'black',marginLeft:'6%',marginTop:'3%'}}>**** **** **** **** 5565</Text></View>
              
         </View>
-        <View style={{paddingTop:'3%',height:40,flexDirection:'row',alignItems:'center',flex:1,justifyContent:'center',marginBottom:'6%',borderWidth:0.5,borderColor:'#EEEEEE',marginRight:'6%',marginLeft:'6%'}}>
+        <View style={{paddingTop:'3%',height:45,flexDirection:'row',alignItems:'center',justifyContent:'center',marginBottom:'6%',borderWidth:0.5,borderColor:'#dfdfdf',marginRight:'6%',marginLeft:'6%'}}>
                 <View style={{flex:1,}}>
                 <Icon style={site.ic} name="md-add-circle" check={this.state.checkic} onPress={()=> this.iconPressed()} /></View>
                 <View style={{flex:3,}}><Text style={{color:'black'}}>Add Bank Account</Text></View>
              </View>
         </View>
-    
-      
-        
-        <View style={{justifyContent: 'flex-end',alignItems: 'center',flex:1,width: 340, height: 200 }} >
+        <View style={{justifyContent: 'center',alignItems: 'center',width: '100%' ,flexDirection:'row',flex:1}} >
             <Button  style={site.btn} onPress={()=>{this.props.navigation.navigate('TransferTT')}}><Text style={site.btn1}> Next </Text></Button> 
         </View>
-      </View>
+        
+        </Content>
+        
+       
         
    
       </Container>
@@ -102,9 +97,9 @@ var site=StyleSheet.create({
     color:'#00BFFF',
   },
   btn:{
-    backgroundColor:'#00B2EE',
+    backgroundColor:'#0764b0',
   width:'40%',
-  marginLeft:'30%',
+  marginBottom:'2%',
   borderRadius: 4,
   justifyContent: 'center',
     alignItems:'center'
@@ -116,7 +111,7 @@ var site=StyleSheet.create({
    },
    ic:{
     
-      color:"#00B2EE",
+      color:"#0764b0",
       marginLeft:'15%',
       fontSize:34,
       

@@ -26,17 +26,12 @@ export default class TransferTT extends Component {
                    </TouchableOpacity>
            </Right>
       </Header>
-          
-        <View style={{
-        flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',marginLeft:'3%',marginRight:'3%',marginTop:'3%'
-      }}>
-        <View style={{ justifyContent: 'flex-start',alignItems: 'flex-start',flex:6,width: 340,borderWidth:0.5,borderColor:'#EEEEEE',borderRadius:5 }} >
+          <Content>
+       
+        <View style={{flexDirection: 'column',margin:'3%',alignItems: 'flex-start',height:460,width: 340,borderWidth:1,borderColor:'#dfdfdf',borderRadius:5 }} >
            <Text style={{fontSize:16,color:'black',marginTop:'5%',marginLeft:'5%'}}>Input amount to tranfer: </Text>
-           <View style={{justifyContent: 'center',alignItems: 'center',margin:'4%',borderWidth:1,width:310,borderColor:'#EEEEEE',height:40}}>    
-                <Text style={{fontSize:17,color:'lightgreen',fontWeight:'bold',marginTop:'3%'}}>$ 300</Text>
+           <View style={{justifyContent: 'center',alignItems: 'center',margin:'4%',borderWidth:1,width:310,borderColor:'#dfdfdf',height:40}}>    
+                <Text style={{fontSize:17,color:'#2ebe03',fontWeight:'bold',marginTop:'3%'}}>$ 300</Text>
            </View>
            <View style={{flexDirection:'row',marginLeft:'2%'}}>
                 <Button  style={site.btnM}><Text style={site.btnm}> $ 50 </Text></Button> 
@@ -46,33 +41,33 @@ export default class TransferTT extends Component {
                 <Button  style={site.btnM}><Text style={site.btnm}> $ 1000 </Text></Button> 
            </View>
            <Text style={{fontSize:16,color:'black',marginTop:'4%',marginLeft:'5%'}}>Receiving account: </Text>
-           <View style={{justifyContent: 'center',alignItems: 'center',margin:'4%',borderWidth:1,width:310,borderColor:'#EEEEEE',flexDirection:'row',height:90}}>
-                <View style={{flex:1,justifyContent:'center',alignItems:'center',marginTop:'3%',marginLeft:'2%',borderWidth:0.5,borderColor:'skyblue',height:70,width:50}}>
-                    <Image style={{height:45,width:45,marginBottom:'2%'}}
+           <View style={{justifyContent: 'center',alignItems: 'center',margin:'4%',borderWidth:1,width:310,borderColor:'#dfdfdf',flexDirection:'row',height:90}}>
+                <View style={{flex:1,justifyContent:'center',alignItems:'center',marginTop:'3%',marginLeft:'2%',borderWidth:1,borderColor:'skyblue',height:70,width:50}}>
+                    <Image style={{height:45,width:45,marginBottom:'4%'}}
                 source={require('../Appointments/images/nganhang2.png')} 
                     /></View>
                     <View style={{flex:2,flexDirection:'column'}}>
-                <Text style={{fontSize:14,color:'black',marginLeft:'3%'}}>Bank of America</Text>
+                <Text style={{fontSize:14,color:'black',marginLeft:'5%'}}>Bank of America</Text>
                 <Text style={{fontSize:14,color:'black',marginLeft:'6%',marginTop:'3%'}}>**** **** **** **** 5565</Text></View>           
              </View>
-             <View style={{justifyContent: 'center',alignItems: 'center',marginRight:'4%',marginLeft:'4%',marginTop:'2%',width:310,borderColor:'#EEEEEE',flexDirection:'row',height:40}}>
+             <View style={{justifyContent: 'center',alignItems: 'center',marginRight:'4%',marginLeft:'4%',marginTop:'2%',width:310,borderColor:'#dfdfdf',flexDirection:'row',height:40}}>
              <Text style={{fontSize:15,color:'black',flex:1,marginLeft:'3%',marginTop:'2%'}}>Tranfer free (1%):</Text>
-             <Text style={{fontSize:16,color:'#00B2EE',fontWeight:'bold',flex:1,marginRight:'-64%',marginTop:'2%'}}>$ 0.00</Text>
+             <Text style={{fontSize:16,color:'#0764b0',fontWeight:'bold',flex:1,marginRight:'-64%',marginTop:'2%'}}>$ 0.00</Text>
         </View>
-        <View style={{justifyContent: 'center',alignItems: 'center',marginRight:'4%',marginLeft:'4%',marginTop:'2%',width:310,borderColor:'#EEEEEE',flexDirection:'row',height:40}}>
+        <View style={{justifyContent: 'center',alignItems: 'center',marginRight:'4%',marginLeft:'4%',marginTop:'2%',width:310,borderColor:'#dfdfdf',flexDirection:'row',height:40}}>
              <Text style={{fontSize:15,color:'black',flex:1,marginLeft:'3%',marginTop:'2%'}}>Total:</Text>
-             <Text style={{fontSize:20,color:'#00B2EE',fontWeight:'bold',flex:1,marginRight:'-40%',marginTop:'2%'}}>$ 300.00</Text>
+             <Text style={{fontSize:20,color:'#0764b0',fontWeight:'bold',flex:1,marginRight:'-40%',marginTop:'2%'}}>$ 300.00</Text>
         </View>
-        <View style={{justifyContent: 'center',alignItems: 'center',marginRight:'4%',marginLeft:'4%',marginTop:'2%',width:310,borderColor:'#EEEEEE',flexDirection:'row',height:40}}>
+        <View style={{justifyContent: 'center',alignItems: 'center',marginRight:'4%',marginLeft:'4%',marginTop:'2%',width:310,borderColor:'#dfdfdf',flexDirection:'row',height:40}}>
              <Text style={{fontSize:15,color:'black',flex:1,marginLeft:'3%',marginTop:'2%'}}>Your balance:</Text>
-             <Text style={{fontSize:20,color:'lightgreen',fontWeight:'bold',flex:1,marginRight:'-40%',marginTop:'2%'}}>$ 764.00</Text>
+             <Text style={{fontSize:20,color:'#2ebe03',fontWeight:'bold',flex:1,marginRight:'-40%',marginTop:'2%'}}>$ 764.00</Text>
         </View>
         </View>
-        <View style={{justifyContent: 'flex-end',alignItems: 'center',flex:1,width: 340, height: 200 }} >
+        <View style={{justifyContent: 'center',alignItems: 'center',width: '100%' ,flexDirection:'row',flex:1}} >
             <Button  style={site.btn}  onPress={()=>{this.props.navigation.navigate('TransactionSend5')}}><Text style={site.btn1}> Tranfer </Text></Button> 
         </View>
-      </View>
-     
+      
+      </Content>
       </Container>
     );
   }
@@ -92,12 +87,12 @@ var site=StyleSheet.create({
     color:'#00BFFF',
   },
   btn:{
-    backgroundColor:'#00B2EE',
-  width:'40%',
-  marginLeft:'30%',
-  borderRadius: 4,
-  justifyContent: 'center',
-    alignItems:'center'
+    backgroundColor:'#0764b0',
+    width:'40%',
+    marginBottom:'2%',
+    borderRadius: 4,
+    justifyContent: 'center',
+      alignItems:'center'
   },
 
   btn1:{
@@ -107,14 +102,14 @@ var site=StyleSheet.create({
    },
    ic:{
     
-      color:"#00B2EE",
+      color:"#0764b0",
       marginLeft:'15%',
       fontSize:34,
       
   },
   btnM:{
       backgroundColor:'white',
-    borderColor:'#00B2EE',
+    borderColor:'#0764b0',
   width:'17.4%',
   margin:'1%',
   borderRadius: 5,
@@ -125,7 +120,7 @@ var site=StyleSheet.create({
   },
   btnm:{
    
-    color:'#00B2EE',
+    color:'#0764b0',
     fontSize:14,
     },
 });

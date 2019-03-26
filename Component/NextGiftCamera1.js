@@ -61,13 +61,13 @@ export default class NextGiftCamera1 extends Component {
             <Text style={{fontSize:18,color:'black',marginBottom:'3%',marginTop:'3%'}}>
                 Message:
             </Text>
-            <View ><Textarea style={{borderRadius:4,borderColor:'#EEEEEE',height:100,borderWidth:1,paddingLeft:'2%',paddingTop:'3%'}} rowSpan={5} bordered placeholder="Say something... !" /></View>
+            <View ><Textarea style={{borderRadius:4,borderColor:'#EEEEEE',height:100,borderWidth:1,paddingLeft:'2%',paddingTop:'3%',marginBottom:'2%'}} rowSpan={5} bordered placeholder="Say something... !" /></View>
             </View>
             
       </View>
       </Content>
-      <View style={{width: 340, height: 60,}} >
-                <Button primary style={site.btn} onPress={()=>{this.props.navigation.navigate('SelectAccountGift')}}><Text style={site.btn1} > Next </Text></Button>  
+      <View style={{justifyContent: 'center',alignItems: 'center',width: '100%' ,flexDirection:'row', height: 50,}} >
+                <Button  style={site.btn} onPress={()=>{this.props.navigation.navigate('SelectAccountGift')}}><Text style={site.btn1} > Next </Text></Button>  
             </View>
  
        
@@ -90,12 +90,12 @@ var site=StyleSheet.create({
     color:'#00BFFF',
   },
   btn:{
+    backgroundColor:'#0764b0',
+    width:'40%',
     
-    marginTop:'2%',  
-  width:'38%',
-  marginLeft:'32%',
-  borderRadius: 4,
-    justifyContent:'center'
+    borderRadius: 4,
+    justifyContent: 'center',
+      alignItems:'center'
   },
   btn1:{
    
