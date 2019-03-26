@@ -28,34 +28,34 @@ export default class SendMoney914 extends Component {
                    </TouchableOpacity>
            </Right>
       </Header>
-      <Tabs  tabContainerStyle={{borderTopLeftRadius:20,borderTopRightRadius:20,borderBottomLeftRadius:20,borderBottomRightRadius:20,height:40}} style={{marginTop:'5%',marginRight:'2%',marginLeft:'2%'}} tabBarUnderlineStyle={{backgroundColor:'#00B2EE' ,width:'40%',marginLeft:20, borderColor : '#00B2EE' , borderBottomWidth : 0 , borderBottomColor : '#00B2EE'}} >
-        <Tab  activeTabStyle={{backgroundColor:'#00B2EE',borderTopLeftRadius:20,borderBottomLeftRadius:20}}  heading="Send money" textStyle={{color:'#00B2EE'}} tabStyle={{backgroundColor:'white',borderTopLeftRadius:20,borderBottomLeftRadius:20}}>
+      <Tabs  tabContainerStyle={{borderTopLeftRadius:10,borderTopRightRadius:10,borderBottomLeftRadius:10,borderBottomRightRadius:10,height:40}} style={{marginTop:'5%',marginRight:'3%',marginLeft:'3%'}} tabBarUnderlineStyle={{width:0}} >
+        <Tab  activeTabStyle={{backgroundColor:'#0764b0',borderTopLeftRadius:10,borderBottomLeftRadius:10,borderColor:'#0764b0',borderWidth:1}} activeTextStyle={{fontWeight:'100'}}  heading="Send money" textStyle={{color:'#0764b0',fontWeight:'500'}} tabStyle={{backgroundColor:'white',borderTopLeftRadius:10,borderBottomLeftRadius:10,borderColor:'#0764b0',borderWidth:1}}>
         <View style={site.view1}>              
-                <Text style={{color:'black',fontSize:16,paddingLeft:'5%',paddingTop:'4%'}}>
+                <Text style={{color:'black',fontSize:16,paddingLeft:'5%',paddingTop:'4%',flex:1,}}>
                     Your balance:
                 </Text>
-                <Text style={{color:'green',fontSize:21,marginLeft:'30%',paddingTop:'3%'}}>
+                <Text style={{color:'#34c00b',fontSize:21,paddingTop:'3%',fontWeight:'600',flex:1,textAlign:'right',paddingRight:'5%'}}>
                     $ 914.00
                 </Text>   
                 </View>
             
-                <Button primary style={site.btn}
+                <Button  style={site.btn}
                 onPress={()=>{this.props.navigation.navigate('Process1SendMoney')}}
                ><Text style={site.btn1}> Send money </Text></Button> 
           <Tabsend914 />
         </Tab>
-        <Tab  activeTabStyle={{backgroundColor:'#00B2EE',borderTopRightRadius:20,borderBottomRightRadius:20}} heading="Request money" textStyle={{color:'#00B2EE'}} tabStyle={{backgroundColor:'white',borderTopRightRadius:20,borderBottomRightRadius:20}} >
+        <Tab  activeTabStyle={{backgroundColor:'#0764b0',borderTopRightRadius:10,borderBottomRightRadius:10,borderColor:'#0764b0',borderWidth:1}} activeTextStyle={{fontWeight:'100'}} heading="Request money" textStyle={{color:'#0764b0',fontWeight:'500'}} tabStyle={{backgroundColor:'white',borderTopRightRadius:10,borderBottomRightRadius:10,borderColor:'#0764b0',borderWidth:1}} >
         <View style={site.view1}>              
-              <Text style={{color:'black',fontSize:16,paddingLeft:'5%',paddingTop:'4%'}}>
-                  Your balance:
-              </Text>
-              <Text style={{color:'green',fontSize:21,paddingLeft:'33%',paddingTop:'3%'}}>
-                  $ 764.00
-              </Text>   
+        <Text style={{color:'black',fontSize:16,paddingLeft:'5%',paddingTop:'4%',flex:1,}}>
+                    Your balance:
+                </Text>
+                <Text style={{color:'#34c00b',fontSize:21,paddingTop:'3%',fontWeight:'600',flex:1,textAlign:'right',paddingRight:'5%'}}>
+                    $ 914.00
+                </Text>   
               </View>
           
-              <Button primary style={site.btn}
-              onPress={()=>{this.props.navigation.navigate('Process1SendMoney')}}
+              <Button  style={site.btn}
+              onPress={()=>{this.props.navigation.navigate('SelectSendRquest1')}}
               ><Text style={site.btn1}> Send request </Text></Button> 
           <Tabrequest />
         </Tab>
@@ -69,16 +69,7 @@ export default class SendMoney914 extends Component {
 }
 var site=StyleSheet.create({
 
-  btn:{
-    height:50,
-width:'43%',
-marginBottom:'3%',
-marginLeft:'32%',
-marginTop:'3%',
-borderRadius: 4,
-justifyContent: 'center',
-  alignItems:'center'
-},
+  
   view1:{
       height:50,
       marginLeft:'4%',
@@ -90,10 +81,20 @@ justifyContent: 'center',
      
       flexDirection:'row'
   },
- 
+  btn:{
+    backgroundColor:'#0764b0',
+  height:47,
+width:'43%',
+marginBottom:'2%',
+marginLeft:'30%',
+marginTop:'3%',
+borderRadius: 4,
+justifyContent: 'center',paddingTop:'3%'
+
+},
     btn1:{
-        marginTop:'10%',
+        fontWeight:'600',
      color:'white',
-     fontSize:16,
+     fontSize:16,textAlign:'center'
      }
 });

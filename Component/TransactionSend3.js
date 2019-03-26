@@ -17,7 +17,7 @@ export default class TransactionSend extends Component {
    
   }
   componentDidMount() {
-    setTimeout(()=>{this.props.navigation.navigate('PayTransactionSuccess')}, 3000); 
+    setTimeout(()=>{this.props.navigation.navigate('PayTransactionSuccess')}, 1000); 
   }
   render() {
    
@@ -52,7 +52,7 @@ export default class TransactionSend extends Component {
                   />
           </View>
           <View style={{ justifyContent: 'center',alignItems: 'center',flex:1,width: 350, height: 50, }} >
-          <Text style={{fontSize:21,color:'skyblue'}}>Transaction processing ...</Text>
+          <Text style={{fontSize:21,color:'#0764b0'}}>Transaction processing ...</Text>
           </View>
           <View style={{ justifyContent: 'flex-start',alignItems: 'center',flex:2,width: 350, height: 50, }} >
           <Text>You will receive a notification when</Text>

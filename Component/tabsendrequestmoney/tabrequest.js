@@ -36,9 +36,9 @@ export default class Tabrequest extends React.Component{
               $ 10
               </Text>
            </View>
-           <View style={{flex: 1}}>
-              <Text style={{paddingLeft:'45%',paddingTop:'19%',fontStyle:"italic"}}>
-              Paid
+           <View style={{flex: 1,justifyContent: 'flex-start'}}>
+              <Text style={{paddingTop:'19%',fontStyle:"italic"}}>
+              UnPaid
               </Text>
             </View>
       </View>
@@ -66,8 +66,8 @@ export default class Tabrequest extends React.Component{
               $ 50
               </Text>
            </View>
-           <View style={{flex: 1}}>
-              <Text style={{paddingLeft:'45%',paddingTop:'19%',fontStyle:"italic"}}>
+           <View style={{flex: 1,justifyContent: 'flex-start'}}>
+              <Text style={{paddingTop:'19%',fontStyle:"italic"}}>
               Paid
               </Text>
             </View>
@@ -95,14 +95,14 @@ export default class Tabrequest extends React.Component{
               $ 50
               </Text>
            </View>
-           <View style={{flex: 1}}>
-              <Text style={{paddingLeft:'45%',paddingTop:'19%',fontStyle:"italic"}}>
+           <View style={{flex: 1,justifyContent: 'flex-start',}}>
+              <Text style={{paddingTop:'19%',fontStyle:"italic"}}>
               Paid
               </Text>
             </View>
       </View>
       
-      <View style={site.view}>
+      <View style={site.view2}>
         <View style={{flex: 2}}>
         <Text style={site.txt}>
         Jan 11 2019
@@ -125,9 +125,9 @@ export default class Tabrequest extends React.Component{
           $ 50
           </Text>
         </View>
-        <View style={{flex: 1}}>
-        <Text style={{paddingLeft:'45%',paddingTop:'19%',fontStyle:"italic"}}>
-            Paid
+        <View style={{flex: 1,justifyContent: 'flex-start',}}>
+        <Text style={{paddingTop:'19%',fontStyle:"italic"}}>
+            Pending
           </Text>
          
         </View>
@@ -141,36 +141,24 @@ export default class Tabrequest extends React.Component{
 }
 var site=StyleSheet.create({
     view2:{
-        backgroundColor:'#EEEEEE',
+      backgroundColor:'#fafafa',
+      borderColor:'#EEEEEE',
        flex:1,
         borderRadius: 5,
         height:110,
         margin:'2%',      
         flexDirection:'row',
+        borderWidth:1
       },
     txt:{
-        paddingLeft:'12%',paddingTop:'7.5%'
+        paddingLeft:'12%',paddingTop:'7.5%',color:'black'
       },
-      txtpend:{
-          color:'white',
-        paddingLeft:'18%',paddingTop:'15%'
-      },
+     
       txt1:{
         paddingTop:'8%',
-        fontSize:13
+        fontSize:13,color:'black'
       },
-      txtpend1:{color:'white',
-        paddingLeft:'18%',paddingTop:'7.5%'
-      },
-
-      view:{
-        backgroundColor:'#EEEEEE',
-        borderRadius: 5,
-        height:110,
-       
-        margin:'2%',
-        flexDirection:'row',
-      },
+  
       viewpend:{
         backgroundColor:'#1874CD',
         borderRadius: 5,

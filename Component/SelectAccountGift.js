@@ -52,7 +52,7 @@ export default class PayRquest extends Component {
         
         <View style={{flex:1,flexDirection:'column'}}> 
          <View style={{marginLeft:'4%',marginRight:'4%',borderRadius:4,borderWidth:0.5,borderColor:'#EEEEEE',paddingTop:'5%',padding:'3%'}}>
-            <Text style={{fontSize:18,color:'black',marginBottom:'3%'}}>
+            <Text style={{fontSize:18,color:'black',marginBottom:'5%'}}>
             Select the account for payment
             </Text>
             <View style={{height:47,flexDirection:'row',alignItems:'center',flex:1,justifyContent:'center',marginBottom:'6%'}}>
@@ -85,34 +85,34 @@ export default class PayRquest extends Component {
                   <Text style={{color:'black'}}>Bank America</Text>
                   <Text style={{color:'black'}}>**** **** **** **** 5565</Text>
                 </View>
-            </View>
+            </View>     
              <View style={{paddingTop:'3%',height:47,flexDirection:'row',alignItems:'center',flex:1,justifyContent:'center',marginBottom:'6%'}}>
                 <View style={{flex:1}}>
                 <Icon style={site.ic} name="md-add-circle" check={this.state.checkic} onPress={()=> this.iconPressed()} /></View>
                 <View style={{flex:4}}><Text style={{color:'black'}}>Add a bank account or card</Text></View>
              </View>
               </View> 
-              <View style={{flex:1}}>
-
-              <View style={site.view}>
-                <Button  style={site.btn}><Text style={site.btn1}
-                onPress={()=>{this.props.navigation.navigate('GiftCardContactManually')}}> Next </Text></Button> 
-              </View>
-              </View>
+             
           </View>
         </Content>
-     
+        
+
+<View style={site.view}>
+  <Button  style={site.btn}><Text style={site.btn1}
+  onPress={()=>{this.props.navigation.navigate('GiftCardContactManually')}}> Next </Text></Button> 
+</View>
+
       </Container>
     );
   }
 }
 var site=StyleSheet.create({
     ic:{
-      paddingTop:'8%',
+      
         color:"#00B2EE",
         marginLeft:'-2%',
         fontSize:38,
-        flex:1
+        
     },
     check:{
         borderRadius:30,
@@ -137,7 +137,7 @@ var site=StyleSheet.create({
       color:'white',
       fontSize:16,
       },
-      view:{marginTop:'2%',
-      flex:1, justifyContent: 'center',alignItems:'center',flexDirection:'row'
+      view:{marginBottom:'3%',
+       justifyContent: 'center',alignItems:'flex-end',flexDirection:'row'
    }
 });

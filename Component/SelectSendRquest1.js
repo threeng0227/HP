@@ -81,7 +81,7 @@ export default class SelectSendRquest1 extends Component {
         <View style={site.view} 
         >
                 <Button  style={site.btn}><Text style={site.btn1}
-                onPress={()=>{this.props.navigation.navigate('Process2SendMoney')}}> Next </Text></Button> 
+                onPress={()=>{this.props.navigation.navigate('SelectSendRquest2')}}> Next </Text></Button> 
               </View>
               
       </Container>
@@ -107,7 +107,7 @@ var site=StyleSheet.create({
        
     },
     btn:{
-      backgroundColor:'#00B2EE',
+      backgroundColor:'#0764b0',
     width:'40%',
     
     borderRadius: 4,
@@ -120,6 +120,6 @@ var site=StyleSheet.create({
       fontSize:16,
       },
       view:{
-      justifyContent: 'center',alignItems:'center',flexDirection:'row'
+      justifyContent: 'center',alignItems:'center',flexDirection:'row',marginBottom:'3%'
    }
 });

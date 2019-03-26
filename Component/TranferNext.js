@@ -52,7 +52,7 @@ export default class TranferNext extends Component {
                 />
                   <Text style={{fontSize:15,color:'black',marginTop:'3%'}}>Harmony Account</Text>
                   <Text style={{fontSize:14,}}>JERRY NGUYEN</Text>
-                  <Text style={{fontSize:18,color:'black',marginTop:'10%'}}>Available blance</Text>
+                  <Text style={{fontSize:18,color:'black',marginTop:'3%'}}>Available blance</Text>
                 <View style={{justifyContent: 'center',alignItems: 'center',margin:'4%',borderWidth:1,width:300,borderColor:'#EEEEEE',height:40}}>
                     
                     <Text style={{fontSize:17,color:'green',fontWeight:'bold',marginTop:'3%'}}>$ 764.00</Text>

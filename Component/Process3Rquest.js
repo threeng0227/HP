@@ -57,7 +57,7 @@ export default class Process3Rquest extends Component {
             </Content>
             <View style={{width: 340, height: 100,flexDirection:'row'}} >
           <View style={site.view}>
-             <Button  style={site.btn22}><Text style={site.btn2}> Cancel </Text></Button> 
+             <Button  style={site.btn22}   onPress={()=>{this.props.navigation.navigate('SelectSendRquest2')}}><Text style={site.btn2}> Cancel </Text></Button> 
            </View>
            <View style={site.view}>
              <Button  style={site.btn}><Text style={site.btn1}
@@ -75,7 +75,7 @@ var site=StyleSheet.create({
         height:50,width:50,marginTop:'3%',marginLeft:'3%'
        },
        btn:{
-        backgroundColor:'#00B2EE',
+        backgroundColor:'#0764b0',
       width:'85%',
       
       borderRadius: 4,
@@ -85,7 +85,7 @@ var site=StyleSheet.create({
       btn22:{
         backgroundColor:'white',
       width:'85%',
-      borderColor:'#00B2EE',
+      borderColor:'#0764b0',
       borderRadius: 4,
       justifyContent: 'center',
         alignItems:'center',borderWidth:0.5
@@ -98,7 +98,7 @@ var site=StyleSheet.create({
        },
        btn2:{
         
-        color:'#00B2EE',
+        color:'#0764b0',
         fontSize:16,
         },
        view:{marginTop:'12%',marginLeft:'5%',

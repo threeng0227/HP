@@ -13,21 +13,19 @@ export default class TabManually extends React.Component{
                 
                     <Form>
             <Item stackedLabel>
-              <Label style={{color:'#EEEEEE'}}>Full Name</Label>
+              <Label >Full Name</Label>
               <Input />
             </Item>
             <Item stackedLabel >
-              <Label style={{color:'#EEEEEE'}}>Phone Number</Label>
+              <Label >Phone Number</Label>
               <Input />
             </Item>
             <Item stackedLabel >
-              <Label style={{color:'#EEEEEE'}}>Email Address</Label>
+              <Label >Email Address</Label>
               <Input />
             </Item>
           </Form>
-          <View style={site.view}>
-          <Button  style={site.btn}><Text style={site.btn1}> Next </Text></Button> 
-          </View>
+         
             </Content>
           </Container>
             );

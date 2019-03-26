@@ -15,13 +15,13 @@ export default class PayRquest extends Component {
     }
   }
   onePressed(){
-    this.setState({check:true, check1:false,check2 :false,});
+    this.setState({check:!this.state.check, check1:false,check2 :false,});
   }
   twoPressed(){
-    this.setState({check:false, check1:true,check2 :false,});
+    this.setState({check:false, check1:!this.state.check1,check2 :false,});
   }
   threePressed(){
-    this.setState({check:false, check1:false,check2 :true,});
+    this.setState({check:false, check1:false,check2:!this.state.check2});
   }
   iconPressed(){
    
@@ -65,7 +65,7 @@ export default class PayRquest extends Component {
                 </View>
                 <View style={{height:55,borderWidth:1,borderRadius:5,borderColor:'#EEEEEE',marginTop:'2%',marginLeft:'2%',marginRight:'2%',flexDirection:'row'}}>
                    
-                    <View style={{justifyContent:'center',alignItems:'flex-start',flex:1,flexDirection:'column'}}>
+                    <View style={{justifyContent:'center',alignItems:'flex-start',flex:1,flexDirection:'column',backgroundColor:'#fafafa'}}>
                        <View style={{flexDirection:'row'}}>
                        <Text style={{color:'black',flex:1,fontWeight:'400',fontStyle:"italic",marginLeft:6}}>Message:</Text>
                        <Text style={{fontSize:13,flex:4,fontStyle:"italic"}}>Lorem Ipsum is simply dummy text of the </Text>
@@ -78,13 +78,13 @@ export default class PayRquest extends Component {
             
             <View style={{flex: 1,flexDirection:'row',alignItems:'center',marginTop:'2%'}} >
             <Text style={{color:'black',flex:1,marginLeft:'3%'}}>Amount to pay:</Text>
-            <Text style={{color:'blue',flex:1,textAlign:'right',marginRight:'7%'}}>$ 100</Text>
+            <Text style={{color:'#0764b0',flex:1,textAlign:'right',marginRight:'7%',fontWeight:'500'}}>$ 100</Text>
             </View>
       </View>
         <View style={{flex:1,flexDirection:'column'}}> 
          <View style={{marginLeft:'4%',marginRight:'4%',borderRadius:4,borderWidth:0.5,borderColor:'#EEEEEE',paddingTop:'5%',padding:'3%'}}>
             <Text style={{fontSize:18,color:'black',marginBottom:'3%'}}>
-            Select account to receive money
+            Select the way to pay
             </Text>
             <View style={{height:47,flexDirection:'row',alignItems:'center',flex:1,justifyContent:'center',marginBottom:'6%'}}>
                <View style={{flex:1,marginLeft:'-4%'}}><CheckBox style={site.check} checked={this.state.check}
@@ -95,7 +95,7 @@ export default class PayRquest extends Component {
                   <Text style={{color:'black'}}>Harmony Account</Text>
                   <Text style={{color:'black'}}>JERRY NGUYEN</Text>
                 </View>
-                <View style={{flex:1,marginRight:'-8%',marginTop:'-7%',color:'lightgreen'}}><Text style={{fontSize:13,fontWeight:'bold',color:'lightgreen'}}>$ 864.00</Text></View>
+                <View style={{flex:1,marginRight:'-8%',marginTop:'-7%'}}><Text style={{fontSize:13,fontWeight:'bold',color:'#2ebe03'}}>$ 864.00</Text></View>
             </View>
             <View style={{height:47,flexDirection:'row',alignItems:'center',flex:1,justifyContent:'center',marginBottom:'6%',marginBottom:'6%'}}>
                <View style={{flex:1,marginLeft:'-4%'}}><CheckBox style={site.check} checked={this.state.check1}
@@ -140,7 +140,7 @@ export default class PayRquest extends Component {
 var site=StyleSheet.create({
     ic:{
       paddingTop:'8%',
-        color:"#00B2EE",
+        color:"#0764b0",
         marginLeft:'-2%',
         fontSize:38,
         flex:1
@@ -153,10 +153,10 @@ var site=StyleSheet.create({
         justifyContent:'center',
         borderWidth:0,
         borderColor:'#EEEEEE',
-       
+      
     },
     btn:{
-      backgroundColor:'#00B2EE',
+      backgroundColor:'#0764b0',
     width:'40%',
     
     borderRadius: 4,

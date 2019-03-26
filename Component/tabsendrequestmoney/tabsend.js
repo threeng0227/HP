@@ -116,7 +116,7 @@ export default class Tabsend extends React.Component{
 var site=StyleSheet.create({
     view2:{
         backgroundColor:'white',
-       borderColor:'skyblue',
+       borderColor:'#0764b0',
         borderRadius: 5,
         height:110,
         margin:'3%',
@@ -124,7 +124,7 @@ var site=StyleSheet.create({
         borderWidth:1
       },
     txt:{
-        paddingLeft:'18%',paddingTop:'15%'
+        paddingLeft:'18%',paddingTop:'15%',color:'black'
       },
       txtpend:{
           color:'white',
@@ -132,7 +132,7 @@ var site=StyleSheet.create({
       },
       txt1:{
         paddingLeft:'18%',paddingTop:'8%',
-        fontSize:13
+        fontSize:13,color:'black'
       },
       txtpend1:{color:'white',
         paddingLeft:'18%',paddingTop:'7.5%'
@@ -145,9 +145,10 @@ var site=StyleSheet.create({
         backgroundColor:'#EEEEEE',
         borderRadius: 5,
         height:110,
-       
+       borderColor:1,
         margin:'3%',
         flexDirection:'row',
+        borderColor:'#EEEEEE'
       },
       viewpend:{
        

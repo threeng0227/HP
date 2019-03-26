@@ -12,19 +12,19 @@ export default class TabContactsSend extends React.Component{
         five:false
     }
     onePressed(){
-        this.setState({one:true, two:false,three :false,four :false,five:false});
+        this.setState({one:!this.state.one, two:false,three :false,four :false,five:false});
     }
     twoPressed(){
-        this.setState({one:false, two:true,three :false,four :false,five:false});
+        this.setState({one:false, two:!this.state.two,three :false,four :false,five:false});
     }
     threePressed(){
-        this.setState({one:false, two:false,three :true,four :false,five:false});
+        this.setState({one:false, two:false,three:!this.state.three,four :false,five:false});
     }
     fourPressed(){
-        this.setState({one:false, two:false,three :false,four :true,five:false});
+        this.setState({one:false, two:false,three :false,four:!this.state.four,five:false});
     }
     fivePressed(){
-        this.setState({one:false, two:false,three :false,four :false,five:true});
+        this.setState({one:false, two:false,three :false,four :false,five:!this.state.five});
     }
     render (){
         return(
@@ -34,7 +34,7 @@ export default class TabContactsSend extends React.Component{
           source={require('../../Appointments/images/women.png')} 
             />
             <View style={site.viewtxt}>
-            <Text>William</Text>
+            <Text style={{color:'black'}}>William</Text>
             <Text>1234 4567 78978 445</Text></View>
             <View style={site.viewtxt1}><CheckBox   style={site.check} checked={this.state.one}
              onPress={() => this.onePressed()}></CheckBox></View>
@@ -44,7 +44,7 @@ export default class TabContactsSend extends React.Component{
           source={require('../../Appointments/images/women.png')} 
             />
             <View style={site.viewtxt}>
-            <Text>William</Text>
+            <Text style={{color:'black'}}>William</Text>
             <Text>1234 4567 78978 445</Text></View>
             <View style={site.viewtxt1}><CheckBox style={site.check} checked={this.state.two}
              onPress={() =>this.twoPressed()} /></View>
@@ -54,7 +54,7 @@ export default class TabContactsSend extends React.Component{
           source={require('../../Appointments/images/women.png')} 
             />
             <View style={site.viewtxt}>
-            <Text>William</Text>
+            <Text style={{color:'black'}}>William</Text>
             <Text>1234 4567 78978 445</Text></View>
             <View style={site.viewtxt1}><CheckBox  style={site.check} checked={this.state.three}
              onPress={() =>this.threePressed()}></CheckBox></View>
@@ -64,7 +64,7 @@ export default class TabContactsSend extends React.Component{
           source={require('../../Appointments/images/women.png')} 
             />
             <View style={site.viewtxt}>
-            <Text>William</Text>
+            <Text style={{color:'black'}}>William</Text>
             <Text>1234 4567 78978 445</Text></View>
             <View style={site.viewtxt1}><CheckBox  style={site.check} checked={this.state.four}
              onPress={() =>this.fourPressed()}></CheckBox></View>
@@ -74,7 +74,7 @@ export default class TabContactsSend extends React.Component{
           source={require('../../Appointments/images/women.png')} 
             />
             <View style={site.viewtxt}>
-            <Text>William</Text>
+            <Text style={{color:'black'}}>William</Text>
             <Text>1234 4567 78978 445</Text></View>
             <View style={site.viewtxt1}><CheckBox  style={site.check} checked={this.state.five}
              onPress={() =>this.fivePressed()}></CheckBox></View>
@@ -89,8 +89,8 @@ var site=StyleSheet.create({
    view:{
        height:70,
        borderWidth:1,
-       borderColor:'gray',
-       marginBottom:2,
+       borderColor:'#EEEEEE',
+       
        flex:1,
        flexDirection:'row'
    },

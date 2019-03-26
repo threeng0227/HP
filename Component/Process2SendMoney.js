@@ -30,13 +30,13 @@ export default class Process2SendMoney extends Component {
                    </TouchableOpacity>
            </Right>
       </Header>
-        <Content style={{backgroundColor:'white'}}>    
-        <View style={{marginTop:'6%',height:40,marginBottom:'10%'}}>
+        <Content >    
+        <View style={{marginTop:'2%',height:40,marginBottom:'5%'}}>
         <Image style={{width:'95%',marginLeft:'2.5%'}}
           source={require('../Appointments/images/process.png')} 
             />
         </View>
-         <View style={{marginLeft:'4%',marginRight:'4%'}}>
+         <View style={{marginLeft:'4%',marginRight:'4%',padding:'3%',borderRadius:5,borderColor:'#EEEEEE',borderWidth:1}}>
             <Text style={{fontSize:18,color:'black',marginBottom:'3%'}}>
                 Select person to send money
             </Text>
@@ -46,18 +46,18 @@ export default class Process2SendMoney extends Component {
             </View>
             
             <Tabs   tabContainerStyle={{marginRight:'40%'}} tabBarUnderlineStyle={{width:0}} >
-                <Tab textStyle={{color:'black',fontWeight:'500'}}  activeTextStyle={{color:'#00B2EE'}} activeTabStyle={{backgroundColor:'white',borderBottomWidth:4,borderColor:'#00B2EE'}}  heading="Contacts" tabStyle={{backgroundColor:'white',width:'25%'}}> 
+                <Tab textStyle={{color:'black',fontWeight:'500'}}  activeTextStyle={{color:'#0764b0'}} activeTabStyle={{backgroundColor:'white',borderBottomWidth:4,borderColor:'#0764b0'}}  heading="Contacts" tabStyle={{backgroundColor:'white',width:'25%'}}> 
                 <TabContactsSend />  
                 <View style={site.view11}>
           <Button  style={site.btn}
           onPress={()=>{this.props.navigation.navigate('Process3Send')}}><Text style={site.btn1}> Next </Text></Button> 
           </View>
                 </Tab>
-                 <Tab textStyle={{color:'black',fontWeight:'500'}} activeTextStyle={{color:'#00B2EE'}} activeTabStyle={{backgroundColor:'white',borderBottomWidth:4,borderColor:'#00B2EE'}}  heading="Manually" tabStyle={{backgroundColor:'white'}}>                 
+                 <Tab textStyle={{color:'black',fontWeight:'500'}} activeTextStyle={{color:'#0764b0'}} activeTabStyle={{backgroundColor:'white',borderBottomWidth:4,borderColor:'#0764b0'}}  heading="Manually" tabStyle={{backgroundColor:'white'}}>                 
                  <TabManuallySend /> 
                  <View style={site.view11}>
                  <Button  style={site.btn}
-          onPress={()=>{this.props.navigation.navigate('Process3Rquest')}}><Text style={site.btn1}> Next </Text></Button> 
+          onPress={()=>{this.props.navigation.navigate('Process3Send')}}><Text style={site.btn1}> Next </Text></Button> 
           </View>
                 </Tab>
             </Tabs>
@@ -71,7 +71,7 @@ export default class Process2SendMoney extends Component {
 var site=StyleSheet.create({
  
   btn:{
-   backgroundColor:'#00B2EE',
+   backgroundColor:'#0764b0',
  width:'45%',
  
  borderRadius: 4,

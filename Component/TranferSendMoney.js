@@ -52,11 +52,11 @@ export default class TransactionSend extends Component {
                   />
           </View>
           <View style={{ justifyContent: 'center',alignItems: 'center',flex:1,width: 350, height: 50, }} >
-          <Text style={{fontSize:21,color:'skyblue'}}>Transaction processing ...</Text>
+          <Text style={{fontSize:21,color:'#0764b0'}}>Transaction processing ...</Text>
           </View>
           <View style={{ justifyContent: 'flex-start',alignItems: 'center',flex:2,width: 350, height: 50, }} >
-          <Text>You will receive a notification when</Text>
-          <Text> the transaction is complete</Text>
+          <Text style={site.text1}>You will receive a notification when</Text>
+          <Text style={site.text1}> the transaction is complete</Text>
           </View>
         </View>
         </Container>
@@ -71,7 +71,9 @@ var site=StyleSheet.create({
   text:{
     color:'black',fontSize:12
   },
- 
+ text1:{
+ color:'black'
+ },
   icon:{
     
     color:'gray',

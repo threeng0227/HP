@@ -47,10 +47,18 @@ export default class SelectSendRquest2 extends Component {
             
             <Tabs  locked={false}  tabContainerStyle={{marginRight:'40%'}} tabBarUnderlineStyle={{width:0}} >
                 <Tab textStyle={{color:'black'}}  activeTextStyle={{color:'#00B2EE'}} activeTabStyle={{backgroundColor:'white',borderBottomWidth:4,borderColor:'#00B2EE'}}  heading="Contacts" tabStyle={{backgroundColor:'white',width:'25%'}}> 
-                <TabContacts />          
+                <TabContacts /> 
+                <View style={site.view11}>
+                 <Button  style={site.btn}
+          onPress={()=>{this.props.navigation.navigate('Process3Rquest')}}><Text style={site.btn1}> Next </Text></Button> 
+          </View>         
                 </Tab>
                  <Tab textStyle={{color:'black'}} activeTextStyle={{color:'#00B2EE'}} activeTabStyle={{backgroundColor:'white',borderBottomWidth:4,borderColor:'#00B2EE'}}  heading="Manually" tabStyle={{backgroundColor:'white'}}>                 
                  <TabManually /> 
+                 <View style={site.view11}>
+                 <Button  style={site.btn}
+          onPress={()=>{this.props.navigation.navigate('Process3Rquest')}}><Text style={site.btn1}> Next </Text></Button> 
+          </View>
                 </Tab>
             </Tabs>
          </View>
@@ -62,4 +70,20 @@ export default class SelectSendRquest2 extends Component {
 }
 var site=StyleSheet.create({
  
-});
+    btn:{
+     backgroundColor:'#0764b0',
+   width:'45%',
+   
+   borderRadius: 4,
+   justifyContent: 'center',
+     alignItems:'center'
+   },
+   btn1:{
+     
+    color:'white',
+    fontSize:16,
+    },
+    view11:{marginBottom:10,marginTop:10,
+       justifyContent: 'center',alignItems:'center',flexDirection:'row'
+    }
+  });

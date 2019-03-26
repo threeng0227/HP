@@ -79,9 +79,7 @@ export default class TabContacts extends React.Component{
             <View style={site.viewtxt1}><CheckBox  style={site.check} checked={this.state.five}
              onPress={() =>this.fivePressed()}></CheckBox></View>
             </View>
-            <View style={site.view11}>
-          <Button  style={site.btn}><Text style={site.btn1}> Next </Text></Button> 
-          </View>
+            
         </View>
         
               );

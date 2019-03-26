@@ -46,14 +46,14 @@ export default class RequestSentSuccess extends Component {
                 />
         </View>
         <View style={{ justifyContent: 'center',alignItems: 'center',flex:1,width: 350, height: 50, }} >
-        <Text style={{fontSize:21,color:'skyblue'}}>Sent successfully !</Text>
+        <Text style={{fontSize:21,color:'#0764b0'}}>Sent successfully !</Text>
         </View>
         <View style={{ justifyContent: 'flex-start',alignItems: 'center',flex:1,width: 350, height: 50, }} >
         <Text style={{fontSize:24,color:'green',fontWeight:'bold'}}>$ 25</Text>
         </View>
         <View style={{ justifyContent: 'flex-start',alignItems: 'center',flex:1,width: 350, height: 50, }} >
         <Text style={{color:'black'}}>Your request has been sent to</Text>
-        <Text style={{fontSize:20,color:'skyblue',fontWeight:'bold',marginTop:'3%'}}>William</Text>
+        <Text style={{fontSize:20,color:'#0764b0',fontWeight:'bold',marginTop:'3%'}}>William</Text>
         </View>
         <View style={{ justifyContent: 'flex-start',alignItems: 'center',flex:1,width: 350, height: 50}} >
        
@@ -85,7 +85,7 @@ var site=StyleSheet.create({
     color:'#00BFFF',
   },
   btn:{
-    backgroundColor:'#00B2EE',
+    backgroundColor:'#0764b0',
   width:'40%',
   marginLeft:'30%',
   borderRadius: 4,

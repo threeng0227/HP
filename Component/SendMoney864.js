@@ -27,26 +27,27 @@ export default class SendMoney914 extends Component {
                    </TouchableOpacity>
            </Right>
       </Header>
-      <Tabs  tabContainerStyle={{borderTopLeftRadius:20,borderTopRightRadius:20,borderBottomLeftRadius:20,borderBottomRightRadius:20,height:40}} style={{marginTop:'5%',marginRight:'2%',marginLeft:'2%'}} tabBarUnderlineStyle={{backgroundColor:'#00B2EE' ,width:'40%',marginLeft:20, borderColor : '#00B2EE' , borderBottomWidth : 0 , borderBottomColor : '#00B2EE'}} >
-        <Tab  activeTabStyle={{backgroundColor:'#00B2EE',borderTopLeftRadius:20,borderBottomLeftRadius:20}}  heading="Send money" textStyle={{color:'#00B2EE'}} tabStyle={{backgroundColor:'white',borderTopLeftRadius:20,borderBottomLeftRadius:20}}>
+      <Tabs  tabContainerStyle={{borderTopLeftRadius:10,borderTopRightRadius:10,borderBottomLeftRadius:10,borderBottomRightRadius:10,height:40}} style={{marginTop:'5%',marginRight:'3%',marginLeft:'3%'}} tabBarUnderlineStyle={{width:0}} >
+        <Tab  activeTabStyle={{backgroundColor:'#0764b0',borderTopLeftRadius:10,borderBottomLeftRadius:10,borderColor:'#0764b0',borderWidth:1}} activeTextStyle={{fontWeight:'100'}}  heading="Send money" textStyle={{color:'#0764b0',fontWeight:'500'}} tabStyle={{backgroundColor:'white',borderTopLeftRadius:10,borderBottomLeftRadius:10,borderColor:'#0764b0',borderWidth:1}}>
         <Container>
-            <Content>
-                <View style={site.view1}>              
-                <Text style={{color:'black',fontSize:16,paddingLeft:'5%',paddingTop:'4%'}}>
+          <Content>
+        <View style={site.view1}>              
+                <Text style={{color:'black',fontSize:16,paddingLeft:'5%',paddingTop:'4%',flex:1,}}>
                     Your balance:
                 </Text>
-                <Text style={{color:'green',fontSize:21,marginLeft:'30%',paddingTop:'3%'}}>
+                <Text style={{color:'#34c00b',fontSize:21,paddingTop:'3%',fontWeight:'600',flex:1,textAlign:'right',paddingRight:'5%'}}>
                     $ 864.00
                 </Text>   
                 </View>
             
-                <Button primary style={site.btn}><Text style={site.btn1}> Send money </Text></Button> 
+                <Button  style={site.btn} ><Text style={site.btn1}> Send money </Text></Button>  
               
-            <View>
-          <Text style={site.Text}> Pending requests </Text>
+               
+                <View>
+          <Text style={site.Text}> Pending requests: </Text>
           <TouchableOpacity onPress={()=>{this.props.navigation.navigate('PayRquest')}}>
           <View style={site.view32}>
-             <View style={{flex: 1}}>
+             <View style={{flex:2}}>
                 <Text style={site.txt33}>
                     Today
                 </Text>
@@ -68,17 +69,16 @@ export default class SendMoney914 extends Component {
                 $ 100
                 </Text>
              </View>
-          <View style={{flex: 1}}>
-                <Text style={{paddingLeft:'15%',paddingTop:'19%',fontStyle:"italic",color:'white'}}>
+             <View style={{flex: 1,justifyContent: 'flex-start',alignItems:'flex-end'}}>
+                <Text style={{paddingRight:'15%',paddingTop:'19%',fontStyle:"italic",color:'white'}}>
                 Unpaid
                 </Text>
             
                 </View>
-            </View>
-            </TouchableOpacity>
+            </View></TouchableOpacity>
           <Text style={site.Text}>History</Text>
-            <View style={site.view2}>
-             <View style={{flex: 1}}>
+            <View style={site.view}>
+             <View style={{flex: 2}}>
                 <Text style={site.txt}>
                     Today
                 </Text>
@@ -100,17 +100,17 @@ export default class SendMoney914 extends Component {
                 $ 10
                 </Text>
              </View>
-          <View style={{flex: 1}}>
-                <Text style={{paddingLeft:'15%',paddingTop:'19%',fontStyle:"italic"}}>
+          <View style={{flex: 1,justifyContent: 'flex-start'}}>
+                <Text style={{paddingTop:'19%',fontStyle:"italic"}}>
                 Received
                 </Text>
             
                 </View>
             </View>
+            
         </View> 
-        
         <View style={site.view}>
-          <View style={{flex: 1}}>
+          <View style={{flex:2}}>
           <Text style={site.txt}>
               Yesterday
             </Text>
@@ -132,15 +132,15 @@ export default class SendMoney914 extends Component {
             $ 50
             </Text>
           </View>
-          <View style={{flex: 1}}>
-          <Text style={{paddingLeft:'15%',paddingTop:'19%',fontStyle:"italic"}}>
+          <View style={{flex: 1,justifyContent: 'flex-start'}}>
+          <Text style={{paddingTop:'19%',fontStyle:"italic"}}>
               Pending
             </Text>
            
           </View>
           </View>
           <View style={site.view}>
-          <View style={{flex: 1}}>
+          <View style={{flex: 2}}>
           <Text style={site.txt}>
               Yesterday
             </Text>
@@ -162,8 +162,8 @@ export default class SendMoney914 extends Component {
             $ 50
             </Text>
           </View>
-          <View style={{flex: 1}}>
-          <Text style={{paddingLeft:'15%',paddingTop:'19%',fontStyle:"italic"}}>
+          <View style={{flex: 1,justifyContent: 'flex-start',}}>
+          <Text style={{paddingTop:'19%',fontStyle:"italic"}}>
               Pending
             </Text>
            
@@ -173,147 +173,20 @@ export default class SendMoney914 extends Component {
        
           </Container>
         </Tab>
-        <Tab  activeTabStyle={{backgroundColor:'#00B2EE',borderTopRightRadius:20,borderBottomRightRadius:20}} heading="Request money" textStyle={{color:'#00B2EE'}} tabStyle={{backgroundColor:'white',borderTopRightRadius:20,borderBottomRightRadius:20}} >
-        <Container>
-            <Content>
-                <View style={site.view1}>              
-                <Text style={{color:'black',fontSize:16,paddingLeft:'5%',paddingTop:'4%'}}>
+        <Tab  activeTabStyle={{backgroundColor:'#0764b0',borderTopRightRadius:10,borderBottomRightRadius:10,borderColor:'#0764b0',borderWidth:1}} activeTextStyle={{fontWeight:'100'}} heading="Request money" textStyle={{color:'#0764b0',fontWeight:'500'}} tabStyle={{backgroundColor:'white',borderTopRightRadius:10,borderBottomRightRadius:10,borderColor:'#0764b0',borderWidth:1}} >
+        <View style={site.view1}>              
+        <Text style={{color:'black',fontSize:16,paddingLeft:'5%',paddingTop:'4%',flex:1,}}>
                     Your balance:
                 </Text>
-                <Text style={{color:'green',fontSize:21,marginLeft:'30%',paddingTop:'3%'}}>
-                    $ 764.00
+                <Text style={{color:'#34c00b',fontSize:21,paddingTop:'3%',fontWeight:'600',flex:1,textAlign:'right',paddingRight:'5%'}}>
+                    $ 914.00
                 </Text>   
-                </View>
-            
-                <Button primary style={site.btn}><Text style={site.btn1}> Send money </Text></Button> 
-               
-            <View>
-          <Text style={site.Text}> History </Text>
-          <View style={[site.view32,{backgroundColor:'#EEEEEE'}]}>
-             <View style={{flex: 1}}>
-                <Text style={[site.txt33]}>
-                    Today
-                </Text>
-                <Text style={[site.txt33]}>
-                    Receiver:
-                 </Text >
-                <Text style={[site.txt33]}>
-                    Amount:
-                </Text>
-          </View>
-            <View style={{flex: 2}}>
-                    <Text style={[site.txt32]}>
-                11 : 00 AM
-                </Text>
-                <Text style={[site.txt32]}>
-                Jerry Nguyen (You)
-                </Text>
-                <Text style={[site.txt32]}>
-                $ 100
-                </Text>
-             </View>
-          <View style={{flex: 1}}>
-                <Text style={{paddingLeft:'15%',paddingTop:'19%',fontStyle:"italic"}}>
-                Unpaid
-                </Text>
-            
-                </View>
-            </View>
-          <Text style={site.Text}>History</Text>
-            <View style={site.view2}>
-             <View style={{flex: 1}}>
-                <Text style={site.txt}>
-                    Today
-                </Text>
-                <Text style={site.txt}>
-                    Receiver:
-                 </Text >
-                <Text style={site.txt}>
-                    Amount:
-                </Text>
-          </View>
-            <View style={{flex: 2}}>
-                    <Text style={site.txt1}>
-                11 : 00 AM
-                </Text>
-                <Text style={site.txt1}>
-                William
-                </Text>
-                <Text style={site.txt1}>
-                $ 10
-                </Text>
-             </View>
-          <View style={{flex: 1}}>
-                <Text style={{paddingLeft:'15%',paddingTop:'19%',fontStyle:"italic"}}>
-                Received
-                </Text>
-            
-                </View>
-            </View>
-        </View> 
-        <View style={site.view}>
-          <View style={{flex: 1}}>
-          <Text style={site.txt}>
-              Yesterday
-            </Text>
-            <Text style={site.txt}>
-              Receiver:
-            </Text >
-            <Text style={site.txt}>
-              Amount:
-            </Text>
-          </View>
-          <View style={{flex: 2}}>
-          <Text style={site.txt1}>
-              11 : 00 AM
-            </Text>
-            <Text style={site.txt1}>
-              William
-            </Text>
-            <Text style={site.txt1}>
-            $ 50
-            </Text>
-          </View>
-          <View style={{flex: 1}}>
-          <Text style={{paddingLeft:'15%',paddingTop:'19%',fontStyle:"italic"}}>
-              Pending
-            </Text>
-           
-          </View>
-          </View>
-          <View style={site.view}>
-          <View style={{flex: 1}}>
-          <Text style={site.txt}>
-              Yesterday
-            </Text>
-            <Text style={site.txt}>
-              Receiver:
-            </Text >
-            <Text style={site.txt}>
-              Amount:
-            </Text>
-          </View>
-          <View style={{flex: 2}}>
-          <Text style={site.txt1}>
-              11 : 00 AM
-            </Text>
-            <Text style={site.txt1}>
-              William, Jerry Nguyen
-            </Text>
-            <Text style={site.txt1}>
-            $ 50
-            </Text>
-          </View>
-          <View style={{flex: 1}}>
-          <Text style={{paddingLeft:'15%',paddingTop:'19%',fontStyle:"italic"}}>
-              Pending
-            </Text>
-           
-          </View>
-          </View>
-            </Content>
-       
-          </Container>
+              </View>
+          
+              <Button  style={site.btn}
+              onPress={()=>{this.props.navigation.navigate('SelectSendRquest1')}}
+              ><Text style={site.btn3}> Send request </Text></Button> 
+          <Tabrequest />
         </Tab>
 
       </Tabs>
@@ -334,56 +207,42 @@ var site=StyleSheet.create({
       borderWidth:1
     },
     view32:{
-      backgroundColor:'skyblue',
-     borderColor:'skyblue',
+      backgroundColor:'#0764b0',
+     borderColor:'#0764b0',
       borderRadius: 5,
       height:110,
-      margin:'3%',
+      margin:'2%',
       flexDirection:'row',
       borderWidth:1
     },
-  txt:{
-      paddingLeft:'18%',paddingTop:'15%',
-    },
+    txt:{
+      paddingLeft:'12%',paddingTop:'7.5%',color:'black'
+      },
     txt33:{
-      paddingLeft:'18%',paddingTop:'15%'
+      paddingLeft:'12%',paddingTop:'7.5%',color:'white'
     },
-    txtpend:{
-        color:'white',
-      paddingLeft:'18%',paddingTop:'15%'
-    },
+  
     txt1:{
-      paddingLeft:'18%',paddingTop:'8%',
-      fontSize:13
+      paddingTop:'8%',
+      fontSize:13,color:'black'
     },
     txt32:{
-      paddingLeft:'18%',paddingTop:'8%',
-      fontSize:13,
+      paddingTop:'8%',
+      fontSize:13,color:'white'
     },
-    txtpend1:{color:'white',
-      paddingLeft:'18%',paddingTop:'7.5%'
-    },
+   
     Text:{
-      color:'white',fontSize:16,marginLeft:'3%'
+      color:'black',fontSize:16,marginLeft:'2%'
     },
 
     view:{
-      backgroundColor:'#EEEEEE',
+      backgroundColor:'#fafafa',
       borderRadius: 5,
       height:110,
-     
-      margin:'3%',
+     borderColor:'#EEEEEE',
+      margin:'2%',
       flexDirection:'row',
-    },
-    viewpend:{
-     
-      
-      height:40,
-      justifyContent:'center',
-      alignItems:'center',
-      marginRight:'3%',
-      marginLeft:'3%',
-      marginBottom:'3%'
+      borderWidth:1
     },
   view1:{
       height:50,
@@ -396,17 +255,24 @@ var site=StyleSheet.create({
      
       flexDirection:'row'
   },
-  text:{
-      color:'black',fontSize:12
-    },
-    Text:{
-      color:'black',fontSize:16,marginLeft:'3%'
-    },
-    icon:{    
-      color:'gray',
-    },
-    btn:{
-        height:50,
+  btn3:{
+    backgroundColor:'#0764b0',
+  height:47,
+width:'43%',
+marginBottom:'2%',
+marginLeft:'30%',
+marginTop:'3%',
+borderRadius: 4,
+justifyContent: 'center',paddingTop:'3%'
+
+},
+btn3:{
+  fontWeight:'600',
+color:'white',
+fontSize:16,textAlign:'center'
+},
+    btn:{backgroundColor:'#0764b0',
+        height:45,
     width:'43%',
     marginBottom:'3%',
     marginLeft:'32%',
@@ -415,7 +281,7 @@ var site=StyleSheet.create({
     justifyContent: 'center',
       alignItems:'center'
     },
-    btn1:{
+    btn1:{fontWeight:'600',
         marginTop:'10%',
      color:'white',
      fontSize:16,

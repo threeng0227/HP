@@ -13,9 +13,7 @@ export default class TransactionSuccess extends Component {
       switch1Value:false,
     }
   }
-  componentDidMount() {
-    setTimeout(()=>{this.props.navigation.navigate('SendMoney864')}, 3000); 
-  }
+  
   render() {
     return (
       <Container >
@@ -43,26 +41,24 @@ export default class TransactionSuccess extends Component {
         justifyContent: 'center',
         alignItems: 'center',
       }}>
-        <View style={{ justifyContent: 'flex-end',alignItems: 'center',flex:4,width: 350, height: 50, }} >
+        <View style={{ justifyContent: 'flex-end',alignItems: 'center',height:180,width: '100%',}} >
         <Image style={{height:85,width:85}}
             source={require('../Appointments/images/scussces.png')} 
                 />
         </View>
-        <View style={{ justifyContent: 'center',alignItems: 'center',flex:1,width: 350, height: 50, }} >
-        <Text style={{fontSize:21,color:'skyblue'}}>Transaction successfully !</Text>
+        <View style={{ justifyContent: 'center',alignItems: 'center',width: '100%', height: 50, }} >
+        <Text style={{fontSize:21,color:'#0764b0'}}>Transaction successfully !</Text>
         </View>
-        <View style={{ justifyContent: 'flex-start',alignItems: 'center',flex:1,width: 350, height: 50, }} >
+        <View style={{  justifyContent: 'center',alignItems: 'center',width: '100%', height: 50, }} >
         <Text style={{fontSize:24,color:'red',fontWeight:'bold'}}>- $ 50</Text>
         </View>
-        <View style={{ justifyContent: 'flex-start',alignItems: 'center',flex:2,width: 350, height: 50}} >
-        <View style={{justifyContent: 'center',alignItems: 'center',margin:'4%',borderWidth:1,width:300,borderColor:'#EEEEEE',flexDirection:'row',height:40}}>
-             <Text style={{fontSize:14,color:'black',flex:1,marginBottom:'4%',marginLeft:'4%'}}>Current balance:</Text>
-             <Text style={{fontSize:17,color:'green',fontWeight:'bold',flex:1,marginBottom:'4%',marginRight:'-17%'}}>$ 864.00</Text>
+       
+        <View style={{justifyContent: 'center',alignItems: 'center',borderWidth:1,width:'90%',borderColor:'#EEEEEE',flexDirection:'row',height:40}}>
+             <Text style={{fontSize:16,color:'black',flex:1,textAlign:'left',fontWeight:'500',marginLeft:'2%'}}>Current balance:</Text>
+             <Text style={{fontSize:20,color:'#2ebe03',fontWeight:'bold',flex:1,textAlign:'right',marginRight:'6%'}}>$ 864.00</Text>
         </View>
-        
-        </View>
-        <View style={{justifyContent: 'center',alignItems: 'center',flex:1,width: 350, height: 50, }} >
-            <Button  style={site.btn}><Text style={site.btn1}> Done </Text></Button> 
+        <View style={{justifyContent:'flex-end',width: '40%',flexDirection:'column',flex:1}} >
+            <Button  style={site.btn}  onPress={()=>{this.props.navigation.navigate('SendMoney864')}}><Text style={site.btn1}> Done </Text></Button> 
         </View>
       </View>
         
@@ -86,12 +82,11 @@ var site=StyleSheet.create({
     color:'#00BFFF',
   },
   btn:{
-    backgroundColor:'#00B2EE',
-  width:'40%',
-  marginLeft:'30%',
+    backgroundColor:'#0764b0',
+  width:'100%',
   borderRadius: 4,
   justifyContent: 'center',
-    alignItems:'center'
+    alignItems:'center',marginBottom:'4%'
   },
   btn1:{
    

@@ -52,7 +52,7 @@ export default class P2PMeryC extends Component {
           Select Gift card template
         </Text>
         
-        <View style={{height:200,borderBottomWidth:1,paddingTop:'2%',marginLeft:'3%',marginRight:'3%',}}>
+        <View style={{height:200,borderBottomWidth:1,paddingTop:'2%',marginLeft:'3%',marginRight:'3%',borderColor:'#EEEEEE'}}>
         
           <ScrollView horizontal={true} pagingEnabled={true} showsHorizontalScrollIndicator={false}>
          
@@ -108,39 +108,39 @@ export default class P2PMeryC extends Component {
         
         </ScrollView>
         </View>
-        <View style={{borderBottomWidth:1,marginLeft:'3%',marginRight:'3%',}}>
+        <View style={{borderBottomWidth:1,marginLeft:'3%',marginRight:'3%',borderColor:'#EEEEEE'}}>
         <View style={site.spec}>
           <Text style={{fontSize:16,color:'black',paddingTop:'2%',flex:1}}>
             Speccific stores
           </Text>
           <View style={{flex:1,alignItems:'flex-end',marginTop:'3%'}}>
-          <Switch  value={this.state.switch1Value} onValueChange={(value) => this.switchView(value)} />
+          <Switch thumbColor={'white'} tintColor={'#EEEEEE'}  value={this.state.switch1Value} onValueChange={(value) => this.switchView(value)} />
           </View></View>
           <View style={{display:this.state.display,height:60,flex:1,flexDirection:'row'}}>
-          <Text style={{fontSize:14,color:'blue',flex:1,paddingTop:'5%'}}>
+          <Text style={{fontSize:14,color:'#0764b0',flex:2,paddingTop:'3%',fontWeight:'500'}}>
             Select stores:
           </Text>
           <View style={{flex:3,paddingBottom:'20%',alignItems:'flex-end'}}>
-          <View style={{height:38,borderWidth:0.5, width:220,borderColor:'gray',borderRadius:5}}>
+          <View style={{height:34,borderWidth:1, width:220,borderColor:'#EEEEEE',borderRadius:5,justifyContent:'center'}}>
           <Picker 
           selectedValue={this.state.language}
-          style={{ width:230,color:'blue'}}
+          style={{ width:230,color:'#73a7d2'}}
           onValueChange={(itemValue, itemIndex) =>
             this.setState({language: itemValue})
           }>
-          <Picker.Item label="Choose your store" value="java" />
+          <Picker.Item  label="Choose your store" value="java" />
           <Picker.Item label="JavaScript" value="js" />
         </Picker>
           </View></View>
           </View>
         
         </View>
-        <Button primary style={site.btn}
+        <Button  style={site.btn}
         onPress={()=>{this.props.navigation.navigate('NextGiftCamera1')}}><Text style={site.btn1}> Next </Text></Button>    
         <View style={{paddingTop:'5%'}}>
           <Text style={site.Text}> History </Text>
           <View style={site.view}>
-          <View style={{flex: 1}}>
+          <View style={{flex: 2}}>
           <Text style={site.txt}>
               Today
             </Text>
@@ -162,14 +162,14 @@ export default class P2PMeryC extends Component {
               10$
             </Text>
           </View>
-          <View style={{flex: 1}}>
-          <Text style={{paddingLeft:'18%',paddingTop:'19%'}}>
+          <View style={{flex: 1,justifyContent: 'flex-start',alignItems:'flex-end'}}>
+          <Text style={{paddingRight:'15%',paddingTop:'19%',fontStyle:"italic"}}>
               Received
             </Text>
            
           </View>
           </View><View style={site.view1}>
-          <View style={{flex: 1}}>
+          <View style={{flex:2}}>
           <Text style={site.txt}>
               Yesterday
             </Text>
@@ -191,8 +191,8 @@ export default class P2PMeryC extends Component {
               10$
             </Text>
           </View>
-          <View style={{flex: 1}}>
-          <Text style={{paddingLeft:'18%',paddingTop:'19%'}}>
+          <View style={{flex: 1,justifyContent: 'flex-start',alignItems:'flex-end'}}>
+          <Text style={{paddingRight:'15%',paddingTop:'19%',fontStyle:"italic"}}>
               Pending
             </Text>
            
@@ -222,13 +222,14 @@ var site=StyleSheet.create({
     marginTop:'4%'
   },
   Text:{
-    color:'black',fontSize:16,marginLeft:'3%'
+    color:'black',fontSize:16,marginLeft:'3%',fontWeight:'300'
   },
   txt:{
-    paddingLeft:'18%',paddingTop:'15%'
+    paddingLeft:'12%',paddingTop:'7.5%',color:'black'
   },
   txt1:{
-    paddingLeft:'18%',paddingTop:'7.5%'
+    paddingTop:'8%',
+    fontSize:13,color:'black'
   },
   text:{
     color:'black',fontSize:12
@@ -244,7 +245,7 @@ var site=StyleSheet.create({
   },
   view:{
     borderColor: 'lightblue',
-  
+  backgroundColor:'#fafafa',
     borderRadius: 5,
     height:110,
     borderWidth:1,
@@ -255,11 +256,11 @@ var site=StyleSheet.create({
 
   },
   view1:{
-    borderColor: 'lightblue',
-  
+    borderColor: '#EEEEEE',
+    backgroundColor:'#fafafa',
     borderRadius: 5,
     height:110,
-  
+    borderWidth:1,
     
     margin:'3%',
     flexDirection:'row',
@@ -273,11 +274,11 @@ var site=StyleSheet.create({
   marginLeft:'32%',
   borderRadius: 4,
   justifyContent: 'center',
-    alignItems:'center'
+    alignItems:'center',backgroundColor:'#0764b0'
   },
   btn1:{
    
    color:'white',
-   fontSize:16,
+   fontSize:16,fontWeight:'500'
    }
 });

@@ -31,7 +31,7 @@ export default class Process3Send extends Component {
       </Header>
       
         <Content>
-        <View style={{marginTop:'6%',height:40,marginBottom:'10%'}}>
+        <View style={{marginTop:'6%',height:40,marginBottom:'3%'}}>
         <Image style={{width:'95%',marginLeft:'2.5%'}}
           source={require('../Appointments/images/process3.png')} 
             />
@@ -48,7 +48,7 @@ export default class Process3Send extends Component {
             <Text style={{fontSize:18,color:'black',marginBottom:'3%',marginTop:'3%'}}>
                 Amount:
             </Text>
-            <View style={{borderRadius:4,borderColor:'#EEEEEE',height:45,borderWidth:1,justifyContent:'center',alignItems:'center'}}><Text style={{color:'black'}}>$ 50</Text></View>
+            <View style={{borderRadius:4,borderColor:'#EEEEEE',height:45,borderWidth:1,justifyContent:'center',alignItems:'center'}}><Text style={{fontWeight:'500',color:'black'}}>$ 50</Text></View>
             <Text style={{fontSize:18,color:'black',marginBottom:'3%',marginTop:'3%'}}>
                 Message:
             </Text>
@@ -80,7 +80,7 @@ var site=StyleSheet.create({
         height:50,width:50,marginTop:'3%',marginLeft:'3%'
        },
        btn:{
-        backgroundColor:'#00B2EE',
+        backgroundColor:'#0764b0',
       width:'85%',
       
       borderRadius: 4,
@@ -88,22 +88,23 @@ var site=StyleSheet.create({
         alignItems:'center'
       },
       btn22:{
+        borderWidth:1,
         backgroundColor:'white',
       width:'85%',
-      borderColor:'#00B2EE',
+      borderColor:'#0764b0',
       borderRadius: 4,
       justifyContent: 'center',
-        alignItems:'center',borderWidth:0.5
+        alignItems:'center'
       },
       
       btn1:{
-       
+        fontWeight:'500',
        color:'white',
        fontSize:16,
        },
        btn2:{
-        
-        color:'#00B2EE',
+        fontWeight:'500',
+        color:'#0764b0',
         fontSize:16,
         },
        view:{marginTop:'12%',marginLeft:'5%',

@@ -8,17 +8,7 @@ export default class TabrequestPaid extends React.Component{
         return(
             <Container>
             <Content>
-                <View style={site.view1}>              
-                <Text style={{color:'black',fontSize:16,paddingLeft:'5%',paddingTop:'4%'}}>
-                    Your balance:
-                </Text>
-                <Text style={{color:'green',fontSize:21,paddingLeft:'33%',paddingTop:'3%'}}>
-                    $ 764.00
-                </Text>   
-                </View>
-            
-                <Button primary style={site.btn}><Text style={site.btn1}> Send request </Text></Button> 
-               
+         
      <View>
           <Text style={site.Text}>History</Text>
          <View style={site.view2}>

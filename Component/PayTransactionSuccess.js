@@ -13,9 +13,7 @@ export default class PayTransactionSuccess extends Component {
       switch1Value:false,
     }
   }
-  componentDidMount() {
-    setTimeout(()=>{this.props.navigation.navigate('Sendmoney')}, 2000); 
-  }
+ 
   render() {
     return (
       <Container >
@@ -49,24 +47,24 @@ export default class PayTransactionSuccess extends Component {
                 />
         </View>
         <View style={{ justifyContent: 'center',alignItems: 'center',flex:1,width: 350, height: 50, }} >
-        <Text style={{fontSize:21,color:'skyblue'}}>Transaction successfully !</Text>
+        <Text style={{fontSize:21,color:'#0764b0'}}>Transaction successfully !</Text>
         </View>
         <View style={{ justifyContent: 'flex-start',alignItems: 'center',flex:1,width: 350, height: 50, }} >
         <Text style={{fontSize:24,color:'red',fontWeight:'bold'}}>- $ 100</Text>
         </View>
         <View style={{ justifyContent: 'flex-start',alignItems: 'center',flex:1,width: 350, height: 50, }} >
         <Text style={{color:'black'}}>You will successfully paid for</Text>
-        <Text style={{fontSize:20,color:'skyblue',fontWeight:'bold',marginTop:'3%'}}>William</Text>
+        <Text style={{fontSize:20,color:'#0764b0',fontWeight:'bold',marginTop:'3%'}}>William</Text>
         </View>
         <View style={{ justifyContent: 'flex-start',alignItems: 'center',flex:1,width: 350, height: 50}} >
         <View style={{justifyContent: 'center',alignItems: 'center',margin:'4%',borderWidth:1,width:300,borderColor:'#EEEEEE',flexDirection:'row',height:40}}>
              <Text style={{fontSize:16,color:'black',flex:1,marginBottom:'7%',marginLeft:'4%'}}>Current balance:</Text>
-             <Text style={{fontSize:20,color:'green',fontWeight:'bold',flex:1,marginBottom:'7%',marginRight:'-25%'}}>$ 764.00</Text>
+             <Text style={{fontSize:20,color:'#2ebe03',fontWeight:'bold',flex:1,marginBottom:'7%',marginRight:'-25%'}}>$ 764.00</Text>
         </View>
         
         </View>
         <View style={{justifyContent: 'center',alignItems: 'center',flex:1,width: 350, height: 50, }} >
-            <Button  style={site.btn}><Text style={site.btn1}> Done </Text></Button> 
+            <Button  style={site.btn} onPress={()=>{this.props.navigation.navigate('Sendmoney')}}><Text style={site.btn1}> Done </Text></Button> 
         </View>
       </View>
         
@@ -90,7 +88,7 @@ var site=StyleSheet.create({
     color:'#00BFFF',
   },
   btn:{
-    backgroundColor:'#00B2EE',
+    backgroundColor:'#0764b0',
   width:'40%',
   marginLeft:'30%',
   borderRadius: 4,
@@ -98,7 +96,7 @@ var site=StyleSheet.create({
     alignItems:'center'
   },
   btn1:{
-   
+   fontWeight:'600',
    color:'white',
    fontSize:16,
    },
