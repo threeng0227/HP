@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet, FlatList, Image,TouchableOpacity,Dimensions } from "react-native";
+import { Text, View, StyleSheet, FlatList, Image,TouchableOpacity,Dimensions,ActivityIndicator} from "react-native";
 import MapView from "react-native-maps";
 import { Input, Container,Left,Right,Header,Body,Button, Content } from "native-base";
 import Icon from "react-native-vector-icons/Entypo";
@@ -7,23 +7,8 @@ import Ic from "react-native-vector-icons/FontAwesome";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Rating } from 'react-native-ratings';
 import IcAwe5 from'react-native-vector-icons/FontAwesome5';
-const Harmony = [
-  {
-    title: "Harmony Spa",
-    time: "08:00 AM - 18:00 PM",
-    address: "700 5th Ave , New York , NY 100019 , USA"
-  },
-  {
-    title: "Happy Spa",
-    time: "08:00 AM - 18:00 PM",
-    address: "700 5th Ave , New York , NY 100019,USA"
-  },
-  {
-    title: "Woderful Spa",
-    time: "08:00 AM - 18:00 PM",
-    address: "700 5th Ave , New York , NY 100019,USA"
-  }
-];
+import * as API from '../../Appointments/API';
+
 const Store = StyleSheet.create({
   Container: {
     padding: 0,
@@ -31,46 +16,59 @@ const Store = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-between",
-    flex: 1
+    flex: 1,
   },
   Search: {
     flexDirection: "row",
     alignItems: "center",
     paddingHorizontal: "5%"
   },
-  Map: {width: "100%", flex: 0.8 },
+  Map: {width: "100%",flex:0.5},
   LayoutList: {
     width: "100%",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between"
   },
-  IconHeart: { position: "absolute", right: 0, bottom: "19%" },
+ 
   IconInList: { fontSize: 20, marginRight: 12 }
 });
+
 export default class MainStore extends Component {
-  constructor() {
-    super();
-    this.state = {
-      Data: Harmony,
+  constructor(props) {
+
+    super(props);
+    this.state ={ isLoading: true,
+      dataSource:[],
       isColor: [],
-      like :[]
-    };
+      like :[],
+    colorlike:'red'
+      
+     }
+  
+        this.getRespone()
+    }
+  async getRespone()
+  {
+    var respone = await API.GetAllStores();
+    this.setState({
+    isLoading:false,
+    dataSource:respone,
+   
+    })
+    
   }
-  componentWillMount(){
-    let Data = this.state.Data;
-    let like = this.state.like;
-    let initiallike = Data.map(x=>false);
-    this.setState({like:initiallike});
-  }
-  Like = (index) => {
-    let like = [...this.state.like];
-    like[index] = !like[index]; 
-    this.setState({like});
-  };
+  
+  
   render() {
-    let Data = this.state.Data;
-    let like = this.state.like;
+   
+    if(this.state.isLoading){
+      return(
+        <View style={{flex: 1, padding: 20}}>
+          <ActivityIndicator/>
+        </View>
+      )
+    }
     return (
       <Container>
         
@@ -91,8 +89,6 @@ export default class MainStore extends Component {
                    </TouchableOpacity>
            </Right>
       </Header>
-       
-        <View style={Store.Container}>
           <View style={Store.Search}>
             <Input
               placeholder="Search..."
@@ -111,54 +107,72 @@ export default class MainStore extends Component {
               }}
             />
           </View>
+         
+          <View style={{flex:1,marginTop:10,marginRight:'2%',marginLeft:'2%'}}>
           
-          <FlatList
-            style={{ width: "96%", flex: 
-          3 }}
-            data={this.state.Data}
-            renderItem={({ item,index }) => (
-              <TouchableOpacity onPress={()=>{this.props.navigation.navigate('TabStores')}}>
-              <View style={Store.LayoutList}>
-             
-
+              <FlatList
               
-                <View style={{ marginTop: "4%" }}>
-                  <Image
-                    source={require("./ImgStores/ImgList.png")}
-                    resizeMode={"contain"}
-                  />
-                  <Text style={{ fontSize: 18, color: "black" }}>
-                    {item.title}
-                  </Text>
-                  <View style={{alignSelf:'flex-start',marginVertical:'1%'}}>
-                  <Rating type="star" readonly imageSize={15} />
+               data={this.state.dataSource}
+               keyExtractor={(item, index) => index.toString()}
+               renderItem={({item,index})=> (
+              
+                <Content style={{marginBottom:10,borderWidth:1,borderColor:'#eee'}}>
+                <View style={{flexDirection:'column',marginBottom:10,}}>
+                    <View style={{marginBottom:5,flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: "space-between"}}>
+                      <TouchableOpacity onPress={()=>{this.props.navigation.navigate('TabStores',{storeid:item.id,nameStore:item.storeName})}}>
+                        <View style={{paddingRight:'2%'}}>
+                        <Image 
+                        source={require("./ImgStores/ImgList.png")}
+                        resizeMode={"contain"}/>
+                        </View>
+                      </TouchableOpacity>
+                      
                   </View>
-                  <View style={[Store.Search,{paddingHorizontal:0}]}>
-                    <Icon name="clock" style={Store.IconInList} />
-                    <Text >{item.time}</Text>
-                  </View>
-                  <View style={[Store.Search,{paddingHorizontal:0}]}>
-                    <Icon name="location" style={Store.IconInList} />
-                    <Text>{item.address}</Text>
-                  </View>
-                </View>
-                <View style={Store.IconHeart}>
-                  
+                  <View style={{flexDirection:'row',marginLeft:'2%'}}>
+                  <Left>
+                  <Text style={{ fontSize: 20, color: "black" }}>
+                        {item.storeName}
+                      </Text>
+                  </Left>
+                  <Right style={{marginRight:'5%'}}>
                   <Icon
                     name="heart"
-                    style={[like[index] ?{color:'red'} :{color:'black'} , { fontSize: 30 }]}
-                    onPress={() => this.Like(index)}
+                   color={this.state.colorlike}
+                   size={30}
+                    /* onPress={() =>this.setState({colorlike:'red'})} */
                   />
+                  </Right>
+                  
                 </View>
-                
-              </View>
-              </TouchableOpacity>
-            )}
-          />
-              
-        </View>
-  
+                  
+                    <View style={{alignSelf:'flex-start',marginVertical:'1%',marginLeft:'2%'}}>
+                    <Rating type="star" readonly imageSize={15} />
+                    </View>
+                    <View style={{flexDirection:'row',marginLeft:'2%'}}>
+                      <Icon name="clock" style={Store.IconInList} />
+                      <Text >{item.open_time} - {item.close_time}</Text>
+                    </View>
+                    <View style={{flexDirection:'row',marginBottom:10,marginLeft:'2%'}}>
+                      <Icon name="location" style={Store.IconInList} />
+                      <Text>{item.address}</Text>
+                    </View>
+                 </View>
+             
+                </Content>     
+           )}
+              >
+              </FlatList>   
+          </View>
       </Container>
     );
   }
 }
+
+
+
+
+
+
+

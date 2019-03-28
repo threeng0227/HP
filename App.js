@@ -204,7 +204,7 @@ const AppRoot = createStackNavigator(
         backBehavior: 'none'
     }
 );
- const AppWelcome = createAppContainer(AppRoot); 
+/*  const AppWelcome = createAppContainer(AppRoot);  */
 /*======================================= */
 const GiftProject =createStackNavigator(
     {
@@ -473,7 +473,7 @@ const BottomProject =createBottomTabNavigator({
 /* const AboutHarmonyStack = createAppContain.er(TabNavigator2); */
 
 const MenuNavigation = createDrawerNavigator({ 
-signin:{screen:AppRoot},
+/* signin:{screen:AppRoot}, */
   HomePage:{screen:BottomProject},
   wishlist:{screen: WishList},
   favories:{screen: Favories},
@@ -485,9 +485,6 @@ signin:{screen:AppRoot},
    drawerPosition:'right',
     drawerLockMode:'locked-closed'
  },
-
-
- 
 )
 
 export default createAppContainer(MenuNavigation);

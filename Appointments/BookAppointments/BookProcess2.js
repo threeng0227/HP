@@ -86,8 +86,6 @@ export default class BookProcess2  extends Component{
           
       
       }
-    
-      
       _toggleModalCalendar=()=>{
         this.setState({ isCalendar: !this.state.isCalendar });
       }
@@ -111,9 +109,6 @@ export default class BookProcess2  extends Component{
      }
 
     render(){
-        
-    
-          
         return(
             <Container >
                 <Header style={{ backgroundColor: "white" }}>
@@ -421,7 +416,7 @@ export default class BookProcess2  extends Component{
                         style={{justifyContent:'center',flex:1}}
                         current={this.state.currentday}
                         markedDates={{
-                            '2019-03-26' : {selected: true, marked: true, selectedColor: '#00adf5'},
+                            [this.state.currentday] : {selected: true, marked: true, selectedColor: '#00adf5'},
                             
                         }}
                         theme={{
